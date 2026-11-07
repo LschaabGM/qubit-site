@@ -1,6 +1,8 @@
 # Qubit — Estado y próximas sesiones
 
-Actualizado el 06/11/2026. Para retomar: abrí Claude Code en esta carpeta y escribí **"Leé 'Qubit — Estado y próximas sesiones.md' y retomemos con la sesión N"**.
+Actualizado el 07/11/2026. Para retomar: abrí Claude Code en esta carpeta y escribí **"Leé 'Qubit — Estado y próximas sesiones.md' y retomemos con la sesión N"**.
+
+**Repositorio:** https://github.com/LschaabGM/qubit-site (privado, cuenta de trabajo LschaabGM, rama `main`). Desde el 07/11 git guarda cada versión, así que ya no hacen falta carpetas `_backup-*` nuevas. Para subir cambios: pedile a Claude «subí los cambios de Qubit». El `.gitignore` deja afuera backups, `site.zip`, `_build/`, PDF y PPTX.
 
 Se edita directo en `site/` (no en `_build/`). Para verlo: `cd site && python3 -m http.server 8000` y abrir http://localhost:8000/ en Chrome.
 
@@ -8,7 +10,7 @@ Se edita directo en `site/` (no en `_build/`). Para verlo: `cd site && python3 -
 
 - **Home, encabezados:** Industrias, Servicios y Proyectos recientes quedaron centrados, con eyebrow, título y subtítulo nuevos.
   - Industrias: «Dónde trabajamos» / «Conocemos los procesos de tu industria».
-  - Servicios (antes «Soluciones»): «Un solo equipo, de punta a punta». Subtítulo de Luly mantenido, cambiando solo «puesta en marcha» por «programación de PLC».
+  - Servicios (antes «Soluciones»; el 06/11 el eyebrow volvió a «Soluciones» para coincidir con el menú): «Un solo equipo, de punta a punta». Subtítulo de Luly mantenido, cambiando solo «puesta en marcha» por «programación de PLC».
   - Casos: «Proyectos recientes».
 - **Títulos de contacto:** Home y Nosotros «Hablemos de tu planta»; Noticias «¿Querés consultarnos algo?»; Sentinel «Pedí una demo de Sentinel». Las páginas de proyecto ya tenían buenos títulos.
 - **Sentinel:** ahora tiene las 8 secciones (portada, qué es, usos, cómo funciona, precios, proyectos reales, FAQ, contacto). Lo que falta de Guido está marcado con cajas **PLACEHOLDER** visibles (clase `.placeholder` al final de `css/styles.css`).
@@ -48,7 +50,34 @@ Se edita directo en `site/` (no en `_build/`). Para verlo: `cd site && python3 -
   - ¿Se ofrece marca blanca?
   - ¿Hay más casos además de Ferraro?
 
-## Sesión 06/11 — revisión UI (sin Sentinel): aplicado
+## Sesión 06/11 — revisión UI (sin Sentinel)
+
+**Cómo se hizo:** capturas en Chrome a 1440 px y 390 px de Home, Nosotros, Proyectos, un caso, una industria, Blog, un artículo y Gracias; lectura del CSS y mediciones en la página (tamaño de los toques, links, tipografías). Sentinel quedó afuera.
+
+### Los 15 hallazgos (severidad Nielsen 0–4)
+| # | Hallazgo | Sev. | Estado |
+|---|---|---|---|
+| 1 | Las industrias de la Home no coincidían con los filtros, y «Ver proyectos de X» llevaba a la lista general | 3 | ✅ Aplicado |
+| 2 | Nombres distintos para lo mismo (Soluciones/Servicios, Proyectos/Casos de estudio, Blog/Noticias/Novedades) | 2 | ✅ Aplicado |
+| 3 | Botón «Ver proyectos de Manufactura» roto en mobile | 2 | ✅ Ya estaba arreglado |
+| 4 | Títulos de las tarjetas de Soluciones a distintas alturas | 2 | ✅ Aplicado |
+| 5 | Número y etiqueta en dos layouts distintos en las tarjetas de proyecto | 2 | ✅ Aplicado |
+| 6 | Bloque vacío grande dentro de la tarjeta de testimonio | 2 | ✅ Aplicado |
+| 7 | Espacios demasiado grandes entre secciones (~250 px) | 2 | ⏳ Elegir opción |
+| 8 | Audiowide difícil de leer en títulos largos | 2 | ✅ Aplicado (falta elegir dónde usar Audiowide) |
+| 9 | El bloque del equipo era el único redondeado | 1 | ✅ Aplicado como sistema de formas |
+| 10 | Detalles chicos (ver abajo) | 1 | ⏳ Sin aplicar |
+| 11 | Title Case en títulos en español (la RAE pide mayúscula solo en la primera palabra) | 2 | ⏳ No se tocó |
+| 12 | Blog con 3 notas, la última de feb. 2025 | 2 | ⏳ No se tocó |
+| 13 | «+300 proyectos» y «+20 años» publicados sin confirmar | — | ⏳ Pregunta para Guido |
+| 14 | Títulos de los artículos como párrafos en negrita, no como encabezados | 2 | ✅ Aplicado |
+| 15 | Links de contacto chicos para el dedo en mobile (21 px) | 1 | ✅ Aplicado |
+
+**Fortalezas a conservar:** casos reales con cliente y resultado; botones de pausa y sin rotación automática en mobile; foco de teclado visible; contraste documentado en los tokens; breadcrumb y estado activo en el menú.
+
+**Referencias:** NN/g, *Auto-Forwarding Carousels* (https://www.nngroup.com/articles/auto-forwarding/) · NN/g, *Cards* (https://www.nngroup.com/articles/cards-component/) · NN/g, *10 heurísticas* (https://www.nngroup.com/articles/ten-usability-heuristics/) · British Red Cross Design System, *Cards* (https://design.redcross.org.uk/components/cards) · Universidad de Piura sobre la RAE, *Mayúsculas en títulos* (https://www.udep.edu.pe/castellanoactual/duda-resuelta-mayusculas-en-titulos/) · W3C, WCAG 2.2 1.3.1 y 2.5.8 (https://www.w3.org/TR/WCAG22/).
+
+### Aplicado
 
 Backup previo: `_backup-2026-11-06/`.
 
@@ -59,13 +88,30 @@ Backup previo: `_backup-2026-11-06/`.
 - **Formas:** el sistema de Sentinel (`sentinel-morph.css`) pasó a ser la regla de todo el sitio: lo grande es cuadrado, lo chico es redondo, los bloques destacados llevan UNA esquina suavizada arriba a la derecha. Aplicado a: bloque del equipo, tiles grandes de proyectos, proyecto destacado, testimonio, formulario, marcador «cuadrado + punto» de los eyebrows, avatar y estado vacío.
 - **Accesibilidad:** títulos de los artículos del blog como `<h2>`/`<h3>` reales. Links de contacto con 44px de alto y toda la fila clickeable; link legal del footer más alto.
 
+- **Archivos nuevos o tocados:** `css/styles.css` (al final: estado vacío y SHAPE SYSTEM; arriba: SHAPE RULE y tokens), `js/industrias.js`, 6 páginas en `proyectos/industria/`, los 3 artículos del blog, comentarios en `css/sentinel.css` y `css/sentinel-morph.css`.
+
 ### Pendiente de esta revisión
-- **7. Espacios entre secciones:** Luly tiene que elegir una opción.
-- **8. Dónde usar Audiowide:** opciones propuestas, falta elegir.
-- **10. Detalles chicos:** explicados, sin aplicar.
+- **7. Espacios entre secciones (elegir A, B o C):**
+  - **A (recomendada):** cuando dos secciones del mismo fondo se tocan, la segunda pierde su padding de arriba (~250 px → ~112 px).
+  - **B:** alternar fondos `#080808` / `#111111` para que cada sección sea una franja.
+  - **C:** bajar `--space-section` de 112 a ~88 px en todo el sitio.
+- **8. Dónde usar Audiowide** (regla: 3 palabras o menos, grande o en mayúsculas, nunca la única forma de leer la info):
+  - letras S·E·N·T (ya está);
+  - eyebrows («SOLUCIONES», «RESULTADOS»), a ~15 px y probando que se lean;
+  - el contador «01 / 08» de industrias;
+  - palabras grandes decorativas ocultas al lector de pantalla (ej. «Qubit» gigante en el footer).
+- **10. Detalles chicos (cómo arreglarlos):**
+  - **Cifras de Nosotros con un hueco:** convertir la celda vacía en un tile-link («Mirá los proyectos →») o sacar una cifra floja.
+  - **Logos de tecnología del caso:** mismo tamaño máximo (~32 px de alto, 120 px de ancho) y reemplazar el texto «TIA V17» por el logo de TIA Portal.
+  - **Caja «En esta página» con el borde de abajo cortado:** 1 px de aire al final del sidebar fijo.
+  - **Botones de Gracias desalineados:** centrarlos en vertical.
+  - **WhatsApp flotante tapa texto en mobile:** ocultarlo cuando se ve la sección de contacto, o sumar espacio abajo.
+  - **Eyebrows de las tiras de logos:** centrar los dos.
 - **11–13** (Title Case, blog inactivo, cifras sin confirmar): no se tocaron.
 - El artículo «Metodología 5S» no habla de 5S: el cuerpo es un texto genérico de automatización. Revisar con Guido.
 - El footer «Proyectos por industria» lista solo las 4 industrias con proyectos (se dejó así a propósito).
+- ⚠️ H1 en Work Sans y el sistema de formas se apartan del Manual de Marca (Audiowide en H1, sin redondeados). Validar con Qubit antes de publicar.
+- **Para retomar:** «Leé 'Qubit — Estado y próximas sesiones.md' y retomemos con los pendientes de la revisión UI (puntos 7, 8 y 10).»
 
 ## Sesiones sugeridas (una por vez)
 
