@@ -1,0 +1,8 @@
+<!doctype html><meta charset=utf-8><pre id=out>pending</pre>
+<iframe id=f style="width:1440px;height:900px;border:0" src="/site/proyectos/automatizacion-de-compresores-de-amoniaco/index.html"></iframe>
+<script>
+const f=document.getElementById('f'),log=[];
+f.onload=()=>{const w=f.contentWindow;log.push('load y='+w.scrollY);
+ [300,1500,3500].forEach(t=>setTimeout(()=>{log.push(t+'ms y='+w.scrollY+' docH='+w.document.documentElement.scrollHeight);
+  if(t==3500)document.getElementById('out').textContent=log.join(' | ')},t));};
+</script>

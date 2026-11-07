@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es-AR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Industrias · Opción 1 · Cards con foto</title>
+<link rel="stylesheet" href="../../site/css/styles.css">
+<link rel="stylesheet" href="shared.css">
+<style>
+
+.pc{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:640px){.pc{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.pc{grid-template-columns:repeat(4,1fr)}}
+.pc__card{position:relative;overflow:hidden;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;border:1px solid var(--color-border);background:#1a1a1a}
+/* The photo sits in its own layer so it can zoom without moving the text */
+.pc__photo{position:absolute;inset:0;background:var(--img) center/cover;transition:transform .8s var(--ease)}
+.pc__card:hover .pc__photo,.pc__card:focus-within .pc__photo{transform:scale(1.08)}
+.pc__card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,8,8,.15) 0%,rgba(8,8,8,.92) 80%)}
+/* Violet wash that fades in on hover: ties the photo back to the brand */
+.pc__card::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(119,47,246,.25),rgba(73,22,156,.94));opacity:0;transition:opacity .4s var(--ease)}
+.pc__card:hover::after,.pc__card:focus-within::after{opacity:1}
+.pc__card .tile{position:absolute;top:20px;left:20px;z-index:2;color:#fff}
+.pc__body{position:relative;z-index:2}
+.pc__body h3{font-size:1.375rem;margin-bottom:.3em}
+.pc__body p{margin:0;font-size:.9375rem;color:var(--color-neutral-20);max-height:0;opacity:0;overflow:hidden;transition:max-height .45s var(--ease),opacity .35s var(--ease)}
+.pc__card:hover p,.pc__card:focus-within p{max-height:12em;opacity:1;margin-top:.6em}
+@media(hover:none){.pc__body p{max-height:none;opacity:1;margin-top:.6em}}
+
+</style></head>
+<body>
+<a class="mock-back" href="index.html">← Todas las opciones</a>
+<main>
+<section class="section section--alt" id="industrias" aria-labelledby="industrias-titulo">
+  <div class="container">
+    <span class="mock-tag">Opción 1 · Cards con foto</span>
+    <div class="section__head">
+      <span class="eyebrow">Industrias</span>
+      <h2 id="industrias-titulo">Experiencia en los procesos de cada industria</h2>
+      <p>Cada industria tiene sus propias normas, tiempos de parada y riesgos. Mirá cómo trabajamos en la tuya.</p>
+    </div>
+<ul class="pc mock-ul"><li class="pc__card" tabindex="0" style="--img:url('../../site/img/industria-manufactura-1100.webp')"><div class="pc__photo"></div><span class="tile"><span class="icon " aria-hidden="true">precision_manufacturing</span></span><div class="pc__body"><h3>Manufactura</h3><p>Optimizá la producción y reducí costos operativos con nuestras soluciones de automatización eficientes y confiables.</p></div></li><li class="pc__card" tabindex="0" style="--img:url('../../site/img/frame-285-800.webp')"><div class="pc__photo"></div><span class="tile"><span class="icon " aria-hidden="true">restaurant</span></span><div class="pc__body"><h3>Alimentos y Bebidas</h3><p>Garantizá la calidad y trazabilidad de tus productos con nuestros procesos automatizados y sistemas de control.</p></div></li><li class="pc__card" tabindex="0" style="--img:url('../../site/img/gabinete-exterior-planta.webp')"><div class="pc__photo"></div><span class="tile"><span class="icon " aria-hidden="true">bolt</span></span><div class="pc__body"><h3>Energía</h3><p>Mejorá la eficiencia energética y gestioná tu infraestructura crítica con soluciones robustas de control y gestión.</p></div></li><li class="pc__card" tabindex="0" style="--img:url('../../site/img/planta-evaporador-hero-800.webp')"><div class="pc__photo"></div><span class="tile"><span class="icon " aria-hidden="true">landscape</span></span><div class="pc__body"><h3>Minería</h3><p>Automatizá procesos, monitoreá las condiciones de operación y garantizá una extracción de minerales segura y eficiente en entornos extremos.</p></div></li><li class="pc__card" tabindex="0" style="--img:url('../../site/img/panel-tableros-tecnicos.webp')"><div class="pc__photo"></div><span class="tile"><span class="icon " aria-hidden="true">directions_car</span></span><div class="pc__body"><h3>Industria Automotriz</h3><p>Alcanzá precisión y eficiencia en la producción en masa y el control de calidad del ensamblaje con nuestras soluciones de automatización de vanguardia.</p></div></li><li class="pc__card" tabindex="0" style="--img:url('../../site/img/frame-288-800.webp')"><div class="pc__photo"></div><span class="tile"><span class="icon " aria-hidden="true">science</span></span><div class="pc__body"><h3>Química y petroquímica</h3><p>Garantizá la seguridad, precisión y eficiencia en el manejo, procesamiento y control de calidad de productos químicos.</p></div></li><li class="pc__card" tabindex="0" style="--img:url('../../site/img/industria-farmaceutica-1100.webp')"><div class="pc__photo"></div><span class="tile"><span class="icon " aria-hidden="true">medication</span></span><div class="pc__body"><h3>Farmacéutica</h3><p>Mantené los más altos estándares de precisión y seguridad en la producción, empaquetado y control de calidad de productos farmacéuticos.</p></div></li><li class="pc__card" tabindex="0" style="--img:url('../../site/img/tecnicos-revision-tablero.webp')"><div class="pc__photo"></div><span class="tile"><span class="icon " aria-hidden="true">oil_barrel</span></span><div class="pc__body"><h3>Petróleo y gas</h3><p>Optimizá la exploración, producción y distribución de petróleo y gas con soluciones innovadoras de automatización y control.</p></div></li></ul><p class="mock-note">Pasá el mouse (o foco con teclado) sobre una card: la foto hace zoom, se tiñe de violeta y aparece la descripción. En celular el texto queda siempre visible. Fotos de ejemplo.</p>
+    <div class="section__cta section__cta--stack">
+      <p>¿No ves tu industria? Igual podemos ayudarte.</p>
+      <a class="btn btn--primary" href="#contacto">Contanos tu proceso <span class="icon" aria-hidden="true">arrow_forward</span></a>
+    </div>
+  </div>
+</section>
+</main>
+<script>
+
+</script>
+</body></html>

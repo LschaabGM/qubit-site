@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es-AR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Industrias · Opción 10 · Pantalla de supervisión (SCADA)</title>
+<link rel="stylesheet" href="../../site/css/styles.css">
+<link rel="stylesheet" href="shared.css">
+<style>
+
+.hmi-wrap{display:grid;gap:16px}
+@media(min-width:900px){.hmi-wrap{grid-template-columns:300px 1fr;gap:24px}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
+@media(min-width:900px){.chips{flex-direction:column;flex-wrap:nowrap}}
+.chip{display:flex;align-items:center;gap:12px;font:600 1rem var(--font);color:var(--color-neutral-20);background:var(--color-surface-2);border:1px solid var(--color-border);padding:12px 16px;cursor:pointer;text-align:left;transition:.25s}
+.chip:hover{border-color:var(--color-brand-primary);color:#fff}
+.chip[aria-pressed="true"]{background:var(--color-brand);border-color:var(--color-brand);color:#fff}
+.hmi{background:#050505;border:1px solid var(--color-border-strong);font-family:var(--font-data)}
+.hmi__bar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:12px 20px;border-bottom:1px solid var(--color-border);font-size:.8125rem;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-muted)}
+.live{display:inline-flex;align-items:center;gap:8px;color:var(--color-lavender)}
+.live::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--color-lavender);box-shadow:0 0 8px var(--color-brand-primary);animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+.hmi__main{padding:clamp(20px,3vw,36px);display:grid;gap:28px}
+@media(min-width:760px){.hmi__main{grid-template-columns:1fr 1fr}}
+.hmi__txt h3{font-family:var(--font-display);font-size:1.5rem;margin-bottom:.5em}
+.hmi__txt p{font-family:var(--font);color:var(--color-neutral-20);margin-bottom:1.4em}
+.meter{margin-bottom:22px}
+.meter__row{display:flex;justify-content:space-between;font-size:.875rem;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:8px}
+.meter__row b{color:#fff;font-size:1.25rem;font-weight:600}
+.meter__bar{height:10px;background:#1c1c1c}
+.meter__fill{height:100%;width:0;background:linear-gradient(90deg,var(--color-brand-deep),var(--color-brand-primary));transition:width 1s var(--ease)}
+.hmi__foot{padding:10px 20px;border-top:1px solid var(--color-border);font-size:.75rem;color:var(--color-text-muted);letter-spacing:.08em}
+
+</style></head>
+<body>
+<a class="mock-back" href="index.html">← Todas las opciones</a>
+<main>
+<section class="section section--alt" id="industrias" aria-labelledby="industrias-titulo">
+  <div class="container">
+    <span class="mock-tag">Opción 10 · Pantalla de supervisión (SCADA)</span>
+    <div class="section__head">
+      <span class="eyebrow">Industrias</span>
+      <h2 id="industrias-titulo">Experiencia en los procesos de cada industria</h2>
+      <p>Cada industria tiene sus propias normas, tiempos de parada y riesgos. Mirá cómo trabajamos en la tuya.</p>
+    </div>
+<div class="hmi-wrap"><div class="chips" role="group" aria-label="Elegí tu industria"><button class="chip" type="button" aria-pressed="true" data-i="0"><span class="icon " aria-hidden="true">precision_manufacturing</span>Manufactura</button><button class="chip" type="button" aria-pressed="false" data-i="1"><span class="icon " aria-hidden="true">restaurant</span>Alimentos y Bebidas</button><button class="chip" type="button" aria-pressed="false" data-i="2"><span class="icon " aria-hidden="true">bolt</span>Energía</button><button class="chip" type="button" aria-pressed="false" data-i="3"><span class="icon " aria-hidden="true">landscape</span>Minería</button><button class="chip" type="button" aria-pressed="false" data-i="4"><span class="icon " aria-hidden="true">directions_car</span>Industria Automotriz</button><button class="chip" type="button" aria-pressed="false" data-i="5"><span class="icon " aria-hidden="true">science</span>Química y petroquímica</button><button class="chip" type="button" aria-pressed="false" data-i="6"><span class="icon " aria-hidden="true">medication</span>Farmacéutica</button><button class="chip" type="button" aria-pressed="false" data-i="7"><span class="icon " aria-hidden="true">oil_barrel</span>Petróleo y gas</button></div>
+<div class="hmi" aria-live="polite"><div class="hmi__bar"><span>Sala de control · <span id="hn"></span></span><span class="live">En línea · <span id="clk"></span></span></div>
+<div class="hmi__main"><div class="hmi__txt"><h3 id="ht"></h3><p id="hp"></p><a class="btn btn--primary" href="../../site/proyectos/index.html">Ver proyectos <span class="icon " aria-hidden="true">arrow_forward</span></a></div>
+<div><div class="meter"><div class="meter__row"><span>Producción</span><b id="m0"></b></div><div class="meter__bar"><div class="meter__fill" id="f0"></div></div></div>
+<div class="meter"><div class="meter__row"><span>Calidad</span><b id="m1"></b></div><div class="meter__bar"><div class="meter__fill" id="f1"></div></div></div>
+<div class="meter"><div class="meter__row"><span>Disponibilidad</span><b id="m2"></b></div><div class="meter__bar"><div class="meter__fill" id="f2"></div></div></div></div></div>
+<div class="hmi__foot">DATOS ILUSTRATIVOS · NO SON MÉTRICAS REALES DE CLIENTES</div></div></div>
+<p class="mock-note">Elegís tu industria y la sección se convierte en una pantalla de supervisión (SCADA) con indicadores que se mueven. Es la más “de automatización”, pero requiere cuidar que los números no parezcan resultados reales.</p>
+    <div class="section__cta section__cta--stack">
+      <p>¿No ves tu industria? Igual podemos ayudarte.</p>
+      <a class="btn btn--primary" href="#contacto">Contanos tu proceso <span class="icon" aria-hidden="true">arrow_forward</span></a>
+    </div>
+  </div>
+</section>
+</main>
+<script>
+var D=[{"n": "Manufactura", "d": "Optimizá la producción y reducí costos operativos con nuestras soluciones de automatización eficientes y confiables."}, {"n": "Alimentos y Bebidas", "d": "Garantizá la calidad y trazabilidad de tus productos con nuestros procesos automatizados y sistemas de control."}, {"n": "Energía", "d": "Mejorá la eficiencia energética y gestioná tu infraestructura crítica con soluciones robustas de control y gestión."}, {"n": "Minería", "d": "Automatizá procesos, monitoreá las condiciones de operación y garantizá una extracción de minerales segura y eficiente en entornos extremos."}, {"n": "Industria Automotriz", "d": "Alcanzá precisión y eficiencia en la producción en masa y el control de calidad del ensamblaje con nuestras soluciones de automatización de vanguardia."}, {"n": "Química y petroquímica", "d": "Garantizá la seguridad, precisión y eficiencia en el manejo, procesamiento y control de calidad de productos químicos."}, {"n": "Farmacéutica", "d": "Mantené los más altos estándares de precisión y seguridad en la producción, empaquetado y control de calidad de productos farmacéuticos."}, {"n": "Petróleo y gas", "d": "Optimizá la exploración, producción y distribución de petróleo y gas con soluciones innovadoras de automatización y control."}];
+var base=[[92,97,99],[88,99,98],[95,96,99],[84,95,97],[96,98,99],[90,99,98],[93,100,97],[89,96,98]],cur=0;
+function paint(){base[cur].forEach(function(v,k){var j=Math.max(60,Math.min(100,v+Math.round((Math.random()-.5)*4)));
+document.getElementById('m'+k).textContent=j+'%';document.getElementById('f'+k).style.width=j+'%';});}
+function sel(i){cur=i;document.querySelectorAll('.chip').forEach(function(c,k){c.setAttribute('aria-pressed',k===i);});
+document.getElementById('hn').textContent=D[i].n;document.getElementById('ht').textContent=D[i].n;document.getElementById('hp').textContent=D[i].d;
+document.querySelectorAll('.meter__fill').forEach(function(f){f.style.width='0';});setTimeout(paint,60);}
+document.querySelectorAll('.chip').forEach(function(c,i){c.addEventListener('click',function(){sel(i);});});
+function tick(){document.getElementById('clk').textContent=new Date().toLocaleTimeString('es-AR');}
+tick();setInterval(tick,1000);sel(0);
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(paint,2200);
+
+</script>
+</body></html>

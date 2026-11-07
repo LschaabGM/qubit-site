@@ -1,0 +1,608 @@
+/* ==========================================================================
+   SENTINEL — sentinel.css
+   Loaded AFTER styles.css on every Sentinel page (the hub and each application page).
+   It only ADDS pieces; it never changes styles.css. Every color comes from the tokens
+   at the top of styles.css (var(--color-...)), so a brand change there flows here too.
+
+   Brand rules kept here (same as styles.css): square corners as the base, round small things and ONE
+   softened top-right corner on featured blocks (see sentinel-morph.css and the SHAPE RULE in styles.css). Work Sans for text and every H1,
+   Audiowide only for short display letters (the giant S·E·N·T), Saira for numbers.
+
+   Components (search for the titles). Every one is reusable on the application pages:
+    A. Hero (big product name + image block)
+    B. Image placeholder block (violet block + big equipment icon)
+    D. Comparison rows ("Sin Sentinel" grey  ->  "Con Sentinel" violet)
+    F. AI block (dark violet panel, 2×2)
+    G. S·E·N·T layers (four violet squares that spell the name)
+    I. "Cuánto cuesta no medir" big numbers
+    J. Benefits grid (4×2)
+    K. Detailed chips (industries, application pages)
+    L. Numbered steps with a dotted line
+    M. Split list ("Del correctivo al predictivo")
+    N. One-screen showcase (screenshot + bullets)
+    O. Breadcrumb with "›"
+    P. "Otras aplicaciones" cards + back links
+    Q. Section heads beside content (FAQ, AI, numbers)
+    R. Contact on violet + person card
+    S. Motion (one moment only) and reduced motion
+    T. Sentinel hub (06/11 rebuild): hero screens, Qué es showcase, application cards,
+       S·E·N·T flow, timeline, price sheet, featured project, grouped FAQ
+   (C, E and H were removed on 06/11: quick-facts strip, bento and application rows are no longer used.)
+   ========================================================================== */
+
+
+/* A. HERO ------------------------------------------------------------------
+   Reuses .page-hero from styles.css (the faint 64px grid behind it).
+   Text on the left (7 of 12 parts), image block on the right (5 of 12). Stacks on phones. */
+.s-hero__grid { display: grid; gap: clamp(32px, 5vw, 64px); align-items: center; }
+/* "Sentinel" is one short word, so it can be set very large: it IS the brand moment of the page. */
+.s-hero h1 { font-size: clamp(2.75rem, 1rem + 9vw, 6.5rem); line-height: 1; max-width: none; margin-bottom: .2em; }
+/* Application pages have longer H1s ("Sentinel para calderas"), so they use a calmer size. */
+.s-hero--app h1 { font-size: clamp(2.125rem, 1rem + 4.5vw, 4rem); line-height: 1.08; max-width: 14ch; }
+/* The one-line promise under the name: white and bigger than body text (second level of the hierarchy). */
+.s-hero .s-hero__tagline { color: var(--color-text); font-size: clamp(1.25rem, 1rem + 1.2vw, 1.75rem); font-weight: 600; line-height: 1.3; max-width: 30ch; margin-bottom: .75em; text-wrap: balance; }
+.s-hero p { max-width: 54ch; }
+.s-hero .btn-row { gap: 16px 24px; align-items: center; }
+@media (min-width: 1024px) {
+  .s-hero__grid { grid-template-columns: 7fr 5fr; }
+}
+/* Placeholder boxes that sit in left-aligned text (styles.css centers them by default) */
+.placeholder--left { margin-inline: 0; }
+.section__head .placeholder { color: var(--color-lavender); }   /* keep placeholder text lavender inside grey section intros */
+
+
+/* B. IMAGE PLACEHOLDER BLOCK ---------------------------------------------------
+   Used wherever a real photo or screenshot is still missing. No stock photos:
+   a dark-to-violet block with the brand grid, a large equipment icon and a small label.
+   Change the icon by changing the word inside <span class="icon">. */
+.media-ph {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: grid; place-items: center; aspect-ratio: 4 / 3; width: 100%;
+  background: linear-gradient(150deg, var(--color-brand-deep) 0%, var(--color-surface) 78%);
+  border: 1px solid var(--color-border);
+}
+/* the 64px brand grid, very faint */
+.media-ph::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background-image: linear-gradient(color-mix(in srgb, var(--color-text) 7%, transparent) 1px, transparent 1px),
+                    linear-gradient(90deg, color-mix(in srgb, var(--color-text) 7%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+/* the violet brand square tucked in the bottom-right corner (same idea as the home "Soluciones" photos) */
+.media-ph::after { content: ""; position: absolute; right: 0; bottom: 0; width: 56px; height: 56px; background: var(--color-brand-primary); }
+.media-ph > .icon, .bento__card .media-ph > .icon { font-size: clamp(96px, 14vw, 168px); color: var(--color-lavender); }
+/* small "PLACEHOLDER" label, top-left */
+.media-ph__label { position: absolute; left: 0; top: 0; padding: 6px 12px; font-size: .8125rem; font-weight: 600; letter-spacing: .04em; color: var(--color-lavender); border: 1px dashed var(--color-lavender); border-width: 0 1px 1px 0; background: var(--color-bg); }
+.media-ph--wide { aspect-ratio: 16 / 10; }
+/* When a real photo is used inside the same frame */
+.media-ph > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.media-ph--photo::before { background: linear-gradient(to top, color-mix(in srgb, var(--color-brand-deep) 70%, transparent) 0%, transparent 55%); }
+
+
+/* D. COMPARISON ROWS -------------------------------------------------------------
+   Each row = the problem (grey box) -> arrow -> how Sentinel solves it (violet box).
+   Desktop: a header row names the two columns. Phones: boxes stack and each box shows
+   its own small label, and the arrow points down. */
+.compare { list-style: none; margin: 0; padding: 0; display: grid; gap: 32px; }   /* phones: clear space between pairs so each problem reads with its own solution */
+.compare__head { display: none; }
+.compare__row { display: grid; grid-template-columns: 1fr; gap: 0; }
+.compare__cell { padding: 22px 24px; }
+.compare__cell h3 { font-size: 1.125rem; margin: 0 0 .35em; }
+.compare__cell p { margin: 0; font-size: .9375rem; }
+/* "Sin Sentinel": quiet grey */
+.compare__cell--before { background: var(--color-surface); border: 1px solid var(--color-border); }
+.compare__cell--before h3 { color: var(--color-neutral-20); }
+.compare__cell--before p { color: var(--color-text-muted); }
+/* "Con Sentinel": deep violet, white text (about 11:1) */
+.compare__cell--after { background: var(--color-brand-deep); border: 1px solid var(--color-brand-deep); }
+.compare__cell--after h3 { color: var(--color-text); }
+.compare__cell--after p { color: var(--color-violet-soft); }
+/* small label inside each box (phones only; on desktop the header row does this job) */
+.compare__tag { display: block; margin-bottom: 8px; font-size: .8125rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.compare__cell--before .compare__tag { color: var(--color-text-muted); }
+.compare__cell--after .compare__tag { color: var(--color-lavender); }
+/* the arrow between the two boxes */
+.compare__arrow { display: grid; place-items: center; height: 36px; color: var(--color-brand-text); }
+.compare__arrow .icon { transform: rotate(90deg); }
+/* closing line under the rows */
+.compare-note { margin: clamp(24px, 3vw, 36px) 0 0; max-width: 62ch; color: var(--color-neutral-20); font-size: 1.0625rem; padding-left: 16px; border-left: 4px solid var(--color-brand-primary); }
+@media (min-width: 768px) {
+  .compare__head, .compare__row { grid-template-columns: 1fr 56px 1fr; }
+  .compare__head { display: grid; padding-bottom: 4px; font-size: .875rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+  .compare__head span:first-child { color: var(--color-text-muted); }
+  .compare__head span:last-child { grid-column: 3; color: var(--color-lavender); }
+  .compare { gap: 12px; }
+  .compare__arrow { height: auto; }
+  .compare__arrow .icon { transform: none; }
+  /* keep the label for screen readers, hide it on screen (the header row shows it) */
+  .compare__tag { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+
+
+/* F. AI BLOCK -------------------------------------------------------------------
+   A deep-violet panel inside the page margins, so the page changes color here.
+   Text colors on violet 90%: white titles, violet 20% text (both well above AA). */
+.ai-block { position: relative; isolation: isolate; overflow: hidden; padding: clamp(28px, 5vw, 64px); background: var(--color-brand-deep); }
+.ai-block::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(color-mix(in srgb, var(--color-text) 8%, transparent) 1px, transparent 1px),
+                    linear-gradient(90deg, color-mix(in srgb, var(--color-text) 8%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px; background-position: right top;
+  -webkit-mask-image: linear-gradient(to left, #000 0%, transparent 70%); mask-image: linear-gradient(to left, #000 0%, transparent 70%);
+}
+.ai-block .eyebrow { color: var(--color-violet-soft); }
+.ai-block .eyebrow::before { background: var(--color-text); }
+.ai-block .section__head p { color: var(--color-violet-soft); }
+.ai-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 28px 32px; grid-template-columns: 1fr; }
+.ai-grid li { padding-top: 20px; border-top: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent); }
+.ai-grid .icon { font-size: 32px; color: var(--color-lavender); margin-bottom: 12px; }
+.ai-grid h3 { font-size: 1.1875rem; margin: 0 0 .35em; }
+.ai-grid p { margin: 0; color: var(--color-violet-soft); font-size: .9375rem; }
+@media (min-width: 640px) { .ai-grid { grid-template-columns: repeat(2, 1fr); } }
+
+
+/* G. S·E·N·T LAYERS --------------------------------------------------------------
+   The product name explains how it works, so the four letters are the hero of this section.
+   Each letter sits on a square; the squares go from light to deep violet (layer 1 -> layer 4),
+   and touch each other so together they read as the word "SENT".
+   Phones: one row per layer (square left, text right). Tablet: 2×2. Desktop: 4 in a row. */
+.sent { list-style: none; margin: 0; padding: 0; display: grid; gap: 24px; grid-template-columns: 1fr; counter-reset: none; }
+.sent__item { display: grid; grid-template-columns: 96px 1fr; gap: 0 20px; align-items: start; align-content: start; }   /* align-content: start = all four titles line up even when texts differ in length */
+.sent__letter {
+  display: grid; place-items: center; aspect-ratio: 1; width: 100%;
+  font-family: var(--font-display); font-weight: 400; line-height: 1;
+  font-size: 3.5rem;
+}
+/* The violet scale, step by step. Text colors chosen for contrast on each fill. */
+.sent__item:nth-child(1) .sent__letter { background: var(--color-brand-text);    color: var(--color-bg); }   /* violet 40%, black letter */
+.sent__item:nth-child(2) .sent__letter { background: var(--color-brand-primary); color: var(--color-bg); }   /* primary violet, black letter */
+.sent__item:nth-child(3) .sent__letter { background: var(--color-brand);         color: var(--color-text); } /* violet 60%, white letter (6:1) */
+.sent__item:nth-child(4) .sent__letter { background: var(--color-brand-hover);   color: var(--color-text); } /* violet 80%, white letter (9:1) */
+.sent__body h3 { font-size: 1.25rem; margin: 0 0 .35em; }
+.sent__body h3 span { font-family: var(--font-data); color: var(--color-brand-text); margin-right: .35em; }
+.sent__body p { margin: 0; color: var(--color-text-muted); font-size: .9375rem; max-width: 40ch; }
+@media (min-width: 640px) {
+  .sent { grid-template-columns: repeat(2, 1fr); gap: 40px 24px; }
+  .sent__item { grid-template-columns: 1fr; gap: 20px; }
+  .sent__letter { font-size: clamp(5rem, 2rem + 9vw, 9rem); }
+}
+@media (min-width: 1024px) {
+  .sent { grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .sent__body { padding-right: 24px; }
+}
+
+
+/* I. "CUÁNTO CUESTA NO MEDIR" — big numbers ---------------------------------------
+   Lives on the violet section (.section--violet from styles.css). Heading on the left,
+   the numbers in a 2×2 on the right, each as large as the layout allows. Source in small print. */
+/* HTML order: heading, numbers, source. Phones read them in that order; desktop moves the source under the heading. */
+.cost { display: grid; gap: var(--space-head); }
+.cost__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 32px 40px; grid-template-columns: 1fr; }
+.cost__list li { padding-top: 16px; border-top: 2px solid color-mix(in srgb, var(--color-text) 50%, transparent); color: var(--color-violet-soft); font-size: 1.0625rem; line-height: 1.5; }
+.cost__list strong { display: block; margin-bottom: 12px; font-family: var(--font-data); font-weight: 600; line-height: .9; letter-spacing: -.03em; color: var(--color-text); font-size: clamp(3.75rem, 2rem + 6vw, 6.5rem); white-space: nowrap; }
+.cost__source { margin: 0; font-size: .875rem; color: var(--color-violet-soft); max-width: 46ch; }
+.cost .section__head { margin-bottom: 0; }
+.cost .section__head p { color: var(--color-violet-soft); }
+@media (min-width: 640px) { .cost__list { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) {
+  .cost { grid-template-columns: 4fr 8fr; grid-template-rows: auto 1fr; gap: 24px 64px; align-items: start; }
+  .cost > .section__head { grid-column: 1; grid-row: 1; }
+  .cost__list { grid-column: 2; grid-row: 1 / span 2; }
+  .cost__source { grid-column: 1; grid-row: 2; }
+}
+
+
+/* J. BENEFITS GRID (4×2) -----------------------------------------------------------
+   Compact cells divided by 1px lines (the gap shows the border color through). */
+.benefits { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; grid-template-columns: 1fr; background: var(--color-border); border: 1px solid var(--color-border); }
+.benefits li { display: grid; grid-template-columns: auto 1fr; gap: 0 16px; align-content: start; padding: 20px; background: var(--color-bg); }   /* phones: icon beside the text, so 8 items stay short */
+.benefits li .icon { grid-row: span 2; }
+.section--alt .benefits li { background: var(--color-surface); }
+.benefits .icon { font-size: 28px; color: var(--color-brand-text); margin-bottom: 14px; }
+.benefits h3 { font-size: 1.0625rem; margin: 0 0 .35em; }
+.benefits p { margin: 0; font-size: .9375rem; color: var(--color-text-muted); }
+@media (min-width: 640px) {
+  .benefits { grid-template-columns: repeat(2, 1fr); }
+  .benefits li { display: block; padding: 24px; }   /* from tablet up: icon on top */
+}
+@media (min-width: 1024px) { .benefits { grid-template-columns: repeat(4, 1fr); } }
+
+
+/* K. CHIPS ------------------------------------------------------------------------
+   Industries as square tags. Not links, so there is no hover effect. */
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.chips li { padding: 10px 16px; border: 1px solid var(--color-border-strong); color: var(--color-neutral-20); font-size: .9375rem; font-weight: 500; }
+/* Detailed chips: industry + one phrase (application pages). 1, 2 or 3 columns. */
+.chips--detail { display: grid; gap: 12px; grid-template-columns: 1fr; }
+.chips--detail li { padding: 20px 22px; border-color: var(--color-border); border-left: 4px solid var(--color-brand-primary); background: var(--color-surface); }
+.chips--detail strong { display: block; color: var(--color-text); font-size: 1.0625rem; font-weight: 600; margin-bottom: 4px; }
+.chips--detail span { color: var(--color-text-muted); font-weight: 400; }
+@media (min-width: 640px) { .chips--detail { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .chips--detail { grid-template-columns: repeat(3, 1fr); } }
+
+
+/* L. NUMBERED STEPS WITH A DOTTED LINE -----------------------------------------------
+   It is a real sequence (1 -> 2 -> 3), so numbers are used. A dashed line joins the squares:
+   vertical on phones, horizontal from tablet up. */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 32px; position: relative; }
+.steps::before { content: ""; position: absolute; left: 25px; top: 26px; bottom: 26px; border-left: 2px dashed var(--color-border-strong); }
+.steps li { position: relative; display: grid; grid-template-columns: 52px 1fr; gap: 20px; align-content: start; }
+.steps__num { display: grid; place-items: center; width: 52px; height: 52px; background: var(--color-brand); color: var(--color-text); font-family: var(--font-data); font-weight: 600; font-size: 1.5rem; }   /* violet 60% with a white number = 5.96:1 (AA for any text size) */
+.steps h3 { font-size: 1.1875rem; margin: 10px 0 .35em; }
+.steps p { margin: 0; color: var(--color-text-muted); font-size: .9375rem; max-width: 40ch; }
+@media (min-width: 768px) {
+  .steps { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  /* the line runs from the first square to the last one (each column is a third of the width minus the two 32px gaps) */
+  .steps::before { left: 26px; right: calc((100% - 64px) / 3 - 26px); top: 25px; bottom: auto; border-left: 0; border-top: 2px dashed var(--color-border-strong); }
+  .steps li { grid-template-columns: 1fr; gap: 20px; }
+  .steps h3 { margin-top: 0; }
+}
+
+
+/* M. SPLIT LIST ----------------------------------------------------------------------
+   Heading on the left (stays in view on desktop), a list of items with dividers on the right.
+   Used for "Del mantenimiento correctivo al predictivo". */
+.split-list { display: grid; gap: var(--space-head); }
+.split-list .section__head { margin-bottom: 0; }
+.split-list__items { list-style: none; margin: 0; padding: 0; }
+.split-list__items li { display: grid; grid-template-columns: auto 1fr; gap: 4px 20px; align-content: start; padding-block: 24px; border-top: 1px solid var(--color-border); }
+.split-list__items li:last-child { border-bottom: 1px solid var(--color-border); }
+.split-list__items .icon { grid-row: span 2; font-size: 32px; color: var(--color-brand-text); }
+.split-list__items h3 { font-size: 1.1875rem; margin: 0; }
+.split-list__items p { margin: 0; color: var(--color-text-muted); max-width: 60ch; }
+@media (min-width: 1024px) {
+  .split-list { grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; }
+  .split-list .section__head { position: sticky; top: calc(var(--header-h) + 32px); }
+}
+
+
+/* N. ONE-SCREEN SHOWCASE ---------------------------------------------------------------
+   Big screenshot block + text and three short bullets beside it. */
+.showcase { display: grid; gap: clamp(28px, 4vw, 56px); align-items: center; }
+.showcase figure { margin: 0; }
+.showcase figcaption { margin-top: 10px; font-size: .875rem; color: var(--color-text-muted); }
+.showcase__text .section__head { margin-bottom: 24px; }
+.check-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.check-list li { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--color-surface); border: 1px solid var(--color-border); font-weight: 500; }
+.check-list .icon { color: var(--color-brand-text); }
+@media (min-width: 1024px) { .showcase { grid-template-columns: 7fr 5fr; } }
+
+
+/* O. BREADCRUMB "Sentinel › Calderas" ----------------------------------------------------
+   Same base as the project pages (.breadcrumb in styles.css), with a "›" instead of "/". */
+.breadcrumb--chevron li + li::before { content: "›"; font-size: 1.125rem; line-height: 1; }
+.breadcrumb--chevron a { display: inline-flex; align-items: center; min-height: 32px; }
+
+
+/* P. "OTRAS APLICACIONES" CARDS + BACK LINKS ------------------------------------------------
+   Three small cards, each a single link (the whole card is clickable). */
+.app-cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: 1fr; }
+.app-card { position: relative; display: flex; flex-direction: column; gap: 16px; height: 100%; padding: 24px; background: var(--color-bg); border: 1px solid var(--color-border); transition: border-color .2s; }
+.app-card .icon--big { display: grid; place-items: center; width: 52px; height: 52px; background: var(--color-brand-deep); color: var(--color-lavender); font-size: 30px; }
+.app-card h3 { font-size: 1.1875rem; margin: 0; }
+.app-card h3 a { color: var(--color-text); text-decoration: none; }
+.app-card h3 a::after { content: ""; position: absolute; inset: 0; }   /* stretched link */
+.app-card h3 a:focus-visible { outline: none; }
+.app-card p { margin: 0; color: var(--color-text-muted); font-size: .9375rem; }
+.app-card__cta { margin-top: auto; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--color-brand-text); }
+.app-card__cta .icon { transition: transform .25s var(--ease); }
+.app-card:hover, .app-card:focus-within { border-color: var(--color-brand-text); }
+.app-card:hover .app-card__cta .icon { transform: translateX(4px); }
+.app-card:focus-within { outline: 3px solid var(--color-lavender); outline-offset: 3px; }
+@media (min-width: 768px) { .app-cards { grid-template-columns: repeat(3, 1fr); } }
+/* Row of links under the cards ("Ver precios", "Ver todo Sentinel") */
+.link-row { display: flex; flex-wrap: wrap; gap: 16px 32px; margin-top: clamp(24px, 3vw, 36px); }
+
+
+/* Q. SECTION HEAD BESIDE CONTENT -------------------------------------------------------------
+   Heading left, content right on desktop (FAQ, proof). Stacks on phones. */
+.side-head { display: grid; gap: var(--space-head); }
+.side-head > .section__head { margin-bottom: 0; }
+.side-head .faq { max-width: none; margin: 0; }
+@media (min-width: 1024px) { .side-head { grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; } }
+.ai-block .side-head { align-items: center; }
+
+
+/* R. CONTACT ON VIOLET + PERSON CARD -----------------------------------------------------------
+   The contact section uses .section--violet (violet 80%) like the back cover of the brochure.
+   styles.css colors the contact text for a dark background, so here it is re-colored for violet. */
+.section--violet .lead, .section--violet .contact-info dt { color: var(--color-violet-soft); }
+.section--violet .contact-info dt .icon { color: var(--color-text); }
+.section--violet .contact-info dt svg { fill: var(--color-text); }
+.section--violet .contact-info a:hover { color: var(--color-violet-soft); }
+.section--violet .form { border-top-color: var(--color-lavender); }
+/* The person who answers (from the brochure back cover) */
+.person { display: flex; align-items: center; gap: 16px; margin: 28px 0 0; padding: 16px; background: color-mix(in srgb, var(--color-bg) 25%, transparent); border: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent); max-width: 420px; }
+.person img { width: 64px; height: 64px; object-fit: cover; flex: none; }
+.person strong { display: block; font-size: 1.0625rem; }
+.person span { display: block; font-size: .9375rem; color: var(--color-violet-soft); }
+
+
+/* S. MOTION ------------------------------------------------------------------------------------
+   One moment only: the four S·E·N·T squares appear one after another as they scroll into view.
+   Nothing is hidden without animation support, and nothing moves with "reduce motion". */
+@keyframes sent-in { from { opacity: 0; transform: translateY(24px) scale(.92); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .sent__letter { animation: sent-in linear both; animation-timeline: view(); }
+    .sent__item:nth-child(1) .sent__letter { animation-range: entry 0% entry 55%; }
+    .sent__item:nth-child(2) .sent__letter { animation-range: entry 10% entry 65%; }
+    .sent__item:nth-child(3) .sent__letter { animation-range: entry 20% entry 75%; }
+    .sent__item:nth-child(4) .sent__letter { animation-range: entry 30% entry 85%; }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-card, .app-card__cta .icon { transition: none; }
+}
+
+/* Application pages: the breadcrumb already sits above the hero, so the hero starts closer to it */
+.breadcrumb + .s-hero { padding-top: clamp(24px, 4vw, 48px); }
+
+
+/* ==============================================================================================
+   T. SENTINEL HUB — rebuild of 06/11/2026 (Guido's content, our system)
+   Everything below is used only by sentinel/index.html. Shapes (round small things, the one
+   softened top-right corner on featured blocks) live in sentinel-morph.css, not here.
+   ============================================================================================== */
+
+/* T1. HERO — text left (5 parts), two real Sentinel screens right (7 parts) -------------------
+   Reuses .page-hero for the faint 64px grid behind it. */
+.sn-hero__grid { display: grid; gap: clamp(40px, 6vw, 64px); align-items: center; }
+.sn-hero__text { min-width: 0; }
+/* Guido's H1 is a full sentence, so the line length is capped and balanced */
+.sn-hero h1 { font-size: clamp(2rem, 1rem + 3vw, 3.25rem); max-width: 15ch; text-wrap: balance; }
+.page-hero .sn-hero__lead { font-size: clamp(1.0625rem, 1rem + .4vw, 1.25rem); color: var(--color-neutral-20); max-width: 46ch; text-wrap: pretty; }
+.sn-hero .btn-row { gap: 20px 36px; align-items: center; }
+/* The two short facts under the buttons, on a hairline */
+.hero-facts { list-style: none; margin: clamp(32px, 4vw, 44px) 0 0; padding: 20px 0 0; border-top: 1px solid var(--color-border); display: flex; flex-wrap: wrap; gap: 10px 28px; }
+.hero-facts li { display: flex; align-items: center; gap: 8px; color: var(--color-neutral-20); font-size: .9375rem; }
+.hero-facts .icon { font-size: 20px; color: var(--color-brand-text); }
+
+/* The screenshots are light UI on a dark page: a thin border and a deep shadow keep them from glaring */
+.screens { position: relative; min-width: 0; isolation: isolate; }
+.screen { margin: 0; overflow: hidden; background: var(--color-text); border: 1px solid var(--color-border); box-shadow: 0 40px 80px -32px color-mix(in srgb, var(--color-bg) 95%, transparent); }
+.screen img { width: 100%; height: auto; }
+.screen--back { display: none; }
+/* The violet brand square, tucked behind the corner of the front screen */
+.screens::before { content: ""; position: absolute; left: -12px; bottom: -12px; width: 80px; height: 80px; background: var(--color-brand-primary); z-index: -1; }
+@media (min-width: 1024px) {
+  .sn-hero__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+  .screens { padding-top: 56px; }
+  .screen--back { display: block; position: absolute; top: 0; left: 16%; width: 84%; opacity: .45; }
+  .screen--front { position: relative; width: 100%; }
+  .screens::before { left: auto; right: -24px; bottom: -24px; width: 120px; height: 120px; }
+}
+
+
+/* T2. QUÉ ES — Guido's intro row, then a big screenshot with his three points beside it -------- */
+.sn-intro { display: grid; gap: 20px 64px; margin-bottom: var(--space-head); }
+.sn-intro h2 { max-width: 16ch; text-wrap: balance; margin-bottom: 0; }
+.sn-intro p { margin: 0; color: var(--color-neutral-20); font-size: 1.125rem; max-width: 58ch; }
+@media (min-width: 1024px) { .sn-intro { grid-template-columns: 1fr 1fr; align-items: end; } }
+
+.sn-showcase { display: grid; gap: clamp(28px, 4vw, 56px); align-items: center; }
+.sn-showcase__shot { margin: 0; overflow: hidden; background: var(--color-text); border: 1px solid var(--color-border); box-shadow: 0 32px 64px -32px color-mix(in srgb, var(--color-bg) 95%, transparent); }
+.sn-showcase__shot img { width: 100%; height: auto; }
+/* The three points: light rows on hairlines, no boxes (so they don't look like the other card rows) */
+.sn-points { list-style: none; margin: 0; padding: 0; }
+.sn-points li { display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding-block: 22px; border-top: 1px solid var(--color-border); }
+.sn-points li:last-child { border-bottom: 1px solid var(--color-border); }
+.sn-points__icon { display: grid; place-items: center; width: 44px; height: 44px; background: var(--color-brand-deep); color: var(--color-lavender); }
+.sn-points h3 { font-size: 1.1875rem; margin: 6px 0 .3em; }
+.sn-points p { margin: 0; color: var(--color-text-muted); font-size: .9375rem; }
+@media (min-width: 1024px) { .sn-showcase { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); } }
+
+
+/* T3. APLICACIONES — one card per application; the whole card is a link -------------------------
+   Phones: 1 column · tablet: 2 · desktop: 3, plus one full-width "Plantas completas" card. */
+.usecase-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .usecase-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .usecase-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.usecase { position: relative; display: flex; flex-direction: column; height: 100%; background: var(--color-bg); border: 1px solid var(--color-border); transition: border-color .25s var(--ease); }
+/* Drawing area: same 16:10 frame and faint 32px grid on every card */
+.usecase__media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid var(--color-border); background: var(--color-bg); }
+.usecase__media::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(color-mix(in srgb, var(--color-text) 5%, transparent) 1px, transparent 1px),
+                    linear-gradient(90deg, color-mix(in srgb, var(--color-text) 5%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px; background-position: center; }
+.usecase__media svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+/* The value callout: always top-right, label on top, value in Saira below.
+   The dashed line in each drawing runs into it. */
+.usecase__value { position: absolute; top: 12px; right: 12px; z-index: 1; max-width: 44%; margin: 0; padding: 7px 11px 8px;
+  display: flex; flex-direction: column; gap: 2px; background: var(--color-brand-deep); border: 1px solid var(--color-brand-text);
+  transition: background-color .25s var(--ease), border-color .25s var(--ease); }
+.usecase__value span { font-size: .75rem; line-height: 1.3; color: var(--color-violet-soft); text-wrap: balance; }
+.usecase__value strong { font-family: var(--font-data); font-weight: 600; font-size: 1.25rem; line-height: 1.1; color: var(--color-text); white-space: nowrap; }
+.usecase__body { display: flex; flex-direction: column; flex: 1; padding: 22px 24px 24px; }
+.usecase h3 { font-size: 1.375rem; margin-bottom: .35em; }
+.usecase h3 a { color: var(--color-text); text-decoration: none; }
+.usecase h3 a::after { content: ""; position: absolute; inset: 0; z-index: 2; }   /* stretched link: the whole card is clickable */
+.usecase h3 a:focus-visible { outline: none; }
+.usecase:focus-within { outline: 3px solid var(--color-lavender); outline-offset: 3px; }
+.usecase p { margin: 0 0 20px; color: var(--color-text-muted); font-size: .9375rem; }
+.usecase__more { margin-top: auto; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--color-brand-text); }
+.usecase__more .icon { font-size: 20px; transition: transform .25s var(--ease); }
+/* Hover and keyboard focus: the card border, the callout and the violet parts of the drawing light up */
+.usecase:hover, .usecase:focus-within { border-color: var(--color-brand-text); }
+.usecase:hover .usecase__value, .usecase:focus-within .usecase__value { background: var(--color-brand); border-color: var(--color-lavender); }
+.usecase:hover .usecase__more, .usecase:focus-within .usecase__more { color: var(--color-lavender); }
+.usecase:hover .usecase__more .icon { transform: translateX(4px); }
+/* "Plantas completas": full row, drawing beside the text from tablet up */
+.usecase--wide { grid-column: 1 / -1; }
+.usecase--wide .usecase__media { aspect-ratio: 16 / 7; }
+@media (min-width: 640px) {
+  .usecase--wide { flex-direction: row; }
+  .usecase--wide .usecase__media { flex: 0 0 58%; aspect-ratio: auto; min-height: 240px; border-bottom: 0; border-right: 1px solid var(--color-border); }
+  .usecase--wide .usecase__body { justify-content: center; padding: 32px; }
+  .usecase--wide .usecase__more { margin-top: 4px; }
+}
+
+/* The drawings: a SCADA-style mimic (sinóptico). ONE stroke weight (1.5px on screen, whatever the card size),
+   grey for the equipment, violet for what Sentinel measures. Only tokens, no loose colors. */
+.usecase svg * { vector-effect: non-scaling-stroke; }
+.sv-body { fill: var(--color-surface-2); stroke: var(--color-border-strong); stroke-width: 1.5; transition: stroke .25s var(--ease); }
+.sv-line { fill: none; stroke: var(--color-border-strong); stroke-width: 1.5; }
+.sv-thin, .sv-ground { fill: none; stroke: var(--color-border); stroke-width: 1.5; }
+.sv-acc { fill: var(--color-brand-primary); transition: fill .25s var(--ease); }
+.sv-acc--soft { opacity: .85; }
+.sv-acc-line { fill: none; stroke: var(--color-brand-text); stroke-width: 1.5; }
+.sv-dash { fill: none; stroke: var(--color-brand-text); stroke-width: 1.5; stroke-dasharray: 3 5; }
+.usecase:hover .sv-body, .usecase:focus-within .sv-body { stroke: var(--color-brand-text); }
+.usecase:hover .sv-acc, .usecase:focus-within .sv-acc { fill: var(--color-lavender); }
+/* The dashed lines "flow" on hover, like data travelling to the callout. Only when motion is allowed. */
+@keyframes sv-flow { to { stroke-dashoffset: -16; } }
+@media (prefers-reduced-motion: no-preference) {
+  .usecase:hover .sv-dash, .usecase:focus-within .sv-dash { animation: sv-flow .8s linear infinite; }
+}
+
+
+/* T4. S·E·N·T AS A FLOW (hub only: .sent--flow) -------------------------------------------------
+   Smaller tiles than the application pages (about 40% smaller on desktop), joined by a thin dashed
+   line with an arrow so the eye reads data moving S → E → N → T. The square → circle morph stays.
+   Phones and tablets: one row per layer (tile left, text right) and the line runs down. */
+.sent--flow { gap: 0; }
+.sent--flow .sent__item { position: relative; grid-template-columns: 72px 1fr; gap: 0 20px; padding-bottom: 32px; }
+.sent--flow .sent__item:last-child { padding-bottom: 0; }
+.sent--flow .sent__letter { font-size: 2.25rem; }
+.sent--flow .sent__body h3 { margin-top: 4px; }
+/* vertical flow line between tiles */
+.sent--flow .sent__item:not(:last-child)::after { content: ""; position: absolute; left: 36px; top: 80px; bottom: 8px; border-left: 1.5px dashed var(--color-brand-text); }
+@media (min-width: 640px) {
+  .sent.sent--flow { grid-template-columns: 1fr; gap: 0; }
+  .sent--flow .sent__item { grid-template-columns: 88px 1fr; gap: 0 24px; }
+  .sent--flow .sent__letter { font-size: 2.75rem; }
+  .sent--flow .sent__item:not(:last-child)::after { left: 44px; top: 96px; }
+}
+@media (min-width: 1024px) {
+  .sent.sent--flow { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 0; }
+  .sent--flow .sent__item { grid-template-columns: 1fr; gap: 24px; padding: 0 24px 0 0; }
+  .sent--flow .sent__letter { width: 168px; font-size: 4.5rem; }
+  /* horizontal line from the right edge of one tile to the next tile, with an arrowhead at the end */
+  .sent--flow .sent__item:not(:last-child)::after { left: 184px; right: 16px; top: 84px; bottom: auto; border-left: 0; border-top: 1.5px dashed var(--color-brand-text); }
+  .sent--flow .sent__item:not(:last-child)::before { content: ""; position: absolute; right: 12px; top: 79px; width: 7px; height: 12px; background: var(--color-brand-text); clip-path: polygon(0 0, 100% 50%, 0 100%); }
+}
+
+
+/* T5. TRES ETAPAS — slim horizontal timeline, right before the price ---------------------------
+   Smaller round numbers (40px) than the application pages, and less air around the section. */
+.sn-stages { padding-block: clamp(48px, 6vw, 88px); }
+.steps--timeline li { grid-template-columns: 40px 1fr; gap: 16px; }
+.steps--timeline .steps__num { width: 40px; height: 40px; font-size: 1.125rem; }
+.steps--timeline::before { left: 19px; top: 20px; bottom: 20px; }
+.steps--timeline h3 { font-size: 1.125rem; margin-top: 8px; }
+@media (min-width: 768px) {
+  .steps--timeline li { grid-template-columns: 1fr; gap: 16px; }
+  .steps--timeline::before { left: 20px; right: calc((100% - 64px) / 3 - 20px); top: 19px; }
+  .steps--timeline h3 { margin-top: 0; }
+}
+
+
+/* T6. PRECIOS — plan card (left) + one price sheet (right): monthly packs, then one-off costs ---- */
+.pricing { display: grid; gap: 12px; }
+@media (min-width: 1024px) {
+  .pricing { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: start; }
+  .plan { position: sticky; top: calc(var(--header-h) + 32px); }   /* the plan stays in view while the two price tables scroll past */
+}
+/* The plan: violet 80% with white text (9:1), faint grid in the top-right */
+.plan { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; padding: clamp(24px, 4vw, 44px); background: var(--color-brand-hover); color: var(--color-text); }
+.plan::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(color-mix(in srgb, var(--color-text) 9%, transparent) 1px, transparent 1px),
+                    linear-gradient(90deg, color-mix(in srgb, var(--color-text) 9%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px; background-position: right top;
+  -webkit-mask-image: linear-gradient(#000 0%, transparent 70%); mask-image: linear-gradient(#000 0%, transparent 70%); }
+.plan h3 { font-size: 1.375rem; margin-bottom: 20px; }
+.plan__price { display: flex; flex-wrap: wrap; align-items: baseline; margin: 0; white-space: nowrap; font-family: var(--font-data); font-weight: 600; font-size: clamp(3.25rem, 2.2rem + 3.6vw, 5rem); line-height: .95; letter-spacing: -.03em; }
+.plan__price span { font-size: .28em; font-weight: 500; letter-spacing: 0; color: var(--color-violet-soft); margin-left: .25em; }
+.plan__note { margin: 12px 0 28px; color: var(--color-violet-soft); font-size: .9375rem; }
+.checklist { list-style: none; margin: 0 0 32px; padding: 24px 0 0; border-top: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent); display: grid; gap: 12px; }
+.checklist li { display: flex; gap: 10px; align-items: flex-start; }
+.checklist .icon { font-size: 20px; margin-top: 2px; }
+.plan .btn { margin-top: auto; align-self: flex-start; }
+/* Missing data inside a sentence: same dashed lavender mark as .placeholder, but inline */
+.placeholder--inline { display: inline; margin: 0; padding: 1px 6px; max-width: none; font-size: inherit; line-height: 1.7; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+/* The price sheet: two tables in the same row style, so all the money reads as one list */
+.price-sheet { display: grid; gap: 12px; }
+.packs { padding: clamp(24px, 4vw, 40px); background: var(--color-bg); border: 1px solid var(--color-border); }
+.packs h3 { font-size: 1.375rem; margin-bottom: .35em; }
+.packs > p { color: var(--color-text-muted); margin-bottom: 20px; }
+.packs--once h3 { margin-bottom: 16px; }
+.pack-list { list-style: none; margin: 0; padding: 0; }
+.pack-list li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 24px; align-items: center; padding: 14px 0; border-top: 1px solid var(--color-border); }
+.pack-list li > strong { grid-column: 1; font-weight: 600; }
+.pack-list li > span { grid-column: 1; color: var(--color-text-muted); font-size: .9375rem; }
+/* Value column: always right-aligned (prices in Saira violet, words in plain grey-white) */
+.pack-list data, .pack-list em { grid-column: 2; grid-row: 1 / span 2; justify-self: end; text-align: right; }
+.pack-list data { font-family: var(--font-data); font-weight: 600; font-size: 1.25rem; color: var(--color-brand-text); white-space: nowrap; }
+.pack-list data small { font-size: .75em; font-weight: 400; color: var(--color-text-muted); }
+.pack-list em { font-style: normal; font-weight: 600; font-size: .9375rem; color: var(--color-neutral-20); max-width: 19ch; line-height: 1.3; }
+.pricing__more { margin: 24px 0 0; color: var(--color-text-muted); }
+
+
+/* T7. PROYECTOS — one wide featured tile: photo left (about 60%), text right ------------------- */
+.sn-case { position: relative; display: grid; overflow: hidden; background: var(--color-bg); border: 1px solid var(--color-border); transition: border-color .25s var(--ease); }
+.sn-case__media { position: relative; isolation: isolate; aspect-ratio: 4 / 3; overflow: hidden; background: var(--color-surface-2); }
+.sn-case__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; z-index: -2; transition: transform .8s var(--ease); }
+/* violet fade at the bottom of the photo (same as the home project tiles) */
+.sn-case__media::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, color-mix(in srgb, var(--color-brand-deep) 70%, transparent) 0%, transparent 55%); }
+.sn-case .case-tile__industry { opacity: 1; transform: none; }   /* always visible here (styles.css hides it until hover on the home tiles) */
+.sn-case__body { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 18px; padding: clamp(24px, 4vw, 48px); }
+.sn-case__logo { width: auto; height: 56px; }
+.sn-case h3 { margin: 0; font-size: clamp(1.375rem, 1rem + 1vw, 1.875rem); line-height: 1.25; max-width: 24ch; text-wrap: balance; }
+.sn-case h3 a { color: var(--color-text); text-decoration: none; }
+.sn-case h3 a::after { content: ""; position: absolute; inset: 0; z-index: 1; }   /* stretched link: the whole tile is clickable */
+.sn-case h3 a:focus-visible { outline: none; }
+.sn-case:focus-within { outline: 3px solid var(--color-lavender); outline-offset: 3px; }
+.sn-case .case-card__result { margin: 0; }
+.sn-case__more { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--color-brand-text); }
+.sn-case__more .icon { font-size: 20px; transition: transform .25s var(--ease); }
+.sn-case:hover, .sn-case:focus-within { border-color: var(--color-brand-text); }
+.sn-case:hover .sn-case__more { color: var(--color-lavender); }
+.sn-case:hover .sn-case__more .icon { transform: translateX(4px); }
+@media (hover: hover) { .sn-case:hover .sn-case__media img { transform: scale(1.03); } }
+@media (min-width: 1024px) {
+  .sn-case { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
+  .sn-case__media { aspect-ratio: auto; min-height: 440px; }
+}
+
+
+/* T8. PREGUNTAS — sticky heading + contact card on the left, grouped questions on the right ----
+   Phones: heading, then the questions, then the contact card (display: contents lets the three
+   pieces be ordered freely without duplicating any HTML). */
+.sn-faq { display: grid; gap: var(--space-head); }
+.sn-faq__side { display: contents; }
+.sn-faq__head { order: 1; margin-bottom: 0; }
+.sn-faq__head h2, .sn-faq__head p { text-wrap: balance; }
+.faq-groups { order: 2; }
+.sn-faq__card { order: 3; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 24px; background: var(--color-bg); border: 1px solid var(--color-border); }
+.sn-faq__mail { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--color-text); font-weight: 600; text-decoration: none; }
+.sn-faq__mail .icon { color: var(--color-brand-text); }
+.sn-faq__mail:hover { color: var(--color-lavender); }
+@media (min-width: 1024px) {
+  .sn-faq { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: start; }
+  .sn-faq__side { display: block; position: sticky; top: calc(var(--header-h) + 32px); }
+  .sn-faq__card { margin-top: 32px; max-width: 420px; }
+}
+/* Group labels: small caps in violet, like the eyebrows */
+.faq-groups__label { margin: 40px 0 4px; font-size: .875rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--color-brand-text); scroll-margin-top: calc(var(--header-h) + 24px); }
+.faq-groups__label:first-child { margin-top: 0; }
+/* The questions (overrides the simple .faq of styles.css): 18px questions.
+   The marker is the "close" icon turned 45° so it reads as "+", and it turns back into "×" when open
+   (the icon font has no "add" glyph). */
+.faq-groups .faq { max-width: none; margin: 0; border-top: 1px solid var(--color-border); }
+.faq-groups .faq details { padding: 0; border-bottom: 1px solid var(--color-border); }
+.faq-groups .faq summary { display: flex; justify-content: space-between; align-items: center; gap: 24px; min-height: 64px; padding: 16px 0; font-size: 1.125rem; line-height: 1.35; font-weight: 600; }
+.faq-groups .faq summary::after, .faq-groups .faq details[open] summary::after { content: none; }
+.faq-groups .faq summary .icon { color: var(--color-brand-text); transform: rotate(45deg); transition: transform .25s var(--ease); }
+.faq-groups .faq summary:hover { color: var(--color-lavender); }
+.faq-groups .faq details[open] summary .icon { transform: rotate(0deg); }
+.faq-groups .faq details > p { margin: 0 0 22px; padding-right: 48px; color: var(--color-neutral-20); max-width: 68ch; }
+
+/* Headings on the hub never leave one word alone on the last line */
+.sn-hero h1, #contenido .section__head h2, #contenido .section__head p, .contact h2,
+.sn-points h3, .usecase h3, .faq-groups .faq summary { text-wrap: balance; }
+
+@media (prefers-reduced-motion: reduce) {
+  .usecase, .usecase__value, .sv-body, .sv-acc, .usecase__more .icon, .sn-case, .sn-case__media img, .sn-case__more .icon, .faq-groups .faq summary .icon { transition: none; }
+  .usecase:hover .usecase__more .icon, .sn-case:hover .sn-case__more .icon, .sn-case:hover .sn-case__media img { transform: none; }
+}

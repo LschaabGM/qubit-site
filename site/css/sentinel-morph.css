@@ -1,0 +1,82 @@
+/* ==========================================================================
+   SENTINEL — MORPH LAYER (experiment, 05/11/2026)
+   The Qubit logo mixes three shapes: a CIRCLE, a SQUARE WITH SOFTENED CORNERS
+   (the rotated diamond) and a small separate DOT. This file brings that
+   square ↔ circle play to the Sentinel pages, with one simple rule:
+
+     1. BIG things stay square    → sections, grids, cards (the brand's 90° base)
+     2. SMALL things are round    → markers, step numbers, tags (the logo's dot)
+     3. FEATURED blocks get ONE   → always the TOP-RIGHT corner, like a signature
+        softened corner              (the logo's softened square)
+     4. S·E·N·T morphs            → square → softer → softer → circle
+
+   It only loads on the Sentinel pages. To switch the whole experiment OFF,
+   delete the <link ... sentinel-morph.css> line in each page's <head>.
+   NOTE (06/11/2026): rules 1–3 are now the site-wide SHAPE RULE in styles.css (Luly's decision).
+   This file keeps only the Sentinel-specific pieces. Still to validate with Qubit (brand manual).
+   ========================================================================== */
+
+:root {
+  --radius-signature: clamp(28px, 3.5vw, 48px);  /* the one softened corner on featured blocks */
+  --radius-pill: 999px;                           /* fully round ends for small pieces */
+}
+
+/* ---------- RULE 3 · Featured blocks: one softened corner (top-right) ---------- */
+.media-ph,                      /* image / screenshot blocks (application pages) */
+.screen--front,                 /* hub hero: the front Sentinel screenshot */
+.sn-showcase__shot,             /* hub "Qué es": the big pumping-station screenshot */
+.ai-block,                      /* the deep-violet AI panel */
+.plan,                          /* hub pricing: the violet "Plan Sentinel" card */
+.sn-case,                       /* hub: the featured Ferraro project tile */
+.compare__cell--after,          /* every "Con Sentinel" answer: the solution gets the soft corner */
+.person,                        /* contact card with a photo (application pages) */
+.sn-faq__card {                 /* hub FAQ: the WhatsApp + email card */
+  border-start-end-radius: var(--radius-signature);   /* = top-right in left-to-right languages */
+}
+.compare__cell--after, .person, .sn-faq__card { border-start-end-radius: calc(var(--radius-signature) * .6); }  /* smaller boxes get a proportionally smaller curve */
+
+/* Inside the image blocks, the violet corner SQUARE becomes a DOT,
+   so each placeholder reads like the logo: a soft block + a separate circle. */
+.media-ph::after {
+  width: 40px; height: 40px;
+  right: 20px; bottom: 20px;
+  border-radius: 50%;
+}
+
+/* ---------- RULE 2 · Small things are round ---------- */
+/* Eyebrow marker: the little square stays, and a dot sits up and to its right,
+   a tiny echo of the logo (square + separate circle). Drawn with two background
+   layers so it stays one element. */
+.eyebrow::before {
+  width: 17px; height: 12px;
+  background:
+    radial-gradient(circle 3px at 14px 3px, var(--color-brand-primary) 97%, transparent 100%),  /* the dot */
+    linear-gradient(var(--color-brand-primary), var(--color-brand-primary)) 0 3px / 9px 9px no-repeat; /* the square */
+  background-color: transparent;
+}
+.ai-block .eyebrow::before,
+.section--violet .eyebrow::before {   /* white version on violet backgrounds */
+  background:
+    radial-gradient(circle 3px at 14px 3px, var(--color-text) 97%, transparent 100%),
+    linear-gradient(var(--color-text), var(--color-text)) 0 3px / 9px 9px no-repeat;
+}
+
+.steps__num { border-radius: 50%; }             /* 1 · 2 · 3 become circles on the dashed line */
+.app-card .icon--big { border-radius: 50%; }     /* icon tiles in "Otras aplicaciones" */
+.person img { border-radius: 50%; }              /* contact photo */
+.sn-points__icon { border-radius: 50%; }         /* hub "Qué es": the three small icon tiles */
+.usecase__value { border-radius: 14px; }          /* hub applications: the small value callout on each drawing */
+
+/* ---------- RULE 4 · S·E·N·T: from square to circle ----------
+   S (sensors, raw data) is a hard square; T (decisions, the AI) is a circle.
+   The shape softens step by step, the same way the data becomes intelligence. */
+.sent__item:nth-child(1) .sent__letter { border-radius: 0; }
+.sent__item:nth-child(2) .sent__letter { border-radius: 16%; }
+.sent__item:nth-child(3) .sent__letter { border-radius: 32%; }
+.sent__item:nth-child(4) .sent__letter { border-radius: 50%; }
+
+/* Desktop: sentinel.css makes the four letters touch (gap: 0). With the shapes
+   morphing, a little air between them lets each shape read on its own. */
+@media (min-width: 1024px) {
+  .sent { column-gap: clamp(16px, 2vw, 28px); }
+}

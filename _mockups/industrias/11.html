@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es-AR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Industrias · Opción 11 · Diagrama de proceso + lista (mix 6 y 3)</title>
+<link rel="stylesheet" href="../../site/css/styles.css">
+<link rel="stylesheet" href="shared.css">
+<style>
+
+.pid{display:grid;gap:20px}
+@media(min-width:900px){.pid{grid-template-columns:340px 1fr;gap:32px}}
+/* Left: the list. Each industry is a node on a vertical pipe. */
+.pid__list{position:relative;display:flex;flex-direction:row;gap:8px;overflow-x:auto;padding-bottom:8px}
+@media(min-width:900px){.pid__list{flex-direction:column;gap:14px;overflow:visible;padding:0}}
+/* The pipe: dashed line that keeps moving (fluid) + a solid violet line that fills down to the active node */
+.pid__pipe,.pid__fill{display:none;position:absolute;left:27px;top:28px;width:3px}
+@media(min-width:900px){.pid__pipe,.pid__fill{display:block}}
+.pid__pipe{bottom:28px;background:repeating-linear-gradient(180deg,var(--color-border-strong) 0 8px,transparent 8px 16px);background-size:3px 16px;animation:flowdown 1s linear infinite}
+@keyframes flowdown{to{background-position-y:16px}}
+.pid__fill{height:var(--fill,0px);background:var(--color-brand-primary);box-shadow:0 0 12px rgba(135,83,255,.7);transition:height .6s var(--ease)}
+.pid__node{position:relative;z-index:1;display:flex;align-items:center;gap:16px;flex:none;text-align:left;font:600 1.0625rem var(--font);color:var(--color-text-muted);background:none;border:0;padding:0;cursor:pointer;transition:color .3s}
+.pid__node:hover{color:#fff}
+.pid__sq{display:flex;align-items:center;justify-content:center;width:56px;height:56px;flex:none;background:var(--color-surface-2);border:2px solid var(--color-border-strong);color:#fff;transition:.35s var(--ease)}
+.pid__sq .icon{font-size:28px}
+.pid__node:hover .pid__sq{border-color:var(--color-brand-primary)}
+.pid__node small{display:block;font:600 .75rem var(--font-data);letter-spacing:.14em;color:var(--color-text-muted);margin-bottom:2px}
+/* Nodes the pipe has already passed stay violet, the active one glows */
+.pid__node.is-past .pid__sq{border-color:var(--color-brand-primary)}
+.pid__node[aria-selected="true"]{color:#fff}
+.pid__node[aria-selected="true"] .pid__sq{background:var(--color-brand-primary);border-color:var(--color-lavender);box-shadow:0 0 0 6px rgba(135,83,255,.25),0 0 30px rgba(135,83,255,.5);transform:scale(1.08)}
+@media(max-width:899px){.pid__node{flex-direction:column;gap:8px;font-size:.875rem;text-align:center;width:96px;white-space:normal}.pid__node small{display:none}}
+/* Right: the big panel with photo */
+.pid__panel{position:relative;min-height:440px;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(24px,4vw,48px);border:1px solid var(--color-border);overflow:hidden;background:#1a1a1a center/cover;transition:background-image .3s}
+.pid__panel::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,8,.96) 20%,rgba(8,8,8,.4))}
+.pid__panel > *{position:relative;max-width:480px}
+.pid__tag{position:absolute!important;top:24px;left:clamp(24px,4vw,48px);max-width:none!important;font:600 .8125rem var(--font-data);letter-spacing:.14em;text-transform:uppercase;color:var(--color-lavender);display:flex;align-items:center;gap:10px}
+.pid__tag::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--color-lavender);box-shadow:0 0 8px var(--color-brand-primary);animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+.pid__prog{position:absolute!important;left:0;bottom:0;height:4px;width:100%;max-width:none!important;background:var(--color-brand-primary);box-shadow:0 0 12px rgba(135,83,255,.8);transform-origin:left;transform:scaleX(0)}
+.pid__prog.run{animation:prog var(--dur,7s) linear forwards}
+@keyframes prog{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.pid.is-paused .pid__prog{animation-play-state:paused}
+.pid__pause{position:absolute!important;top:16px;right:16px;max-width:none!important;display:flex;align-items:center;gap:6px;padding:8px 12px;font:600 .8125rem var(--font);color:#fff;background:rgba(8,8,8,.6);border:1px solid var(--color-border-strong);cursor:pointer}
+.pid__pause:hover{background:#fff;color:#080808}
+.pid__txt{animation:in .5s var(--ease)}
+@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.pid__txt h3{font-size:clamp(1.5rem,1rem+1.5vw,2.25rem);margin-bottom:.4em}
+.pid__txt p{color:var(--color-neutral-20);margin-bottom:1.5em}
+
+</style></head>
+<body>
+<a class="mock-back" href="index.html">← Todas las opciones</a>
+<main>
+<section class="section section--alt" id="industrias" aria-labelledby="industrias-titulo">
+  <div class="container">
+    <span class="mock-tag">Opción 11 · Diagrama de proceso + lista (mix 6 y 3)</span>
+    <div class="section__head">
+      <span class="eyebrow">Industrias</span>
+      <h2 id="industrias-titulo">Experiencia en los procesos de cada industria</h2>
+      <p>Cada industria tiene sus propias normas, tiempos de parada y riesgos. Mirá cómo trabajamos en la tuya.</p>
+    </div>
+<div class="pid"><div class="pid__list" role="tablist" aria-label="Industrias" aria-orientation="vertical"><span class="pid__pipe"></span><span class="pid__fill"></span><button class="pid__node" role="tab" id="n0" aria-selected="true" tabindex="0"><span class="pid__sq"><span class="icon " aria-hidden="true">precision_manufacturing</span></span><span><small>NODO 01</small>Manufactura</span></button><button class="pid__node" role="tab" id="n1" aria-selected="false" tabindex="-1"><span class="pid__sq"><span class="icon " aria-hidden="true">restaurant</span></span><span><small>NODO 02</small>Alimentos y Bebidas</span></button><button class="pid__node" role="tab" id="n2" aria-selected="false" tabindex="-1"><span class="pid__sq"><span class="icon " aria-hidden="true">bolt</span></span><span><small>NODO 03</small>Energía</span></button><button class="pid__node" role="tab" id="n3" aria-selected="false" tabindex="-1"><span class="pid__sq"><span class="icon " aria-hidden="true">landscape</span></span><span><small>NODO 04</small>Minería</span></button><button class="pid__node" role="tab" id="n4" aria-selected="false" tabindex="-1"><span class="pid__sq"><span class="icon " aria-hidden="true">directions_car</span></span><span><small>NODO 05</small>Industria Automotriz</span></button><button class="pid__node" role="tab" id="n5" aria-selected="false" tabindex="-1"><span class="pid__sq"><span class="icon " aria-hidden="true">science</span></span><span><small>NODO 06</small>Química y petroquímica</span></button><button class="pid__node" role="tab" id="n6" aria-selected="false" tabindex="-1"><span class="pid__sq"><span class="icon " aria-hidden="true">medication</span></span><span><small>NODO 07</small>Farmacéutica</span></button><button class="pid__node" role="tab" id="n7" aria-selected="false" tabindex="-1"><span class="pid__sq"><span class="icon " aria-hidden="true">oil_barrel</span></span><span><small>NODO 08</small>Petróleo y gas</span></button></div>
+<div class="pid__panel" role="tabpanel" id="pp" aria-live="polite"><span class="pid__tag" id="ptag"></span><button class="pid__pause" type="button" id="pz" aria-label="Pausar rotación automática"><span class="icon icon--sm" aria-hidden="true">pause</span><span id="pzt">Pausar</span></button><span class="pid__prog" id="pg"></span><div class="pid__txt" id="ptxt"><h3 id="pt"></h3><p id="pd"></p><a class="btn btn--primary" href="../../site/proyectos/index.html">Ver proyectos de <span id="pl"></span> <span class="icon " aria-hidden="true">arrow_forward</span></a></div></div></div>
+<p class="mock-note">Mezcla de la 6 y la 3: la lista vertical es una tubería con nodos. Al elegir una industria la tubería se “llena” de violeta hasta ese nodo y el panel grande cambia foto y texto. Flechas arriba/abajo del teclado también funcionan. En celular los nodos pasan a una fila deslizable. Pasa sola a la siguiente industria cada 7 segundos (barra violeta abajo); se frena al pasar el mouse, al usar el teclado o con el botón Pausar.</p>
+    <div class="section__cta section__cta--stack">
+      <p>¿No ves tu industria? Igual podemos ayudarte.</p>
+      <a class="btn btn--primary" href="#contacto">Contanos tu proceso <span class="icon" aria-hidden="true">arrow_forward</span></a>
+    </div>
+  </div>
+</section>
+</main>
+<script>
+var D=[{"n": "Manufactura", "d": "Optimizá la producción y reducí costos operativos con nuestras soluciones de automatización eficientes y confiables.", "i": "../../site/img/industria-manufactura-1100.webp"}, {"n": "Alimentos y Bebidas", "d": "Garantizá la calidad y trazabilidad de tus productos con nuestros procesos automatizados y sistemas de control.", "i": "../../site/img/frame-285-800.webp"}, {"n": "Energía", "d": "Mejorá la eficiencia energética y gestioná tu infraestructura crítica con soluciones robustas de control y gestión.", "i": "../../site/img/gabinete-exterior-planta.webp"}, {"n": "Minería", "d": "Automatizá procesos, monitoreá las condiciones de operación y garantizá una extracción de minerales segura y eficiente en entornos extremos.", "i": "../../site/img/planta-evaporador-hero-800.webp"}, {"n": "Industria Automotriz", "d": "Alcanzá precisión y eficiencia en la producción en masa y el control de calidad del ensamblaje con nuestras soluciones de automatización de vanguardia.", "i": "../../site/img/panel-tableros-tecnicos.webp"}, {"n": "Química y petroquímica", "d": "Garantizá la seguridad, precisión y eficiencia en el manejo, procesamiento y control de calidad de productos químicos.", "i": "../../site/img/frame-288-800.webp"}, {"n": "Farmacéutica", "d": "Mantené los más altos estándares de precisión y seguridad en la producción, empaquetado y control de calidad de productos farmacéuticos.", "i": "../../site/img/industria-farmaceutica-1100.webp"}, {"n": "Petróleo y gas", "d": "Optimizá la exploración, producción y distribución de petróleo y gas con soluciones innovadoras de automatización y control.", "i": "../../site/img/tecnicos-revision-tablero.webp"}];
+var nd=document.querySelectorAll('.pid__node'),list=document.querySelector('.pid__list'),panel=document.getElementById('pp');
+function sel(i,focus){
+  nd.forEach(function(x,k){x.setAttribute('aria-selected',k===i);x.tabIndex=k===i?0:-1;x.classList.toggle('is-past',k<i);});
+  // Fill the pipe from the first node down to the middle of the active one
+  list.style.setProperty('--fill',(nd[i].offsetTop+28-28)+'px');
+  var t=document.getElementById('ptxt');t.style.animation='none';t.offsetWidth;t.style.animation='';
+  document.getElementById('pt').textContent=D[i].n;document.getElementById('pd').textContent=D[i].d;document.getElementById('pl').textContent=D[i].n;
+  document.getElementById('ptag').textContent='Nodo '+String(i+1).padStart(2,'0')+' / '+String(D.length).padStart(2,'0');
+  panel.style.backgroundImage="url('"+D[i].i+"')";
+  if(focus)nd[i].focus();
+}
+nd.forEach(function(n,i){n.addEventListener('click',function(){sel(i);});
+n.addEventListener('keydown',function(e){if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();sel((i+1)%nd.length,true);}if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();sel((i-1+nd.length)%nd.length,true);}});});
+
+// ---- Autoplay: advances every DUR ms. Pauses on hover/focus, when off-screen, with the Pause button, and never runs if the visitor prefers reduced motion.
+var DUR=7000,cur=0,timer=null,userPaused=false,hover=false,focused=false,visible=true,
+    reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,
+    wrap=document.querySelector('.pid'),pg=document.getElementById('pg'),pz=document.getElementById('pz');
+pg.style.setProperty('--dur',DUR+'ms');
+function playing(){return !reduce&&!userPaused&&!hover&&!focused&&visible;}
+function schedule(){
+  clearTimeout(timer);
+  pg.classList.remove('run');pg.offsetWidth;            // restart the bar from zero
+  wrap.classList.toggle('is-paused',!playing());
+  if(!playing())return;
+  pg.classList.add('run');
+  timer=setTimeout(function(){sel((cur+1)%nd.length);},DUR);
+}
+var baseSel=sel;
+sel=function(i,focus){cur=i;baseSel(i,focus);schedule();};
+wrap.addEventListener('mouseenter',function(){hover=true;schedule();});
+wrap.addEventListener('mouseleave',function(){hover=false;schedule();});
+wrap.addEventListener('focusin',function(){focused=true;schedule();});
+wrap.addEventListener('focusout',function(){focused=false;schedule();});
+new IntersectionObserver(function(e){visible=e[0].isIntersecting;schedule();},{threshold:.3}).observe(wrap);
+pz.addEventListener('click',function(){userPaused=!userPaused;
+  pz.querySelector('.icon').textContent=userPaused?'play_arrow':'pause';
+  document.getElementById('pzt').textContent=userPaused?'Reanudar':'Pausar';
+  pz.setAttribute('aria-label',userPaused?'Reanudar rotación automática':'Pausar rotación automática');schedule();});
+if(reduce)pz.style.display='none';
+sel(0);
+
+</script>
+</body></html>

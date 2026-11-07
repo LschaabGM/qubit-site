@@ -1,0 +1,12 @@
+<!doctype html><meta charset=utf-8><pre id=out>pending</pre><script>
+const files=["aws.png", "dopsoft.svg", "frame-121.png", "frame-123.png", "frame-124.png", "frame-125.png", "frame-127.png", "frame-130-1.png", "frame-131.png", "frame-163.png", "frame-174.png", "frame-177-1.png", "frame-179-1.png", "frame-180-1.png", "frame-304.svg", "g20.svg", "group-10.png", "html.png", "ispsoft.svg", "javascript.png", "landes-blanco.png", "lappkabel-vector-logo.png", "logo-biomas-retina-light-1.svg", "logo-campari.png", "logo-siemens-1.webp", "logo-siemens.webp", "logo-tuteur-blanco-2.png", "marlew-vector-logo-2.png", "profibus-vector-logo.png", "profinet-vector-logo.png", "schneider-electric.png", "siemens-s7-vector-logo.png", "siemens-sinamics-vector-logo.png", "siemens-sirius-vector-logo.png", "teltonika.webp", "vetanco.png", "zoloda-vector-logo.png"];const res={};
+Promise.all(files.map(f=>new Promise(ok=>{const i=new Image();i.onload=()=>{
+ const W=i.naturalWidth||400,H=i.naturalHeight||160,sc=Math.max(1,Math.round(400/W));const w=W*sc,h=H*sc;
+ const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');x.drawImage(i,0,0,w,h);const d=x.getImageData(0,0,w,h).data;
+ let t=h,b=-1,l=w,r=-1,n=0,sum=0,tot=0,opq=0;
+ for(let y=0;y<h;y++)for(let xx=0;xx<w;xx++){const k=(y*w+xx)*4,a=d[k+3];tot++;if(a>250)opq++;
+  const lum=0.2126*d[k]+0.7152*d[k+1]+0.0722*d[k+2];
+  if(a>40&&(d[k]+d[k+1]+d[k+2])>90){if(y<t)t=y;if(y>b)b=y;if(xx<l)l=xx;if(xx>r)r=xx;n++;sum+=lum;}}
+ res[f]={W,H,vis_w:Math.round((r-l+1)/sc),vis_h:Math.round((b-t+1)/sc),lum:n?Math.round(sum/n):0,opaque_pct:Math.round(opq/tot*100),svg:/\.svg$/.test(f)};ok();};
+ i.onerror=()=>{res[f]='error';ok()};i.src='/site/img/'+f;})))
+.then(()=>{document.getElementById('out').textContent=JSON.stringify(res)});</script>

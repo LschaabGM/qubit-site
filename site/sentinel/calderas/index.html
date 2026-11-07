@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sentinel para calderas: monitoreo y control remoto | Qubit</title>
+  <meta name="description" content="Monitoreo y control remoto de calderas industriales en tiempo real: presión, temperatura, nivel y conductividad, control de purga e IA que anticipa el mantenimiento.">
+  <link rel="canonical" href="https://qubit.la/sentinel/calderas/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Qubit">
+  <meta property="og:title" content="Sentinel para calderas: monitoreo y control remoto | Qubit">
+  <meta property="og:description" content="Monitoreo y control remoto de calderas industriales en tiempo real: presión, temperatura, nivel y conductividad, control de purga e IA que anticipa el mantenimiento.">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:image" content="https://qubit.la/img/og-qubit.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#080808">
+  <link rel="icon" href="../../img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../fonts/work-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../fonts/audiowide.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../fonts/material-symbols.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../css/styles.css">
+  <!-- Sentinel-only components (comparison rows, S·E·N·T, application rows...). Shared by every Sentinel page. -->
+  <link rel="stylesheet" href="../../css/sentinel.css">
+  <link rel="stylesheet" href="../../css/sentinel-morph.css"> <!-- experiment: square/circle play from the logo. Delete this line to switch it off -->
+</head>
+<body id="inicio">
+    <a class="skip-link" href="#contenido">Ir al contenido</a>
+<header class="site-header">
+  <div class="container site-header__bar">
+    <a class="brand" href="../../index.html" aria-label="Qubit, ir al inicio"><img src="../../img/logo-qubit.svg" alt="Qubit" width="437" height="120"></a>
+
+    <nav class="nav-desktop" aria-label="Principal">
+      <ul class="nav-list">
+<li><a href="../../index.html#industrias">Industrias</a></li>
+<li><a href="../../index.html#soluciones">Soluciones</a></li>
+<li><a href="../../proyectos/index.html">Proyectos</a></li>
+<li><a href="../../nosotros/index.html">Nosotros</a></li>
+<li><a href="../../noticias/index.html">Blog</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <!-- Header: language switch (placeholder). ES is the current language; EN is disabled until the English version exists.
+           When it does: turn the EN button into a link to the English page and set aria-current on the active one. -->
+      <div class="lang-switch" role="group" aria-label="Idioma"><button type="button" class="lang-switch__opt" lang="es" aria-pressed="true">ES</button><button type="button" class="lang-switch__opt" lang="en" aria-pressed="false" disabled title="Próximamente">EN<span class="sr-only"> (próximamente)</span></button></div>
+      <a class="btn btn--primary btn--small site-header__contact" href="../../index.html#contacto">Contacto</a>
+
+      <!-- Mobile menu: <details> opens/closes with no JavaScript -->
+      <details class="mobile-menu">
+        <summary><span class="sr-only">Menú</span><span class="icon icon--menu" aria-hidden="true">menu</span><span class="icon icon--close" aria-hidden="true">close</span></summary>
+        <div class="mobile-menu__panel">
+          <nav aria-label="Principal">
+            <ul>
+<li><a href="../../index.html#industrias">Industrias</a></li>
+<li><a href="../../index.html#soluciones">Soluciones</a></li>
+<li><a href="../../proyectos/index.html">Proyectos</a></li>
+<li><a href="../../nosotros/index.html">Nosotros</a></li>
+<li><a href="../../noticias/index.html">Blog</a></li>
+            </ul>
+          </nav>
+          <a class="btn btn--primary" href="../../index.html#contacto">Contacto</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+
+  <main id="contenido" tabindex="-1">
+
+    <!-- TEMPLATE for every Sentinel application page (calderas, torres-de-enfriamiento, bombas, tanques, osmosis-inversa, energia).
+         Copy source: "Brochure SCADA para Calderas Qubit.pptx" (slides 1–9). Same section order as the brochure.
+         To build another application: duplicate this folder, swap the copy, the icons and the "Otras aplicaciones" cards. -->
+
+    <!-- 1. BREADCRUMB: Sentinel › Calderas -->
+    <nav class="breadcrumb breadcrumb--chevron container" aria-label="Ruta de navegación">
+      <ol>
+        <li><a href="../index.html">Sentinel</a></li>
+        <li><span aria-current="page">Calderas</span></li>
+      </ol>
+    </nav>
+
+    <!-- 2. HERO — text left, equipment image right (slide 1) -->
+    <section class="page-hero s-hero s-hero--app" aria-labelledby="calderas-titulo">
+      <div class="container s-hero__grid">
+        <div>
+          <span class="eyebrow">Sentinel</span>
+          <h1 id="calderas-titulo">Sentinel para calderas</h1>
+          <p class="s-hero__tagline">Monitoreo y control remoto de calderas industriales en tiempo real.</p>
+          <p>Sentinel se integra a la caldera y a los instrumentos ya instalados, sin modificar la sala ni el proceso.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="#contacto">Pedí tu relevamiento técnico <span class="icon" aria-hidden="true">arrow_forward</span></a>
+          </div>
+          <p class="placeholder placeholder--left">Botón secundario «Descargá el brochure (PDF)»: falta exportar el PDF del brochure de calderas.</p>
+        </div>
+        <div class="media-ph" role="img" aria-label="Espacio reservado para una foto de la sala de calderas">
+          <span class="icon" aria-hidden="true">local_fire_department</span>
+          <span class="media-ph__label">PLACEHOLDER: foto/captura</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. CHALLENGES -> SOLUTION — comparison rows (slide 2) -->
+    <section class="section" aria-labelledby="desafios-titulo">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">El problema</span>
+          <h2 id="desafios-titulo">Los desafíos de la sala de calderas</h2>
+          <p>Cada desafío operativo, resuelto por una función concreta de Sentinel.</p>
+        </div>
+        <div class="compare__head" aria-hidden="true"><span>Sin Sentinel</span><span>Con Sentinel</span></div>
+        <ul class="compare">
+          <li class="compare__row">
+            <div class="compare__cell compare__cell--before"><span class="compare__tag">Sin Sentinel</span><h3>Estado real, desconocido</h3><p>La incrustación y el desgaste avanzan sin que nadie lo note, hasta que la caldera ya opera fuera de rango.</p></div>
+            <div class="compare__arrow" aria-hidden="true"><span class="icon">arrow_forward</span></div>
+            <div class="compare__cell compare__cell--after"><span class="compare__tag">Con Sentinel</span><h3>Supervisión permanente</h3><p>Cada variable crítica de la caldera, controlada de forma continua, las 24 horas.</p></div>
+          </li>
+          <li class="compare__row">
+            <div class="compare__cell compare__cell--before"><span class="compare__tag">Sin Sentinel</span><h3>Mantenimiento sin criterio objetivo</h3><p>El desvío se conoce recién cuando la caldera ya operó fuera de rango.</p></div>
+            <div class="compare__arrow" aria-hidden="true"><span class="icon">arrow_forward</span></div>
+            <div class="compare__cell compare__cell--after"><span class="compare__tag">Con Sentinel</span><h3>IA que anticipa el mantenimiento</h3><p>Los modelos de IA analizan la tendencia de las variables y avisan cuándo conviene intervenir, antes de que haya una falla.</p></div>
+          </li>
+          <li class="compare__row">
+            <div class="compare__cell compare__cell--before"><span class="compare__tag">Sin Sentinel</span><h3>Intervención tardía</h3><p>Se actúa cuando la detención o el daño al equipo ya se produjeron.</p></div>
+            <div class="compare__arrow" aria-hidden="true"><span class="icon">arrow_forward</span></div>
+            <div class="compare__cell compare__cell--after"><span class="compare__tag">Con Sentinel</span><h3>Aviso anticipado</h3><p>Notificación automática por correo o SMS ante cualquier desvío.</p></div>
+          </li>
+          <li class="compare__row">
+            <div class="compare__cell compare__cell--before"><span class="compare__tag">Sin Sentinel</span><h3>Control por recorrida</h3><p>El estado de la caldera depende de que alguien lo verifique constantemente.</p></div>
+            <div class="compare__arrow" aria-hidden="true"><span class="icon">arrow_forward</span></div>
+            <div class="compare__cell compare__cell--after"><span class="compare__tag">Con Sentinel</span><h3>Operación remota</h3><p>Consulta y comando de la sala de calderas desde cualquier dispositivo.</p></div>
+          </li>
+          <li class="compare__row">
+            <div class="compare__cell compare__cell--before"><span class="compare__tag">Sin Sentinel</span><h3>Sin registro para auditar</h3><p>No queda historial que respalde cómo operó la caldera.</p></div>
+            <div class="compare__arrow" aria-hidden="true"><span class="icon">arrow_forward</span></div>
+            <div class="compare__cell compare__cell--after"><span class="compare__tag">Con Sentinel</span><h3>Historial y reportes</h3><p>Registro de variables, alarmas y maniobras, con reportes automáticos.</p></div>
+          </li>
+        </ul>
+        <p class="compare-note">La solución se integra a la caldera y a los instrumentos ya instalados, sin modificar la sala ni el proceso.</p>
+      </div>
+    </section>
+
+    <!-- 4. COST OF NOT MEASURING — violet, 4 giant numbers (slide 4) -->
+    <section class="section section--violet" aria-labelledby="costo-titulo">
+      <div class="container cost">
+        <div class="section__head">
+            <span class="eyebrow">Referencias de eficiencia</span>
+            <h2 id="costo-titulo">Cuánto cuesta no medir</h2>
+            <p>Referencias de eficiencia en calderas industriales.</p>
+          </div>
+        <ul class="cost__list">
+          <li><strong>2%</strong>de combustible extra por cada milímetro de sarro común. Hasta 7% con depósitos de hierro y sílice.</li>
+          <li><strong>8–10%</strong>del agua de alimentación se pierde en la purga.</li>
+          <li><strong>10%</strong>del tiempo se acierta la purga manual con el rango correcto de conductividad. El resto opera fuera de consigna y genera pérdidas.</li>
+          <li><strong>1%</strong>de eficiencia ganada por cada 22&nbsp;°C que baja la temperatura de los gases de chimenea.</li>
+        </ul>
+        <p class="cost__source">Fuente: Departamento de Energía de EE.UU. Valores estándar para la industria.</p>
+      </div>
+    </section>
+
+    <!-- 5. FROM CORRECTIVE TO PREDICTIVE — split list: sticky heading left, 4 items right (slide 5) -->
+    <section class="section" aria-labelledby="predictivo-titulo">
+      <div class="container split-list">
+        <div class="section__head">
+          <h2 id="predictivo-titulo">Del mantenimiento correctivo al predictivo</h2>
+          <p>La intervención se define por el dato, y no por el calendario ni por la falla ya ocurrida.</p>
+        </div>
+        <ul class="split-list__items">
+          <li><span class="icon" aria-hidden="true">query_stats</span><h3>De calendario a condición real</h3><p>El mantenimiento deja de programarse por fecha fija y pasa a definirse según el dato: se interviene en el momento preciso en que la condición del equipo lo requiere.</p></li>
+          <li><span class="icon" aria-hidden="true">water_drop</span><h3>Menos limpiezas mecánicas</h3><p>El control de la calidad del agua y de la purga extiende el intervalo entre limpiezas mecánicas de los tubos, y reduce la frecuencia de detenciones de planta y las horas de mano de obra asociadas.</p></li>
+          <li><span class="icon" aria-hidden="true">troubleshoot</span><h3>El desvío se detecta en minutos</h3><p>Una válvula de purga trabada se identifica al instante en la tendencia, antes de que derive en nivel bajo, sobrecalentamiento o fisura de tubo.</p></li>
+          <li><span class="icon" aria-hidden="true">history</span><h3>Menos horas de control manual</h3><p>Las lecturas de conductividad, las purgas y los ajustes de dosificación dejan de requerir intervención manual del operario en cada turno.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. S·E·N·T ADAPTED TO BOILERS — four violet squares (slide 6) -->
+    <section class="section section--alt" aria-labelledby="sent-titulo">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Cómo funciona</span>
+          <h2 id="sent-titulo">SENTinel: la solución para tu planta</h2>
+        </div>
+        <ol class="sent">
+          <li class="sent__item"><span class="sent__letter" aria-hidden="true">S</span><div class="sent__body"><h3>Sensorización</h3><p>Sensores que miden lo que necesitás: temperatura, presión, nivel y conductividad del agua.</p></div></li>
+          <li class="sent__item"><span class="sent__letter" aria-hidden="true">E</span><div class="sent__body"><h3>Edge</h3><p>Un controlador en la sala procesa los datos al instante y acciona la purga.</p></div></li>
+          <li class="sent__item"><span class="sent__letter" aria-hidden="true">N</span><div class="sent__body"><h3>Nube</h3><p>La plataforma reúne toda la información y la presenta en una sola pantalla.</p></div></li>
+          <li class="sent__item"><span class="sent__letter" aria-hidden="true">T</span><div class="sent__body"><h3>Toma de decisiones</h3><p>La IA analiza el historial, anticipa fallas y sugiere cuándo intervenir.</p></div></li>
+        </ol>
+        <p class="compare-note">Las cuatro capas trabajan integradas sobre la caldera y los instrumentos que ya están en planta.</p>
+      </div>
+    </section>
+
+    <!-- 7. ONE SCREEN — big screenshot + text + 3 bullets (slide 7) -->
+    <section class="section" aria-labelledby="pantalla-titulo">
+      <div class="container showcase">
+        <figure>
+          <div class="media-ph media-ph--wide" role="img" aria-label="Espacio reservado para la captura de la plataforma Sentinel con temperatura, presión y nivel">
+            <span class="icon" aria-hidden="true">monitoring</span>
+            <span class="media-ph__label">PLACEHOLDER: captura de la demo</span>
+          </div>
+          <figcaption>Vista de temperatura, presión y nivel en la plataforma Sentinel.</figcaption>
+        </figure>
+        <div class="showcase__text">
+          <div class="section__head">
+            <h2 id="pantalla-titulo">Toda la operación, en una sola pantalla</h2>
+            <p>Temperatura, presión, nivel y conductividad se presentan en una única vista, con el esquema real de la sala de calderas. Desde la misma pantalla se opera el arranque, la detención y los ajustes de parámetros.</p>
+          </div>
+          <ul class="check-list">
+            <li><span class="icon" aria-hidden="true">check</span>Estado de la caldera en tiempo real</li>
+            <li><span class="icon" aria-hidden="true">check</span>Aviso automático ante cualquier desvío</li>
+            <li><span class="icon" aria-hidden="true">check</span>Comando y ajuste a distancia</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. BENEFITS — 4×2 grid (slide 3) -->
+    <section class="section section--alt" aria-labelledby="beneficios-titulo">
+      <div class="container">
+        <div class="section__head">
+          <h2 id="beneficios-titulo">Beneficios para la operación</h2>
+        </div>
+        <ul class="benefits">
+          <li><span class="icon" aria-hidden="true">bolt</span><h3>Continuidad operativa</h3><p>El sistema anticipa las condiciones que obligan a detener la caldera.</p></li>
+          <li><span class="icon" aria-hidden="true">admin_panel_settings</span><h3>Seguridad de la instalación</h3><p>Variables como presión y temperatura vigiladas antes de llegar a una condición riesgosa.</p></li>
+          <li><span class="icon" aria-hidden="true">psychology</span><h3>IA para la predicción de fallas</h3><p>La IA analiza la salud del equipo y avisa cuándo es necesario realizar un mantenimiento preventivo.</p></li>
+          <li><span class="icon" aria-hidden="true">devices</span><h3>Operación remota</h3><p>Monitoreo y control desde tu computadora, tablet o teléfono.</p></li>
+          <li><span class="icon" aria-hidden="true">local_fire_department</span><h3>Eficiencia de combustible</h3><p>El control de purga previene la incrustación, la causa principal del aumento de consumo de combustible.</p></li>
+          <li><span class="icon" aria-hidden="true">history</span><h3>Trazabilidad</h3><p>Variables, alarmas y maniobras quedan registradas y consultables para auditoría.</p></li>
+          <li><span class="icon" aria-hidden="true">settings_remote</span><h3>Menos traslados, más seguridad</h3><p>Solo se accede a la sala de calderas para realizar un mantenimiento programado.</p></li>
+          <li><span class="icon" aria-hidden="true">insights</span><h3>Decisiones con información</h3><p>Reportes que permiten planificar el mantenimiento con anticipación.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 9. WHERE IT APPLIES — detailed chips, 6 industries with one phrase each (slide 8) -->
+    <section class="section" aria-labelledby="industrias-titulo">
+      <div class="container">
+        <div class="section__head">
+          <h2 id="industrias-titulo">Dónde se aplica</h2>
+          <p>Cualquier instalación donde una caldera sostenga la producción o el servicio.</p>
+        </div>
+        <ul class="chips chips--detail">
+          <li><strong>Industria alimenticia</strong><span>Cocción, pasteurización y limpieza con vapor.</span></li>
+          <li><strong>Farmacéutica y laboratorios</strong><span>Esterilización y procesos que exigen vapor de calidad controlada.</span></li>
+          <li><strong>Textil y lavaderos</strong><span>Teñido, secado y lavado industrial.</span></li>
+          <li><strong>Frigoríficos y lácteos</strong><span>Higienización, agua caliente y procesos térmicos.</span></li>
+          <li><strong>Química y petroquímica</strong><span>Calentamiento de procesos y generación de vapor de planta.</span></li>
+          <li><strong>Hospitales y hotelería</strong><span>Agua caliente sanitaria, lavandería y esterilización.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 10. IMPLEMENTATION — 3 numbered steps (slide 9) -->
+    <section class="section section--alt" aria-labelledby="implementacion-titulo">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Implementación</span>
+          <h2 id="implementacion-titulo">Un proceso claro, en tres etapas</h2>
+        </div>
+        <ol class="steps">
+          <li><span class="steps__num" aria-hidden="true">1</span><div><h3>Relevamiento técnico</h3><p>Visita a la sala de calderas para conocer los instrumentos y las necesidades de operación.</p></div></li>
+          <li><span class="steps__num" aria-hidden="true">2</span><div><h3>Propuesta y cotización</h3><p>Alcance y presupuesto detallado.</p></div></li>
+          <li><span class="steps__num" aria-hidden="true">3</span><div><h3>Instalación y puesta en marcha</h3><p>Montaje, configuración de la plataforma y capacitación del personal de planta.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 11. OTHER APPLICATIONS — the other applications (Guido's list and slugs) as small cards + link to pricing + back to the hub -->
+    <section class="section" aria-labelledby="otras-titulo">
+      <div class="container">
+        <div class="section__head">
+          <h2 id="otras-titulo">Otras aplicaciones de Sentinel</h2>
+        </div>
+        <!-- Same applications and slugs as the Sentinel hub (Guido's list). Card copy = Guido's card text. -->
+        <ul class="app-cards">
+          <li class="app-card">
+            <span class="icon icon--big" aria-hidden="true">mode_fan</span>
+            <h3><a href="../torres-de-enfriamiento/index.html">Torres de enfriamiento</a></h3>
+            <p>Temperaturas de entrada y salida, ventiladores y bombas, para cuidar el rendimiento y el consumo.</p>
+            <span class="app-card__cta" aria-hidden="true">Ver aplicación <span class="icon">arrow_forward</span></span>
+          </li>
+          <li class="app-card">
+            <span class="icon icon--big" aria-hidden="true">water_pump</span>
+            <h3><a href="../bombas/index.html">Bombas y estaciones de bombeo</a></h3>
+            <p>Estado, horas de uso y alternancia de cada bomba. Arrancalas o detenelas desde el teléfono.</p>
+            <span class="app-card__cta" aria-hidden="true">Ver aplicación <span class="icon">arrow_forward</span></span>
+          </li>
+          <li class="app-card">
+            <span class="icon icon--big" aria-hidden="true">oil_barrel</span>
+            <h3><a href="../tanques/index.html">Tanques</a></h3>
+            <p>Nivel en tiempo real, aviso antes de que se desborde o se vacíe, e historial de consumo.</p>
+            <span class="app-card__cta" aria-hidden="true">Ver aplicación <span class="icon">arrow_forward</span></span>
+          </li>
+          <li class="app-card">
+            <span class="icon icon--big" aria-hidden="true">filter_alt</span>
+            <h3><a href="../osmosis-inversa/index.html">Ósmosis inversa</a></h3>
+            <p>Presiones, caudales y conductividad, para saber cuándo limpiar o cambiar las membranas.</p>
+            <span class="app-card__cta" aria-hidden="true">Ver aplicación <span class="icon">arrow_forward</span></span>
+          </li>
+          <li class="app-card">
+            <span class="icon icon--big" aria-hidden="true">bolt</span>
+            <h3><a href="../energia/index.html">Energía eléctrica</a></h3>
+            <p>Tensión, corriente y consumo por circuito, con aviso ante sobretensiones o picos de carga.</p>
+            <span class="app-card__cta" aria-hidden="true">Ver aplicación <span class="icon">arrow_forward</span></span>
+          </li>
+          <li class="app-card">
+            <span class="icon icon--big" aria-hidden="true">factory</span>
+            <h3><a href="#contacto">Plantas completas</a></h3>
+            <p>¿Tu proceso no está en la lista? Sentinel se adapta a cualquier tipo de planta: integramos todas las áreas y equipos en un mismo sinóptico.</p>
+            <span class="app-card__cta" aria-hidden="true">Contanos cómo es tu planta <span class="icon">arrow_forward</span></span>
+          </li>
+        </ul>
+        <div class="link-row">
+          <a class="link-cta" href="../index.html#precios">Ver precios de Sentinel <span class="icon" aria-hidden="true">arrow_forward</span></a>
+          <a class="link-cta link-cta--back" href="../index.html"><span class="icon" aria-hidden="true">arrow_back</span> Ver todo Sentinel</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT — violet block, like the back cover of the brochure. Same Salesforce form as the rest of the site. -->
+<section class="section section--violet" id="contacto" aria-labelledby="contacto-titulo">
+  <div class="container contact">
+    <div>
+      <span class="eyebrow">Contacto</span>
+      <h2 id="contacto-titulo">Pedí tu relevamiento técnico</h2>
+      <p class="lead">Contanos qué equipos querés monitorear. <strong class="contact__promise">Te respondemos dentro de 1 día hábil.</strong></p>
+      <div class="person">
+        <img src="../../img/guido-fada-edit.webp" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <div><strong>Guido Fada</strong><span>Comercial · Automatización Industrial &amp; IoT</span></div>
+      </div>
+      <dl class="contact-info">
+        <div><dt><span class="icon" aria-hidden="true">mail</span>Email</dt><dd><a href="mailto:info@qubit.la">info@qubit.la</a></dd></div>
+        <div><dt><span class="icon" aria-hidden="true">call</span>Teléfono</dt><dd><a href="tel:+541122755716">+54 11 2275-5716</a></dd></div>
+        <div><dt><span class="icon" aria-hidden="true">location_on</span>Oficina</dt><dd><a href="https://maps.app.goo.gl/x2JC9hFkx9YQkM2o8" target="_blank" rel="noopener">Burela 1984, Villa Urquiza, CABA<span class="sr-only"> (se abre en una pestaña nueva)</span></a></dd></div>
+      </dl>
+    </div>
+
+    <!-- The form posts straight to Salesforce, exactly like the old site.
+         Field names (first_name, last_name, company, email, phone, 00N0a00000DTK6x) must not change. -->
+    <form class="form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dj0000000IZFq" method="POST">
+      <input type="hidden" name="oid" value="00Dj0000000IZFq">
+      <input type="hidden" name="retURL" value="https://qubit.la/gracias/">
+      <input type="hidden" name="lead_source" value="Qubit">
+      <input type="hidden" name="captcha_settings" value='{"keyname":"Qubit","fallback":"true","orgId":"00Dj0000000IZFq","ts":""}'>
+
+      <div class="form__row">
+        <div class="field">
+          <label for="first_name">Nombre</label>
+          <input id="first_name" name="first_name" type="text" maxlength="40" autocomplete="given-name" required>
+        </div>
+        <div class="field">
+          <label for="last_name">Apellido</label>
+          <input id="last_name" name="last_name" type="text" maxlength="80" autocomplete="family-name" required>
+        </div>
+      </div>
+      <div class="form__row">
+        <div class="field">
+          <label for="company">Empresa</label>
+          <input id="company" name="company" type="text" maxlength="40" autocomplete="organization" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" maxlength="80" autocomplete="email" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="phone">Teléfono <span class="optional">(opcional)</span></label>
+        <input id="phone" name="phone" type="tel" inputmode="tel" maxlength="40" autocomplete="tel">
+      </div>
+      <div class="field">
+        <label for="00N0a00000DTK6x">Contanos brevemente qué necesitás</label>
+        <textarea id="00N0a00000DTK6x" name="00N0a00000DTK6x" rows="5" required></textarea>
+      </div>
+      <!-- TODO (MEJ-03): add the "tipo de consulta" dropdown once the Salesforce admin creates that field -->
+      <!-- Consent checkbox (Ley 25.326, art. 5: "libre, expreso e informado"). It has no name on purpose:
+           the browser blocks sending until it is ticked, but Salesforce does not receive it. -->
+      <div class="field field--check">
+        <input id="consent" type="checkbox" required>
+        <label for="consent">Leí y acepto la <a href="../../politica-de-privacidad/index.html">Política de privacidad</a>.</label>
+      </div>
+      <button class="btn btn--primary" type="submit">Enviar consulta</button>
+    </form>
+
+  </div>
+</section>
+
+
+  </main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <img class="footer-logo" src="../../img/logo-qubit.svg" alt="Qubit" width="437" height="120" loading="lazy">
+        <p>Automatización industrial para procesos eficientes, controlados y seguros.</p>
+      </div>
+      <nav aria-label="Soluciones">
+        <h2>Soluciones</h2>
+        <ul>
+          <li><a href="../../index.html#soluciones">Llave en mano</a></li>
+          <li><a href="../../index.html#soluciones">Soporte OEM</a></li>
+          <li><a href="../../index.html#soluciones">Asistencia técnica</a></li>
+          <li><a href="../../index.html#industrias">Industrias</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Proyectos por industria">
+        <h2>Proyectos por industria</h2>
+        <ul>
+<li><a href="../../proyectos/industria/farmaceutica/index.html">Farmacéutica</a></li>
+<li><a href="../../proyectos/industria/alimentos-y-bebidas/index.html">Alimentos y bebidas</a></li>
+<li><a href="../../proyectos/industria/agua-y-efluentes/index.html">Agua y efluentes</a></li>
+<li><a href="../../proyectos/industria/logistica-con-frio/index.html">Refrigeración y logística con frío</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Empresa">
+        <h2>Empresa</h2>
+        <ul>
+          <li><a href="../../nosotros/index.html">Nosotros</a></li>
+          <li><a href="../../proyectos/index.html">Todos los proyectos</a></li>
+          <li><a href="../../noticias/index.html">Blog</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Contacto</h2>
+        <ul>
+          <li><a href="mailto:info@qubit.la">info@qubit.la</a></li>
+          <li><a href="tel:+541122755716">+54 11 2275-5716</a></li>
+          <li><a href="https://wa.me/541122755716?text=Hola%2C%20quiero%20hacer%20una%20consulta%20sobre%E2%80%A6" target="_blank" rel="noopener">WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
+          <li><a href="https://maps.app.goo.gl/x2JC9hFkx9YQkM2o8" target="_blank" rel="noopener">Burela 1984, Villa Urquiza<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="site-footer__legal">© 2026 Qubit. Todos los derechos reservados. · <a href="../../politica-de-privacidad/index.html">Política de privacidad</a></p>
+  </div>
+</footer>
+  <!-- WhatsApp floating button (replaces the old back-to-top arrow). It fades in after scrolling (see .wa-float in styles.css). -->
+  <a class="wa-float" href="https://wa.me/541122755716?text=Hola%2C%20quiero%20hacer%20una%20consulta%20sobre%E2%80%A6" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp (se abre en una pestaña nueva)"><svg width="26" height="26" aria-hidden="true" focusable="false" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
+</body>
+</html>

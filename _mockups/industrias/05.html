@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es-AR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Industrias · Opción 5 · Paneles que se expanden</title>
+<link rel="stylesheet" href="../../site/css/styles.css">
+<link rel="stylesheet" href="shared.css">
+<style>
+
+.acc{display:flex;flex-direction:column;gap:6px}
+@media(min-width:900px){.acc{flex-direction:row;height:480px}}
+.acc__item{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;text-align:left;font:inherit;color:#fff;cursor:pointer;padding:0;border:1px solid var(--color-border);background:#1a1a1a var(--img) center/cover;flex:none;height:72px;transition:height .5s var(--ease),flex .6s var(--ease)}
+.acc__item::before{content:"";position:absolute;inset:0;background:rgba(8,8,8,.72);transition:background .4s}
+.acc__item:hover::before{background:rgba(73,22,156,.6)}
+.acc__item[aria-expanded="true"]{height:300px}
+.acc__item[aria-expanded="true"]::before{background:linear-gradient(180deg,rgba(8,8,8,.1),rgba(8,8,8,.92))}
+@media(min-width:900px){.acc__item{flex:1 1 0;height:auto}.acc__item[aria-expanded="true"]{flex:6 1 0;height:auto}}
+.acc__label{position:absolute;inset:0;display:flex;align-items:center;gap:14px;padding:0 20px;font-weight:600;transition:opacity .3s}
+@media(min-width:900px){.acc__label{flex-direction:column;justify-content:flex-start;padding:24px 0;writing-mode:vertical-rl;transform:rotate(180deg);justify-content:flex-end}.acc__label .icon{writing-mode:horizontal-tb;transform:rotate(180deg)}}
+.acc__item[aria-expanded="true"] .acc__label{opacity:0}
+.acc__open{position:relative;padding:28px;opacity:0;transform:translateY(12px);transition:opacity .4s var(--ease),transform .5s var(--ease);pointer-events:none;max-width:460px}
+.acc__item[aria-expanded="true"] .acc__open{opacity:1;transform:none;transition-delay:.2s}
+.acc__open .tile{color:#fff;margin-bottom:14px}.acc__open h3{font-size:1.5rem;margin-bottom:.4em}.acc__open p{margin:0;color:var(--color-neutral-20);font-size:.9375rem}
+
+</style></head>
+<body>
+<a class="mock-back" href="index.html">← Todas las opciones</a>
+<main>
+<section class="section section--alt" id="industrias" aria-labelledby="industrias-titulo">
+  <div class="container">
+    <span class="mock-tag">Opción 5 · Paneles que se expanden</span>
+    <div class="section__head">
+      <span class="eyebrow">Industrias</span>
+      <h2 id="industrias-titulo">Experiencia en los procesos de cada industria</h2>
+      <p>Cada industria tiene sus propias normas, tiempos de parada y riesgos. Mirá cómo trabajamos en la tuya.</p>
+    </div>
+<ul class="acc mock-ul"><li style="display:contents"><button class="acc__item" type="button" aria-expanded="true" style="--img:url('../../site/img/industria-manufactura-1100.webp')"><span class="acc__label"><span class="icon " aria-hidden="true">precision_manufacturing</span>Manufactura</span><span class="acc__open"><span class="tile"><span class="icon " aria-hidden="true">precision_manufacturing</span></span><h3>Manufactura</h3><p>Optimizá la producción y reducí costos operativos con nuestras soluciones de automatización eficientes y confiables.</p></span></button></li><li style="display:contents"><button class="acc__item" type="button" aria-expanded="false" style="--img:url('../../site/img/frame-285-800.webp')"><span class="acc__label"><span class="icon " aria-hidden="true">restaurant</span>Alimentos y Bebidas</span><span class="acc__open"><span class="tile"><span class="icon " aria-hidden="true">restaurant</span></span><h3>Alimentos y Bebidas</h3><p>Garantizá la calidad y trazabilidad de tus productos con nuestros procesos automatizados y sistemas de control.</p></span></button></li><li style="display:contents"><button class="acc__item" type="button" aria-expanded="false" style="--img:url('../../site/img/gabinete-exterior-planta.webp')"><span class="acc__label"><span class="icon " aria-hidden="true">bolt</span>Energía</span><span class="acc__open"><span class="tile"><span class="icon " aria-hidden="true">bolt</span></span><h3>Energía</h3><p>Mejorá la eficiencia energética y gestioná tu infraestructura crítica con soluciones robustas de control y gestión.</p></span></button></li><li style="display:contents"><button class="acc__item" type="button" aria-expanded="false" style="--img:url('../../site/img/planta-evaporador-hero-800.webp')"><span class="acc__label"><span class="icon " aria-hidden="true">landscape</span>Minería</span><span class="acc__open"><span class="tile"><span class="icon " aria-hidden="true">landscape</span></span><h3>Minería</h3><p>Automatizá procesos, monitoreá las condiciones de operación y garantizá una extracción de minerales segura y eficiente en entornos extremos.</p></span></button></li><li style="display:contents"><button class="acc__item" type="button" aria-expanded="false" style="--img:url('../../site/img/panel-tableros-tecnicos.webp')"><span class="acc__label"><span class="icon " aria-hidden="true">directions_car</span>Industria Automotriz</span><span class="acc__open"><span class="tile"><span class="icon " aria-hidden="true">directions_car</span></span><h3>Industria Automotriz</h3><p>Alcanzá precisión y eficiencia en la producción en masa y el control de calidad del ensamblaje con nuestras soluciones de automatización de vanguardia.</p></span></button></li><li style="display:contents"><button class="acc__item" type="button" aria-expanded="false" style="--img:url('../../site/img/frame-288-800.webp')"><span class="acc__label"><span class="icon " aria-hidden="true">science</span>Química y petroquímica</span><span class="acc__open"><span class="tile"><span class="icon " aria-hidden="true">science</span></span><h3>Química y petroquímica</h3><p>Garantizá la seguridad, precisión y eficiencia en el manejo, procesamiento y control de calidad de productos químicos.</p></span></button></li><li style="display:contents"><button class="acc__item" type="button" aria-expanded="false" style="--img:url('../../site/img/industria-farmaceutica-1100.webp')"><span class="acc__label"><span class="icon " aria-hidden="true">medication</span>Farmacéutica</span><span class="acc__open"><span class="tile"><span class="icon " aria-hidden="true">medication</span></span><h3>Farmacéutica</h3><p>Mantené los más altos estándares de precisión y seguridad en la producción, empaquetado y control de calidad de productos farmacéuticos.</p></span></button></li><li style="display:contents"><button class="acc__item" type="button" aria-expanded="false" style="--img:url('../../site/img/tecnicos-revision-tablero.webp')"><span class="acc__label"><span class="icon " aria-hidden="true">oil_barrel</span>Petróleo y gas</span><span class="acc__open"><span class="tile"><span class="icon " aria-hidden="true">oil_barrel</span></span><h3>Petróleo y gas</h3><p>Optimizá la exploración, producción y distribución de petróleo y gas con soluciones innovadoras de automatización y control.</p></span></button></li></ul><p class="mock-note">Las 8 industrias en una sola fila; la que tocás (o a la que le pasás el mouse) se abre y muestra foto + texto. En celular se apilan.</p>
+    <div class="section__cta section__cta--stack">
+      <p>¿No ves tu industria? Igual podemos ayudarte.</p>
+      <a class="btn btn--primary" href="#contacto">Contanos tu proceso <span class="icon" aria-hidden="true">arrow_forward</span></a>
+    </div>
+  </div>
+</section>
+</main>
+<script>
+
+var it=document.querySelectorAll('.acc__item');
+function open(el){it.forEach(function(x){x.setAttribute('aria-expanded',x===el);});}
+it.forEach(function(el){el.addEventListener('click',function(){open(el);});
+el.addEventListener('mouseenter',function(){if(matchMedia('(hover:hover) and (min-width:900px)').matches)open(el);});});
+
+</script>
+</body></html>

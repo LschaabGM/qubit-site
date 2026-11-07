@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sentinel: monitoreo y control remoto de tu planta en tiempo real | Qubit</title>
+  <meta name="description" content="Sentinel se conecta a tus PLC y sensores, muestra tu planta en un sinóptico real y te avisa por correo o SMS antes de una falla.">
+  <link rel="canonical" href="https://qubit.la/sentinel/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Qubit">
+  <meta property="og:title" content="Sentinel: monitoreo y control remoto de tu planta en tiempo real | Qubit">
+  <meta property="og:description" content="Sentinel se conecta a tus PLC y sensores, muestra tu planta en un sinóptico real y te avisa por correo o SMS antes de una falla.">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:image" content="https://qubit.la/img/og-qubit.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#080808">
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../fonts/work-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/audiowide.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/material-symbols.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/styles.css">
+  <!-- Sentinel-only components (hero screens, application cards, S·E·N·T, price sheet, FAQ...). Shared by every Sentinel page. -->
+  <link rel="stylesheet" href="../css/sentinel.css">
+  <link rel="stylesheet" href="../css/sentinel-morph.css"> <!-- experiment: square/circle play from the logo. Delete this line to switch it off -->
+  <!-- Structured data: lets Google show the product and its monthly price (from Guido's page) -->
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "Sentinel", "brand": {"@type": "Organization", "name": "Qubit", "url": "https://qubit.la/"}, "description": "Plataforma de monitoreo y control remoto de plantas industriales, con alarmas automáticas, historial, reportes e IA para mantenimiento predictivo.", "url": "https://qubit.la/sentinel/", "offers": {"@type": "Offer", "price": "130", "priceCurrency": "USD", "description": "Abono mensual, sin IVA"}}</script>
+</head>
+<body id="inicio">
+    <a class="skip-link" href="#contenido">Ir al contenido</a>
+<header class="site-header">
+  <div class="container site-header__bar">
+    <a class="brand" href="../index.html" aria-label="Qubit, ir al inicio"><img src="../img/logo-qubit.svg" alt="Qubit" width="437" height="120"></a>
+
+    <nav class="nav-desktop" aria-label="Principal">
+      <ul class="nav-list">
+<li><a href="../index.html#industrias">Industrias</a></li>
+<li><a href="../index.html#soluciones">Soluciones</a></li>
+<li><a href="../proyectos/index.html">Proyectos</a></li>
+<li><a href="../nosotros/index.html">Nosotros</a></li>
+<li><a href="../noticias/index.html">Blog</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <!-- Header: language switch (placeholder). ES is the current language; EN is disabled until the English version exists.
+           When it does: turn the EN button into a link to the English page and set aria-current on the active one. -->
+      <div class="lang-switch" role="group" aria-label="Idioma"><button type="button" class="lang-switch__opt" lang="es" aria-pressed="true">ES</button><button type="button" class="lang-switch__opt" lang="en" aria-pressed="false" disabled title="Próximamente">EN<span class="sr-only"> (próximamente)</span></button></div>
+      <a class="btn btn--primary btn--small site-header__contact" href="#contacto">Contacto</a>
+
+      <!-- Mobile menu: <details> opens/closes with no JavaScript -->
+      <details class="mobile-menu">
+        <summary><span class="sr-only">Menú</span><span class="icon icon--menu" aria-hidden="true">menu</span><span class="icon icon--close" aria-hidden="true">close</span></summary>
+        <div class="mobile-menu__panel">
+          <nav aria-label="Principal">
+            <ul>
+<li><a href="../index.html#industrias">Industrias</a></li>
+<li><a href="../index.html#soluciones">Soluciones</a></li>
+<li><a href="../proyectos/index.html">Proyectos</a></li>
+<li><a href="../nosotros/index.html">Nosotros</a></li>
+<li><a href="../noticias/index.html">Blog</a></li>
+            </ul>
+          </nav>
+          <a class="btn btn--primary" href="#contacto">Contacto</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+
+  <main id="contenido" tabindex="-1">
+
+    <!-- Copy source: Guido's Sentinel page (06/11/2026). His text and facts rule; only the approved copy fixes
+         from "_sentinel-guido/Auditoría de contenido" were applied. Layout per section is noted above each one.
+         Section order: hero · qué es · aplicaciones · cuánto cuesta no medir · IA · cómo funciona (S·E·N·T) ·
+         tres etapas · precios · proyectos · preguntas · contacto. -->
+
+    <!-- 1. HERO — text left, two real Sentinel screens right (the front one gets the softened top-right corner) -->
+    <section class="page-hero sn-hero" aria-labelledby="sentinel-titulo">
+      <div class="container sn-hero__grid">
+        <div class="sn-hero__text">
+          <span class="eyebrow">Sentinel</span>
+          <h1 id="sentinel-titulo">Tu planta en tiempo real, desde cualquier&nbsp;lugar</h1>
+          <p class="sn-hero__lead">Se conecta a tus PLC y sensores, muestra tu planta tal como es y te avisa antes de que algo&nbsp;falle.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="#contacto">Pedí tu relevamiento técnico <span class="icon" aria-hidden="true">arrow_forward</span></a>
+            <a class="link-cta" href="#precios">Ver precios <span class="icon" aria-hidden="true">arrow_forward</span></a>
+          </div>
+          <ul class="hero-facts">
+            <li><span class="icon" aria-hidden="true">check</span>Sin modificar el proceso productivo</li>
+            <li><span class="icon" aria-hidden="true">check</span>Alarmas por correo o SMS</li>
+          </ul>
+        </div>
+
+        <div class="screens">
+          <!-- Back screen: decorative (same panel as "Qué es"), hidden on phones -->
+          <figure class="screen screen--back" aria-hidden="true">
+            <img src="../img/sentinel-panel-estacion-bombeo-640.webp" alt="" width="640" height="378" decoding="async">
+          </figure>
+          <figure class="screen screen--front">
+            <img src="../img/sentinel-panel-energia-1400.webp"
+                 srcset="../img/sentinel-panel-energia-800.webp 800w, ../img/sentinel-panel-energia-1400.webp 1400w"
+                 sizes="(min-width: 1024px) 56vw, 100vw"
+                 alt="Panel de Sentinel con monitoreo eléctrico: tensión por fase, corriente total, potencia activa, consumo de las últimas 24 horas, estado de cada medidor y alarmas activas"
+                 width="1400" height="859" fetchpriority="high" decoding="async">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. QUÉ ES — Guido's intro row, then a big screenshot (soft corner) with his 3 points as a compact list beside it -->
+    <section class="section" id="que-es" aria-labelledby="que-es-titulo">
+      <div class="container">
+        <div class="sn-intro">
+          <div>
+            <span class="eyebrow">Qué es Sentinel</span>
+            <h2 id="que-es-titulo">Todo tu proceso en una sola&nbsp;pantalla</h2>
+          </div>
+          <p>Sentinel es la plataforma de monitoreo y control remoto de Qubit. Se integra a los PLC, sensores y protocolos que ya están en tu planta, reúne todos los datos en un panel con el esquema real de tus equipos y los usa para avisarte, registrar cada evento y anticipar fallas.</p>
+        </div>
+
+        <div class="sn-showcase">
+          <figure class="sn-showcase__shot">
+            <img src="../img/sentinel-panel-estacion-bombeo-1100.webp"
+                 srcset="../img/sentinel-panel-estacion-bombeo-640.webp 640w, ../img/sentinel-panel-estacion-bombeo-1100.webp 1100w"
+                 sizes="(min-width: 1024px) 58vw, 100vw"
+                 alt="Panel de Sentinel de una estación de bombeo: estado del sistema en marcha, nivel del lago al 72,4 %, 2 de 3 bombas activas, tendencia de nivel de las últimas 24 horas, cavitación, estado de cada bomba y últimas alarmas"
+                 width="1100" height="649" loading="lazy" decoding="async">
+          </figure>
+          <ul class="sn-points">
+            <li><span class="sn-points__icon" aria-hidden="true"><span class="icon">devices</span></span><div><h3>Controlá desde cualquier lugar</h3><p>Mirá y operá tus equipos en tiempo real desde la PC, la tablet o el teléfono, sin estar en planta.</p></div></li>
+            <li><span class="sn-points__icon" aria-hidden="true"><span class="icon">notifications_active</span></span><div><h3>Enterate antes de que algo&nbsp;falle</h3><p>Alarmas automáticas por correo o SMS, y una IA que detecta cuándo un equipo empieza a degradarse.</p></div></li>
+            <li><span class="sn-points__icon" aria-hidden="true"><span class="icon">history</span></span><div><h3>Todo queda registrado</h3><p>Historial auditable de variables y eventos, con un reporte diario de la operación que se genera solo.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. APLICACIONES — Guido's 6 + 1 cards. Every drawing shares one scale (ground line at y=172), one stroke weight,
+         and one callout in the top-right corner. Callouts with a sourced figure (2%, 12%, 15–40%) are read by screen readers;
+         the illustrative readings (72 %, 231,4 V...) are decorative and hidden from them. -->
+    <section class="section section--alt" id="aplicaciones" aria-labelledby="aplicaciones-titulo">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Qué puede hacer</span>
+          <h2 id="aplicaciones-titulo">Un monitoreo pensado para cada&nbsp;proceso</h2>
+          <p>Elegí tu aplicación y mirá qué variables sigue Sentinel en cada&nbsp;caso.</p>
+        </div>
+        <ul class="usecase-grid">
+
+          <li class="usecase">
+            <div class="usecase__media">
+              <svg viewBox="0 0 320 200" focusable="false" aria-hidden="true">
+                <line class="sv-ground" x1="20" y1="172" x2="230" y2="172"/>
+                <line class="sv-line" x1="90" y1="160" x2="90" y2="172"/><line class="sv-line" x1="170" y1="160" x2="170" y2="172"/>
+                <rect class="sv-body" x="160" y="70" width="14" height="28"/>
+                <rect class="sv-body" x="50" y="96" width="160" height="64" rx="32"/>
+                <line class="sv-thin" x1="96" y1="98" x2="96" y2="158"/><line class="sv-thin" x1="164" y1="98" x2="164" y2="158"/>
+                <rect class="sv-body" x="22" y="112" width="28" height="32"/>
+                <rect class="sv-acc" x="30" y="122" width="12" height="12"/>
+                <line class="sv-line" x1="130" y1="96" x2="130" y2="88"/>
+                <circle class="sv-body" cx="130" cy="78" r="10"/>
+                <line class="sv-acc-line" x1="130" y1="78" x2="136" y2="72"/>
+                <line class="sv-dash" x1="140" y1="74" x2="262" y2="40"/>
+              </svg>
+              <p class="usecase__value"><span>Combustible extra por mm de&nbsp;sarro</span><strong>2%</strong></p>
+            </div>
+            <div class="usecase__body">
+              <h3><a href="calderas/index.html">Calderas</a></h3>
+              <p>Presión, temperatura y estado del quemador en tiempo real, con alarma ante cualquier desvío.</p>
+              <span class="usecase__more" aria-hidden="true">Ver Sentinel para calderas <span class="icon">arrow_forward</span></span>
+            </div>
+          </li>
+
+          <li class="usecase">
+            <div class="usecase__media">
+              <svg viewBox="0 0 320 200" focusable="false" aria-hidden="true">
+                <line class="sv-ground" x1="20" y1="172" x2="230" y2="172"/>
+                <polygon class="sv-body" points="64,160 88,86 172,86 196,160"/>
+                <line class="sv-thin" x1="82" y1="104" x2="178" y2="104"/><line class="sv-thin" x1="76" y1="122" x2="184" y2="122"/><line class="sv-thin" x1="70" y1="140" x2="190" y2="140"/>
+                <line class="sv-dash" x1="104" y1="108" x2="104" y2="156"/><line class="sv-dash" x1="130" y1="108" x2="130" y2="156"/><line class="sv-dash" x1="156" y1="108" x2="156" y2="156"/>
+                <rect class="sv-body" x="104" y="72" width="52" height="14"/>
+                <ellipse class="sv-acc-line" cx="130" cy="68" rx="30" ry="5"/>
+                <line class="sv-acc-line" x1="130" y1="68" x2="130" y2="60"/>
+                <rect class="sv-body" x="44" y="160" width="172" height="12"/>
+                <line class="sv-acc-line" x1="48" y1="166" x2="212" y2="166"/>
+                <line class="sv-dash" x1="164" y1="72" x2="262" y2="40"/>
+              </svg>
+              <p class="usecase__value"><span>Energía extra con 0,3&nbsp;mm de&nbsp;sarro</span><strong>12%</strong></p>
+            </div>
+            <div class="usecase__body">
+              <h3><a href="torres-de-enfriamiento/index.html">Torres de enfriamiento</a></h3>
+              <p>Temperaturas de entrada y salida, ventiladores y bombas, para cuidar el rendimiento y el consumo.</p>
+              <span class="usecase__more" aria-hidden="true">Ver Sentinel para torres <span class="icon">arrow_forward</span></span>
+            </div>
+          </li>
+
+          <li class="usecase">
+            <div class="usecase__media">
+              <svg viewBox="0 0 320 200" focusable="false" aria-hidden="true">
+                <line class="sv-ground" x1="20" y1="172" x2="230" y2="172"/>
+                <line class="sv-line" x1="104" y1="124" x2="104" y2="96"/><line class="sv-line" x1="204" y1="124" x2="204" y2="96"/>
+                <line class="sv-line" x1="104" y1="96" x2="224" y2="96"/>
+                <rect class="sv-body" x="28" y="132" width="52" height="32"/><rect class="sv-body" x="80" y="142" width="8" height="12"/>
+                <circle class="sv-body" cx="104" cy="146" r="20"/><circle class="sv-acc" cx="104" cy="146" r="5"/>
+                <rect class="sv-acc" x="40" y="142" width="12" height="12"/>
+                <rect class="sv-body" x="128" y="132" width="52" height="32"/><rect class="sv-body" x="180" y="142" width="8" height="12"/>
+                <circle class="sv-body" cx="204" cy="146" r="20"/><circle class="sv-line" cx="204" cy="146" r="5"/>
+                <rect class="sv-thin" x="140" y="142" width="12" height="12"/>
+                <line class="sv-dash" x1="46" y1="132" x2="46" y2="96"/>
+                <line class="sv-dash" x1="224" y1="96" x2="262" y2="40"/>
+              </svg>
+              <p class="usecase__value" aria-hidden="true"><span>Bomba 1</span><strong>En marcha</strong></p>
+            </div>
+            <div class="usecase__body">
+              <h3><a href="bombas/index.html">Bombas y estaciones de bombeo</a></h3>
+              <p>Estado, horas de uso y alternancia de cada bomba. Arrancalas o detenelas desde el teléfono.</p>
+              <span class="usecase__more" aria-hidden="true">Ver Sentinel para bombas <span class="icon">arrow_forward</span></span>
+            </div>
+          </li>
+
+          <li class="usecase">
+            <div class="usecase__media">
+              <svg viewBox="0 0 320 200" focusable="false" aria-hidden="true">
+                <line class="sv-ground" x1="20" y1="172" x2="230" y2="172"/>
+                <rect class="sv-body" x="88" y="62" width="88" height="110"/>
+                <rect class="sv-acc sv-acc--soft" x="89" y="93" width="86" height="78"/>
+                <line class="sv-thin" x1="76" y1="72" x2="82" y2="72"/><line class="sv-thin" x1="76" y1="98" x2="82" y2="98"/><line class="sv-thin" x1="76" y1="124" x2="82" y2="124"/><line class="sv-thin" x1="76" y1="150" x2="82" y2="150"/>
+                <line class="sv-line" x1="40" y1="54" x2="132" y2="54"/><line class="sv-line" x1="132" y1="54" x2="132" y2="62"/>
+                <line class="sv-line" x1="176" y1="160" x2="214" y2="160"/>
+                <line class="sv-dash" x1="176" y1="93" x2="262" y2="40"/>
+              </svg>
+              <p class="usecase__value" aria-hidden="true"><span>Nivel</span><strong>72&nbsp;%</strong></p>
+            </div>
+            <div class="usecase__body">
+              <h3><a href="tanques/index.html">Tanques</a></h3>
+              <p>Nivel en tiempo real, aviso antes de que se desborde o se vacíe, e historial de consumo.</p>
+              <span class="usecase__more" aria-hidden="true">Ver Sentinel para tanques <span class="icon">arrow_forward</span></span>
+            </div>
+          </li>
+
+          <li class="usecase">
+            <div class="usecase__media">
+              <svg viewBox="0 0 320 200" focusable="false" aria-hidden="true">
+                <line class="sv-ground" x1="20" y1="172" x2="230" y2="172"/>
+                <line class="sv-line" x1="56" y1="80" x2="56" y2="172"/><line class="sv-line" x1="204" y1="80" x2="204" y2="172"/>
+                <rect class="sv-body" x="56" y="88" width="148" height="18" rx="9"/>
+                <rect class="sv-body" x="56" y="114" width="148" height="18" rx="9"/>
+                <rect class="sv-body" x="56" y="140" width="148" height="18" rx="9"/>
+                <line class="sv-acc-line" x1="204" y1="97" x2="226" y2="97"/><line class="sv-acc-line" x1="204" y1="123" x2="226" y2="123"/><line class="sv-acc-line" x1="204" y1="149" x2="226" y2="149"/>
+                <line class="sv-line" x1="24" y1="123" x2="56" y2="123"/>
+                <circle class="sv-body" cx="36" cy="104" r="9"/><line class="sv-line" x1="36" y1="113" x2="36" y2="123"/>
+                <line class="sv-dash" x1="226" y1="97" x2="262" y2="40"/>
+              </svg>
+              <p class="usecase__value"><span>Pérdida por membrana sucia</span><strong>15–40%</strong></p>
+            </div>
+            <div class="usecase__body">
+              <h3><a href="osmosis-inversa/index.html">Ósmosis inversa</a></h3>
+              <p>Presiones, caudales y conductividad, para saber cuándo limpiar o cambiar las membranas.</p>
+              <span class="usecase__more" aria-hidden="true">Ver Sentinel para ósmosis inversa <span class="icon">arrow_forward</span></span>
+            </div>
+          </li>
+
+          <li class="usecase">
+            <div class="usecase__media">
+              <svg viewBox="0 0 320 200" focusable="false" aria-hidden="true">
+                <line class="sv-ground" x1="20" y1="172" x2="230" y2="172"/>
+                <rect class="sv-body" x="64" y="62" width="104" height="110"/>
+                <line class="sv-thin" x1="72" y1="70" x2="160" y2="70"/>
+                <rect class="sv-body" x="80" y="78" width="72" height="28"/>
+                <rect class="sv-acc" x="86" y="94" width="6" height="8"/><rect class="sv-acc" x="96" y="88" width="6" height="14"/><rect class="sv-acc" x="106" y="91" width="6" height="11"/><rect class="sv-acc" x="116" y="84" width="6" height="18"/><rect class="sv-acc" x="126" y="87" width="6" height="15"/><rect class="sv-acc" x="136" y="90" width="6" height="12"/>
+                <rect class="sv-thin" x="80" y="118" width="14" height="20"/><rect class="sv-thin" x="99" y="118" width="14" height="20"/><rect class="sv-thin" x="118" y="118" width="14" height="20"/><rect class="sv-thin" x="137" y="118" width="14" height="20"/>
+                <rect class="sv-thin" x="80" y="146" width="14" height="20"/><rect class="sv-thin" x="99" y="146" width="14" height="20"/><rect class="sv-thin" x="118" y="146" width="14" height="20"/><rect class="sv-thin" x="137" y="146" width="14" height="20"/>
+                <line class="sv-dash" x1="152" y1="88" x2="262" y2="40"/>
+              </svg>
+              <p class="usecase__value" aria-hidden="true"><span>Tensión fase S</span><strong>231,4&nbsp;V</strong></p>
+            </div>
+            <div class="usecase__body">
+              <h3><a href="energia/index.html">Energía eléctrica</a></h3>
+              <p>Tensión, corriente y consumo por circuito, con aviso ante sobretensiones o picos de carga.</p>
+              <span class="usecase__more" aria-hidden="true">Ver Sentinel para energía <span class="icon">arrow_forward</span></span>
+            </div>
+          </li>
+
+          <li class="usecase usecase--wide">
+            <div class="usecase__media">
+              <svg viewBox="0 0 560 200" preserveAspectRatio="xMidYMid meet" focusable="false" aria-hidden="true">
+                <line class="sv-ground" x1="24" y1="172" x2="420" y2="172"/>
+                <!-- tank -->
+                <rect class="sv-body" x="40" y="100" width="48" height="72"/>
+                <rect class="sv-acc sv-acc--soft" x="41" y="124" width="46" height="47"/>
+                <!-- pump -->
+                <rect class="sv-body" x="104" y="146" width="28" height="18"/><circle class="sv-body" cx="146" cy="155" r="12"/><circle class="sv-acc" cx="146" cy="155" r="4"/>
+                <!-- RO vessels -->
+                <rect class="sv-body" x="176" y="118" width="88" height="14" rx="7"/><rect class="sv-body" x="176" y="138" width="88" height="14" rx="7"/><rect class="sv-body" x="176" y="158" width="88" height="14" rx="7"/>
+                <!-- boiler -->
+                <rect class="sv-body" x="284" y="124" width="96" height="44" rx="22"/><rect class="sv-body" x="360" y="96" width="10" height="28"/>
+                <!-- bus to the callout -->
+                <line class="sv-dash" x1="64" y1="100" x2="64" y2="64"/><line class="sv-dash" x1="146" y1="143" x2="146" y2="64"/><line class="sv-dash" x1="220" y1="118" x2="220" y2="64"/><line class="sv-dash" x1="332" y1="124" x2="332" y2="64"/>
+                <line class="sv-dash" x1="64" y1="64" x2="500" y2="64"/>
+              </svg>
+              <p class="usecase__value" aria-hidden="true"><span>Sinóptico</span><strong>Toda la planta</strong></p>
+            </div>
+            <div class="usecase__body">
+              <h3><a href="#contacto">Plantas completas</a></h3>
+              <p>¿Tu proceso no está en la lista? Sentinel se adapta a cualquier tipo de planta: integramos todas las áreas y equipos en un mismo sinóptico.</p>
+              <span class="usecase__more" aria-hidden="true">Contanos cómo es tu planta <span class="icon">arrow_forward</span></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4. CUÁNTO CUESTA NO MEDIR — violet band, heading left, 4 giant Saira numbers right, sources under the heading -->
+    <section class="section section--violet" aria-labelledby="costo-titulo">
+      <div class="container cost">
+        <div class="section__head">
+          <span class="eyebrow">Referencias de la industria</span>
+          <h2 id="costo-titulo">Cuánto cuesta no medir</h2>
+        </div>
+        <ul class="cost__list">
+          <li><strong>2%</strong>de combustible extra por cada milímetro de sarro en una caldera.</li>
+          <li><strong>12%</strong>más de energía consume el equipo de frío con 0,3&nbsp;mm de incrustación en el condensador.</li>
+          <li><strong>50%</strong>menos purga al pasar de 3 a 6 ciclos de concentración en una torre.</li>
+          <li><strong>15–40%</strong>de pérdida de productividad por ensuciamiento de membrana no detectado.</li>
+        </ul>
+        <p class="cost__source">Fuente: Departamento de Energía de EE.UU., ASHRAE Handbook, EPA WaterSense, Water Tech Online. Valores de referencia para la industria.</p>
+      </div>
+    </section>
+
+    <!-- 5. IA — deep violet panel (softened top-right corner), heading left + 2×2 right -->
+    <section class="section" aria-labelledby="ia-titulo">
+      <div class="container">
+        <div class="ai-block">
+          <div class="side-head">
+            <div class="section__head">
+              <span class="eyebrow">Inteligencia artificial</span>
+              <h2 id="ia-titulo">IA aplicada al mantenimiento de tu&nbsp;planta</h2>
+              <p>La IA analiza los datos que Sentinel ya recolecta, sin sensores ni integraciones adicionales.</p>
+            </div>
+            <ul class="ai-grid">
+              <li><span class="icon" aria-hidden="true">trending_up</span><h3>Predicción de fallas</h3><p>Anticipa cuándo una variable va a superar un límite crítico, antes de que pase.</p></li>
+              <li><span class="icon" aria-hidden="true">psychology</span><h3>Mantenimiento predictivo</h3><p>Calcula la salud de cada equipo y avisa cuando empieza a degradarse.</p></li>
+              <li><span class="icon" aria-hidden="true">troubleshoot</span><h3>Detección de anomalías</h3><p>Identifica desvíos del comportamiento normal en tiempo real.</p></li>
+              <li><span class="icon" aria-hidden="true">forum</span><h3>IA a tu servicio</h3><p>Preguntale a la IA sobre tus datos y obtené respuestas al instante.</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CÓMO FUNCIONA — S·E·N·T: four smaller tiles that morph square → circle, joined by a thin flow line with an arrow -->
+    <section class="section section--alt" id="como-funciona" aria-labelledby="sent-titulo">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Cómo funciona</span>
+          <h2 id="sent-titulo">SENTinel: cuatro capas que trabajan&nbsp;juntas</h2>
+          <p>Sentinel se suma a lo que ya tenés, sin cambiar tus equipos ni modificar el proceso&nbsp;productivo.</p>
+        </div>
+        <ol class="sent sent--flow">
+          <li class="sent__item"><span class="sent__letter" aria-hidden="true">S</span><div class="sent__body"><h3>Sensorización</h3><p>Sensores que miden lo que necesitás: temperatura, presión, nivel, caudal o conductividad.</p></div></li>
+          <li class="sent__item"><span class="sent__letter" aria-hidden="true">E</span><div class="sent__body"><h3>Edge</h3><p>Un gateway en planta procesa los datos al instante y acciona los equipos.</p></div></li>
+          <li class="sent__item"><span class="sent__letter" aria-hidden="true">N</span><div class="sent__body"><h3>Nube</h3><p>La plataforma reúne toda la información y la presenta en una sola pantalla.</p></div></li>
+          <li class="sent__item"><span class="sent__letter" aria-hidden="true">T</span><div class="sent__body"><h3>Toma de decisiones</h3><p>La IA analiza el historial, anticipa fallas y sugiere cuándo intervenir.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 7. TRES ETAPAS — Guido's 3 steps as a slim horizontal timeline with round numbers, right before the price -->
+    <section class="section sn-stages" aria-labelledby="etapas-titulo">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Implementación</span>
+          <h2 id="etapas-titulo">De la primera visita al monitoreo</h2>
+        </div>
+        <ol class="steps steps--timeline">
+          <li><span class="steps__num" aria-hidden="true">1</span><div><h3>Relevamiento técnico</h3><p>Evaluamos tus PLC, los sensores que ya tenés y qué necesitás ver o controlar.</p></div></li>
+          <li><span class="steps__num" aria-hidden="true">2</span><div><h3>Propuesta y cotización</h3><p>Te enviamos un presupuesto detallado de sensores, gateway e instalación, junto con el abono de la plataforma.</p></div></li>
+          <li><span class="steps__num" aria-hidden="true">3</span><div><h3>Instalación y puesta en marcha</h3><p>Montamos los equipos, armamos el sinóptico de tu planta, configuramos alarmas y usuarios, y activamos el monitoreo.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 8. PRECIOS — violet plan card (soft corner) left; right: monthly packs table + one-off costs table (one price sheet) -->
+    <section class="section section--alt" id="precios" aria-labelledby="precios-titulo">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Precios</span>
+          <h2 id="precios-titulo">Un abono mensual y packs que sumás a&nbsp;medida</h2>
+        </div>
+
+        <div class="pricing">
+          <div class="plan">
+            <h3>Plan Sentinel</h3>
+            <p class="plan__price"><data value="130">USD 130</data><span>por mes</span></p>
+            <p class="plan__note">Abono de la plataforma, sin IVA.</p>
+            <ul class="checklist">
+              <li><span class="icon" aria-hidden="true">check</span>Sinóptico con el esquema real de tu planta</li>
+              <li><span class="icon" aria-hidden="true">check</span>Control remoto de equipos desde PC, tablet o teléfono</li>
+              <li><span class="icon" aria-hidden="true">check</span>Alarmas automáticas e historial auditable</li>
+              <li><span class="icon" aria-hidden="true">check</span>Reporte diario automático de la operación</li>
+              <!-- PENDING: Guido has to send the quotas included in the plan. Never invent them. -->
+              <li><span class="icon" aria-hidden="true">check</span><span>Incluye <span class="placeholder placeholder--inline">[N] dispositivos, [N] usuarios, [N] alarmas, [N] correos y [N] SMS</span></span></li>
+            </ul>
+            <a class="btn btn--inverse" href="#contacto">Cotizá Sentinel para tu planta <span class="icon" aria-hidden="true">arrow_forward</span></a>
+          </div>
+
+          <div class="price-sheet">
+            <div class="packs">
+              <h3>Packs adicionales</h3>
+              <p>Se suman al abono y se cobran por mes.</p>
+              <ul class="pack-list">
+                <li><strong>Dispositivos</strong><span>5 dispositivos más</span><data value="25">USD 25<small>/mes</small></data></li>
+                <li><strong>Usuarios</strong><span>2 usuarios más</span><data value="15">USD 15<small>/mes</small></data></li>
+                <li><strong>Tráfico de datos</strong><span>250.000 mensajes y 500.000 puntos de datos</span><data value="10">USD 10<small>/mes</small></data></li>
+                <li><strong>Procesamiento</strong><span>500.000 ejecuciones de reglas y 100.000 de scripts</span><data value="35">USD 35<small>/mes</small></data></li>
+                <li><strong>Alarmas</strong><span>100 alarmas creadas</span><data value="8">USD 8<small>/mes</small></data></li>
+                <li><strong>Correos</strong><span>100 correos electrónicos</span><data value="8">USD 8<small>/mes</small></data></li>
+                <li><strong>SMS</strong><span>100 SMS</span><data value="80">USD 80<small>/mes</small></data></li>
+              </ul>
+            </div>
+            <div class="packs packs--once">
+              <h3>Costos únicos y servicios</h3>
+              <ul class="pack-list">
+                <li><strong>Gateway y sensores</strong><span>Se definen en el relevamiento, según los equipos que ya tenés.</span><em>Según relevamiento</em></li>
+                <li><strong>Instalación y puesta en marcha</strong><span>Montaje de los equipos y activación del sistema, por única vez.</span><em>Pago único</em></li>
+                <li><strong>Soporte técnico</strong><span>Horas de soporte para hacer modificaciones.</span><data value="50">USD 50<small>/h</small></data></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <p class="pricing__more">¿Dudas sobre equipos, moneda o soporte? <a href="#preguntas-precios">Mirá las preguntas sobre precios</a>.</p>
+      </div>
+    </section>
+
+    <!-- 9. PROYECTOS — one wide featured tile (photo left, text right). Only real Sentinel projects are shown. -->
+    <section class="section" id="proyectos" aria-labelledby="proyectos-titulo">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Proyectos</span>
+          <h2 id="proyectos-titulo">Sentinel funcionando en planta</h2>
+          <p>Plantas que hoy se monitorean y controlan con Sentinel.</p>
+        </div>
+        <article class="sn-case">
+          <div class="sn-case__media">
+            <img src="../img/ferraro-planta-efluentes-1200.webp"
+                 srcset="../img/ferraro-planta-efluentes-600.webp 600w, ../img/ferraro-planta-efluentes-1200.webp 1200w"
+                 sizes="(min-width: 1024px) 60vw, 100vw"
+                 alt="Tablero de control de una planta de tratamiento de efluentes de Ferraro y Asociados, con contactores y un PLC cableado"
+                 width="1200" height="1600" loading="lazy" decoding="async">
+            <span class="case-tile__industry">Agua y efluentes</span>
+          </div>
+          <div class="sn-case__body">
+            <img class="sn-case__logo" src="../img/ferraro-logo-blanco.webp" alt="Ferraro Ingeniería del Agua" width="134" height="66" loading="lazy" decoding="async">
+            <h3><a href="../proyectos/monitoreo-remoto-de-planta-de-efluentes/index.html">Ferraro y Asociados: monitoreo remoto de planta de efluentes</a></h3>
+            <p class="case-card__result"><strong>−90%</strong><span>de visitas técnicas innecesarias</span></p>
+            <span class="sn-case__more" aria-hidden="true">Ver el proyecto <span class="icon">arrow_forward</span></span>
+          </div>
+        </article>
+        <div class="section__cta">
+          <a class="btn btn--secondary" href="../proyectos/index.html">Explorá todos los proyectos <span class="icon" aria-hidden="true">arrow_forward</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. PREGUNTAS — left: heading + sticky contact card (WhatsApp + email). Right: questions in 3 groups, the first one open.
+         Phones: the contact card moves under the questions. -->
+    <section class="section section--alt" id="preguntas" aria-labelledby="preguntas-titulo">
+      <div class="container sn-faq">
+        <div class="sn-faq__side">
+          <div class="section__head sn-faq__head">
+            <span class="eyebrow">Preguntas frecuentes</span>
+            <h2 id="preguntas-titulo">Lo que más nos preguntan</h2>
+            <p>¿Tenés otra duda? Escribinos por WhatsApp o desde el formulario y te respondemos dentro de 1 día&nbsp;hábil.</p>
+          </div>
+          <div class="sn-faq__card">
+            <a class="btn btn--whatsapp" href="https://wa.me/541122755716?text=Hola%2C%20quiero%20hacer%20una%20consulta%20sobre%E2%80%A6" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>Escribinos por WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+            <a class="sn-faq__mail" href="mailto:info@qubit.la"><span class="icon" aria-hidden="true">mail</span>info@qubit.la</a>
+          </div>
+        </div>
+
+        <div class="faq-groups">
+          <h3 class="faq-groups__label">Instalación</h3>
+          <div class="faq">
+            <details open>
+              <summary>¿Tengo que cambiar mis PLC o sensores?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>No. Sentinel se integra con los PLC, sensores y protocolos estándar de la industria que ya tenés. En el relevamiento técnico revisamos tus equipos y te decimos qué hace falta para conectarlos.</p>
+            </details>
+            <details>
+              <summary>¿Hay que modificar el proceso productivo?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>No. Sentinel lee y controla tus equipos sin cambiar cómo produce la planta. Los trabajos de instalación se coordinan con tu equipo.</p>
+            </details>
+            <details>
+              <summary>¿Desde qué dispositivos se usa?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>Desde la PC, la tablet o el teléfono, en cualquier lugar con conexión a internet.</p>
+            </details>
+          </div>
+
+          <h3 class="faq-groups__label">Uso y alarmas</h3>
+          <div class="faq">
+            <details>
+              <summary>¿Puedo operar los equipos o solo verlos?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>Las dos cosas. Desde el mismo panel encendés, apagás o ajustás parámetros, según los permisos de cada usuario.</p>
+            </details>
+            <details>
+              <summary>¿Cómo me entero si algo falla?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>Sentinel envía alarmas automáticas por correo o SMS ante cualquier anomalía, y deja cada evento registrado en el historial.</p>
+            </details>
+            <details>
+              <summary>¿Qué hace la inteligencia artificial?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>Analiza los datos que Sentinel ya recolecta, sin sensores adicionales: anticipa cuándo una variable va a superar un límite crítico, calcula la salud de cada equipo, detecta desvíos del comportamiento normal y responde preguntas sobre tus datos.</p>
+            </details>
+            <details>
+              <summary>¿Puedo ver varias plantas en el mismo panel?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>Sí. Todas tus plantas o ubicaciones quedan en un mismo panel.</p>
+            </details>
+            <details>
+              <summary>¿Quién puede entrar al sistema?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>Cada usuario tiene un perfil con su nivel de acceso. Por ejemplo, alguien de supervisión puede ver la planta sin poder operar equipos.</p>
+            </details>
+          </div>
+
+          <h3 class="faq-groups__label" id="preguntas-precios">Precios</h3>
+          <div class="faq">
+            <details>
+              <summary>¿El equipamiento está incluido en el abono?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>No. Si hace falta instalar un gateway o sensores, se cotizan aparte.</p>
+            </details>
+            <details>
+              <summary>¿Qué pasa si mi planta crece?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>Sumás los packs que necesites (más dispositivos, usuarios, alarmas o SMS) sin cambiar de plan. Sentinel está pensado para crecer con tu planta.</p>
+            </details>
+            <details>
+              <summary>¿En qué moneda se paga?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>Los precios están en dólares, sin IVA. Podés pagar en dólares o en pesos, al tipo de cambio vendedor del Banco Nación del día anterior al pago.</p>
+            </details>
+            <details>
+              <summary>¿El soporte técnico tiene costo?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>La capacitación sobre el uso de la plataforma está incluida. Las horas de soporte técnico para hacer modificaciones se cobran aparte (USD 50 por hora).</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. CONTACTO — violet band, Guido's copy, same Salesforce form as the rest of the site -->
+<section class="section section--violet" id="contacto" aria-labelledby="contacto-titulo">
+  <div class="container contact">
+    <div>
+      <span class="eyebrow">Contacto</span>
+      <h2 id="contacto-titulo">Pedí tu relevamiento&nbsp;técnico</h2>
+      <p class="lead">Contanos qué equipos querés monitorear y coordinamos la visita. <strong class="contact__promise">Te respondemos dentro de 1&nbsp;día&nbsp;hábil.</strong></p>
+      <dl class="contact-info">
+        <div><dt><span class="icon" aria-hidden="true">mail</span>Email</dt><dd><a href="mailto:info@qubit.la">info@qubit.la</a></dd></div>
+        <div><dt><span class="icon" aria-hidden="true">call</span>Teléfono</dt><dd><a href="tel:+541122755716">+54 11 2275-5716</a></dd></div>
+        <div><dt><svg aria-hidden="true" focusable="false" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>WhatsApp</dt><dd><a href="https://wa.me/541122755716?text=Hola%2C%20quiero%20hacer%20una%20consulta%20sobre%E2%80%A6" target="_blank" rel="noopener">+54 11 2275-5716<span class="sr-only"> (abre un chat de WhatsApp en una pestaña nueva)</span></a></dd></div>
+        <div><dt><span class="icon" aria-hidden="true">location_on</span>Oficina</dt><dd><a href="https://maps.app.goo.gl/x2JC9hFkx9YQkM2o8" target="_blank" rel="noopener">Burela 1984, Villa Urquiza<span class="sr-only"> (se abre en una pestaña nueva)</span></a></dd></div>
+      </dl>
+    </div>
+
+    <!-- The form posts straight to Salesforce, exactly like the old site.
+         Field names (first_name, last_name, company, email, phone, 00N0a00000DTK6x) must not change. -->
+    <form class="form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dj0000000IZFq" method="POST">
+      <input type="hidden" name="oid" value="00Dj0000000IZFq">
+      <input type="hidden" name="retURL" value="https://qubit.la/gracias/">
+      <input type="hidden" name="lead_source" value="Qubit">
+      <input type="hidden" name="captcha_settings" value='{"keyname":"Qubit","fallback":"true","orgId":"00Dj0000000IZFq","ts":""}'>
+
+      <div class="form__row">
+        <div class="field">
+          <label for="first_name">Nombre</label>
+          <input id="first_name" name="first_name" type="text" maxlength="40" autocomplete="given-name" required>
+        </div>
+        <div class="field">
+          <label for="last_name">Apellido</label>
+          <input id="last_name" name="last_name" type="text" maxlength="80" autocomplete="family-name" required>
+        </div>
+      </div>
+      <div class="form__row">
+        <div class="field">
+          <label for="company">Empresa</label>
+          <input id="company" name="company" type="text" maxlength="40" autocomplete="organization" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" maxlength="80" autocomplete="email" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="phone">Teléfono <span class="optional">(opcional)</span></label>
+        <input id="phone" name="phone" type="tel" inputmode="tel" maxlength="40" autocomplete="tel">
+      </div>
+      <div class="field">
+        <label for="00N0a00000DTK6x">¿Qué equipos querés monitorear?</label>
+        <textarea id="00N0a00000DTK6x" name="00N0a00000DTK6x" rows="5" required></textarea>
+      </div>
+      <!-- TODO (MEJ-03): add the "tipo de consulta" dropdown once the Salesforce admin creates that field -->
+      <!-- Consent checkbox (Ley 25.326, art. 5: "libre, expreso e informado"). It has no name on purpose:
+           the browser blocks sending until it is ticked, but Salesforce does not receive it. -->
+      <div class="field field--check">
+        <input id="consent" type="checkbox" required>
+        <label for="consent">Leí y acepto la <a href="../politica-de-privacidad/index.html">Política de privacidad</a>.</label>
+      </div>
+      <button class="btn btn--primary" type="submit">Pedir relevamiento técnico</button>
+    </form>
+  </div>
+</section>
+
+  </main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <img class="footer-logo" src="../img/logo-qubit.svg" alt="Qubit" width="437" height="120" loading="lazy">
+        <p>Automatización industrial para procesos eficientes, controlados y seguros.</p>
+      </div>
+      <nav aria-label="Soluciones">
+        <h2>Soluciones</h2>
+        <ul>
+          <li><a href="../index.html#soluciones">Llave en mano</a></li>
+          <li><a href="../index.html#soluciones">Soporte OEM</a></li>
+          <li><a href="../index.html#soluciones">Asistencia técnica</a></li>
+          <li><a href="index.html" aria-current="page">Sentinel</a></li>
+          <li><a href="../index.html#industrias">Industrias</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Proyectos por industria">
+        <h2>Proyectos por industria</h2>
+        <ul>
+<li><a href="../proyectos/industria/farmaceutica/index.html">Farmacéutica</a></li>
+<li><a href="../proyectos/industria/alimentos-y-bebidas/index.html">Alimentos y bebidas</a></li>
+<li><a href="../proyectos/industria/agua-y-efluentes/index.html">Agua y efluentes</a></li>
+<li><a href="../proyectos/industria/logistica-con-frio/index.html">Refrigeración y logística con frío</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Empresa">
+        <h2>Empresa</h2>
+        <ul>
+          <li><a href="../nosotros/index.html">Nosotros</a></li>
+          <li><a href="../proyectos/index.html">Todos los proyectos</a></li>
+          <li><a href="../noticias/index.html">Blog</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Contacto</h2>
+        <ul>
+          <li><a href="mailto:info@qubit.la">info@qubit.la</a></li>
+          <li><a href="tel:+541122755716">+54 11 2275-5716</a></li>
+          <li><a href="https://wa.me/541122755716?text=Hola%2C%20quiero%20hacer%20una%20consulta%20sobre%E2%80%A6" target="_blank" rel="noopener">WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
+          <li><a href="https://maps.app.goo.gl/x2JC9hFkx9YQkM2o8" target="_blank" rel="noopener">Burela 1984, Villa Urquiza<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="site-footer__legal">© 2026 Qubit. Todos los derechos reservados. · <a href="../politica-de-privacidad/index.html">Política de privacidad</a></p>
+  </div>
+</footer>
+  <!-- WhatsApp floating button (replaces the old back-to-top arrow). It fades in after scrolling (see .wa-float in styles.css). -->
+  <a class="wa-float" href="https://wa.me/541122755716?text=Hola%2C%20quiero%20hacer%20una%20consulta%20sobre%E2%80%A6" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp (se abre en una pestaña nueva)"><svg width="26" height="26" aria-hidden="true" focusable="false" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
+</body>
+</html>

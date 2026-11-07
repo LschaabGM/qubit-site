@@ -1,0 +1,18 @@
+# Files git should NOT upload to GitHub
+
+# Mac system files
+.DS_Store
+
+# Tool data (Claude Code plugins)
+.superpowers/
+
+# Backups (git history replaces them from now on)
+_backup-*/
+site.zip
+
+# Old build script, no longer the source of truth (the site is edited directly in site/)
+_build/
+
+# Heavy client files: brochures and the exported audit (kept on Drive / locally)
+*.pdf
+*.pptx

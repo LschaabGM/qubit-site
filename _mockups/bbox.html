@@ -1,0 +1,12 @@
+<!doctype html><meta charset=utf-8><body><pre id=out>pending</pre><script>
+const files=["aws.png", "frame-124.png", "frame-125.png", "frame-127.png", "frame-304.svg", "group-10.png", "html.png", "javascript.png", "logo-siemens-1.webp", "logo-siemens.webp", "marlew-vector-logo-2.png", "profibus-vector-logo.png", "profinet-vector-logo.png", "schneider-electric.png", "siemens-s7-vector-logo.png", "siemens-sinamics-vector-logo.png", "siemens-sirius-vector-logo.png", "teltonika.webp"];
+const res={};
+Promise.all(files.map(f=>new Promise(ok=>{const i=new Image();i.onload=()=>{
+  const W=i.naturalWidth||400,H=i.naturalHeight||160,sc=Math.max(1,Math.round(400/W));
+  const w=W*sc,h=H*sc,c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');x.drawImage(i,0,0,w,h);
+  const d=x.getImageData(0,0,w,h).data;let t=h,b=-1,l=w,r=-1;
+  for(let y=0;y<h;y++)for(let xx=0;xx<w;xx++){const k=(y*w+xx)*4;if(d[k+3]>40&&(d[k]+d[k+1]+d[k+2])>90){if(y<t)t=y;if(y>b)b=y;if(xx<l)l=xx;if(xx>r)r=xx;}}
+  res[f]={w:W,h:H,t:+(t/h*100).toFixed(1),b:+((h-1-b)/h*100).toFixed(1),l:+(l/w*100).toFixed(1),r:+((w-1-r)/w*100).toFixed(1)};ok();};
+  i.onerror=()=>{res[f]='error';ok()};i.src='/site/img/'+f;})))
+.then(()=>{document.getElementById('out').textContent=JSON.stringify(res)});
+</script>

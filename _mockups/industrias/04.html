@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es-AR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Industrias · Opción 4 · Cards que se dan vuelta</title>
+<link rel="stylesheet" href="../../site/css/styles.css">
+<link rel="stylesheet" href="shared.css">
+<style>
+
+.flip{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:640px){.flip{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.flip{grid-template-columns:repeat(4,1fr)}}
+.flip__card{perspective:1000px;min-height:300px;background:none;border:0;padding:0;font:inherit;color:#fff;cursor:pointer;text-align:left}
+.flip__in{position:relative;width:100%;height:100%;min-height:300px;transition:transform .7s var(--ease);transform-style:preserve-3d}
+.flip__card:hover .flip__in,.flip__card:focus-visible .flip__in,.flip__card.is-flipped .flip__in{transform:rotateY(180deg)}
+.flip__f,.flip__b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:28px;display:flex;flex-direction:column;border:1px solid rgba(255,255,255,.14)}
+.flip__f{justify-content:space-between;background:rgba(193,177,255,.07)}
+.flip__f .tile{color:#fff;width:72px;height:72px}.flip__f .tile .icon{font-size:42px}
+.flip__f h3{font-size:1.375rem;margin:0}
+.flip__hint{display:flex;align-items:center;gap:6px;font-size:.8125rem;color:var(--color-text-muted);margin-top:8px}
+.flip__b{transform:rotateY(180deg);justify-content:center;background:linear-gradient(160deg,var(--color-brand),var(--color-brand-deep))}
+.flip__b h3{font-size:1.125rem;margin-bottom:.5em}.flip__b p{margin:0;font-size:.9375rem;color:#fff}
+
+</style></head>
+<body>
+<a class="mock-back" href="index.html">← Todas las opciones</a>
+<main>
+<section class="section section--alt" id="industrias" aria-labelledby="industrias-titulo">
+  <div class="container">
+    <span class="mock-tag">Opción 4 · Cards que se dan vuelta</span>
+    <div class="section__head">
+      <span class="eyebrow">Industrias</span>
+      <h2 id="industrias-titulo">Experiencia en los procesos de cada industria</h2>
+      <p>Cada industria tiene sus propias normas, tiempos de parada y riesgos. Mirá cómo trabajamos en la tuya.</p>
+    </div>
+<ul class="flip mock-ul"><li><button class="flip__card" type="button"><span class="flip__in"><span class="flip__f"><span class="tile"><span class="icon " aria-hidden="true">precision_manufacturing</span></span><span><h3>Manufactura</h3><span class="flip__hint"><span class="icon icon--sm" aria-hidden="true">sync</span>Dar vuelta</span></span></span><span class="flip__b"><h3>Manufactura</h3><p>Optimizá la producción y reducí costos operativos con nuestras soluciones de automatización eficientes y confiables.</p></span></span></button></li><li><button class="flip__card" type="button"><span class="flip__in"><span class="flip__f"><span class="tile"><span class="icon " aria-hidden="true">restaurant</span></span><span><h3>Alimentos y Bebidas</h3><span class="flip__hint"><span class="icon icon--sm" aria-hidden="true">sync</span>Dar vuelta</span></span></span><span class="flip__b"><h3>Alimentos y Bebidas</h3><p>Garantizá la calidad y trazabilidad de tus productos con nuestros procesos automatizados y sistemas de control.</p></span></span></button></li><li><button class="flip__card" type="button"><span class="flip__in"><span class="flip__f"><span class="tile"><span class="icon " aria-hidden="true">bolt</span></span><span><h3>Energía</h3><span class="flip__hint"><span class="icon icon--sm" aria-hidden="true">sync</span>Dar vuelta</span></span></span><span class="flip__b"><h3>Energía</h3><p>Mejorá la eficiencia energética y gestioná tu infraestructura crítica con soluciones robustas de control y gestión.</p></span></span></button></li><li><button class="flip__card" type="button"><span class="flip__in"><span class="flip__f"><span class="tile"><span class="icon " aria-hidden="true">landscape</span></span><span><h3>Minería</h3><span class="flip__hint"><span class="icon icon--sm" aria-hidden="true">sync</span>Dar vuelta</span></span></span><span class="flip__b"><h3>Minería</h3><p>Automatizá procesos, monitoreá las condiciones de operación y garantizá una extracción de minerales segura y eficiente en entornos extremos.</p></span></span></button></li><li><button class="flip__card" type="button"><span class="flip__in"><span class="flip__f"><span class="tile"><span class="icon " aria-hidden="true">directions_car</span></span><span><h3>Industria Automotriz</h3><span class="flip__hint"><span class="icon icon--sm" aria-hidden="true">sync</span>Dar vuelta</span></span></span><span class="flip__b"><h3>Industria Automotriz</h3><p>Alcanzá precisión y eficiencia en la producción en masa y el control de calidad del ensamblaje con nuestras soluciones de automatización de vanguardia.</p></span></span></button></li><li><button class="flip__card" type="button"><span class="flip__in"><span class="flip__f"><span class="tile"><span class="icon " aria-hidden="true">science</span></span><span><h3>Química y petroquímica</h3><span class="flip__hint"><span class="icon icon--sm" aria-hidden="true">sync</span>Dar vuelta</span></span></span><span class="flip__b"><h3>Química y petroquímica</h3><p>Garantizá la seguridad, precisión y eficiencia en el manejo, procesamiento y control de calidad de productos químicos.</p></span></span></button></li><li><button class="flip__card" type="button"><span class="flip__in"><span class="flip__f"><span class="tile"><span class="icon " aria-hidden="true">medication</span></span><span><h3>Farmacéutica</h3><span class="flip__hint"><span class="icon icon--sm" aria-hidden="true">sync</span>Dar vuelta</span></span></span><span class="flip__b"><h3>Farmacéutica</h3><p>Mantené los más altos estándares de precisión y seguridad en la producción, empaquetado y control de calidad de productos farmacéuticos.</p></span></span></button></li><li><button class="flip__card" type="button"><span class="flip__in"><span class="flip__f"><span class="tile"><span class="icon " aria-hidden="true">oil_barrel</span></span><span><h3>Petróleo y gas</h3><span class="flip__hint"><span class="icon icon--sm" aria-hidden="true">sync</span>Dar vuelta</span></span></span><span class="flip__b"><h3>Petróleo y gas</h3><p>Optimizá la exploración, producción y distribución de petróleo y gas con soluciones innovadoras de automatización y control.</p></span></span></button></li></ul><p class="mock-note">Frente: ícono + nombre. Dorso violeta: la descripción. Hover en escritorio, tap en celular.</p>
+    <div class="section__cta section__cta--stack">
+      <p>¿No ves tu industria? Igual podemos ayudarte.</p>
+      <a class="btn btn--primary" href="#contacto">Contanos tu proceso <span class="icon" aria-hidden="true">arrow_forward</span></a>
+    </div>
+  </div>
+</section>
+</main>
+<script>
+document.querySelectorAll('.flip__card').forEach(function(c){c.addEventListener('click',function(){c.classList.toggle('is-flipped');});});
+</script>
+</body></html>

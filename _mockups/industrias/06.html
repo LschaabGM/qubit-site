@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es-AR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Industrias · Opción 6 · Diagrama de proceso (P&ID)</title>
+<link rel="stylesheet" href="../../site/css/styles.css">
+<link rel="stylesheet" href="shared.css">
+<style>
+
+.flow{display:grid;gap:36px 0;grid-template-columns:repeat(2,1fr);margin-bottom:32px}
+@media(min-width:900px){.flow{grid-template-columns:repeat(4,1fr)}}
+.flow li{position:relative;display:flex;justify-content:center}
+/* Pipe between nodes: dashes that travel, like fluid moving through a line */
+.flow li::after{content:"";position:absolute;top:38px;left:calc(50% + 50px);width:calc(100% - 100px);height:3px;background:repeating-linear-gradient(90deg,var(--color-brand-primary) 0 10px,transparent 10px 20px);background-size:20px 3px;animation:pipe 1s linear infinite}
+@keyframes pipe{to{background-position-x:20px}}
+.flow li:nth-child(2n)::after{display:none}
+@media(min-width:900px){.flow li:nth-child(2n)::after{display:block}.flow li:nth-child(4n)::after{display:none}}
+.node{display:flex;flex-direction:column;align-items:center;gap:12px;background:none;border:0;color:var(--color-text-muted);font:600 .9375rem var(--font);cursor:pointer;max-width:150px;text-align:center}
+.node__sq{display:flex;align-items:center;justify-content:center;width:76px;height:76px;background:var(--color-surface-2);border:2px solid var(--color-border-strong);color:#fff;transition:.3s}
+.node__sq .icon{font-size:36px}
+.node:hover .node__sq{border-color:var(--color-brand-primary)}
+.node[aria-pressed="true"]{color:#fff}
+.node[aria-pressed="true"] .node__sq{background:var(--color-brand-primary);border-color:var(--color-lavender);box-shadow:0 0 0 6px rgba(135,83,255,.25),0 0 30px rgba(135,83,255,.5)}
+.detail{display:grid;gap:0;border:1px solid var(--color-border);background:var(--color-bg)}
+@media(min-width:760px){.detail{grid-template-columns:1.2fr 1fr}}
+.detail__txt{padding:clamp(24px,4vw,40px);border-left:4px solid var(--color-brand-primary);animation:in .45s var(--ease)}
+@keyframes in{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:none}}
+.detail__txt h3{font-size:1.75rem;margin-bottom:.4em}.detail__txt p{color:var(--color-neutral-20);margin-bottom:1.4em}
+.detail__img{min-height:220px;background:#1a1a1a var(--img) center/cover}
+
+</style></head>
+<body>
+<a class="mock-back" href="index.html">← Todas las opciones</a>
+<main>
+<section class="section section--alt" id="industrias" aria-labelledby="industrias-titulo">
+  <div class="container">
+    <span class="mock-tag">Opción 6 · Diagrama de proceso (P&ID)</span>
+    <div class="section__head">
+      <span class="eyebrow">Industrias</span>
+      <h2 id="industrias-titulo">Experiencia en los procesos de cada industria</h2>
+      <p>Cada industria tiene sus propias normas, tiempos de parada y riesgos. Mirá cómo trabajamos en la tuya.</p>
+    </div>
+<ul class="flow mock-ul"><li><button class="node" type="button" aria-pressed="true" data-i="0"><span class="node__sq"><span class="icon " aria-hidden="true">precision_manufacturing</span></span>Manufactura</button></li><li><button class="node" type="button" aria-pressed="false" data-i="1"><span class="node__sq"><span class="icon " aria-hidden="true">restaurant</span></span>Alimentos y Bebidas</button></li><li><button class="node" type="button" aria-pressed="false" data-i="2"><span class="node__sq"><span class="icon " aria-hidden="true">bolt</span></span>Energía</button></li><li><button class="node" type="button" aria-pressed="false" data-i="3"><span class="node__sq"><span class="icon " aria-hidden="true">landscape</span></span>Minería</button></li><li><button class="node" type="button" aria-pressed="false" data-i="4"><span class="node__sq"><span class="icon " aria-hidden="true">directions_car</span></span>Industria Automotriz</button></li><li><button class="node" type="button" aria-pressed="false" data-i="5"><span class="node__sq"><span class="icon " aria-hidden="true">science</span></span>Química y petroquímica</button></li><li><button class="node" type="button" aria-pressed="false" data-i="6"><span class="node__sq"><span class="icon " aria-hidden="true">medication</span></span>Farmacéutica</button></li><li><button class="node" type="button" aria-pressed="false" data-i="7"><span class="node__sq"><span class="icon " aria-hidden="true">oil_barrel</span></span>Petróleo y gas</button></li></ul><div class="detail" aria-live="polite"><div class="detail__txt"><h3 id="dt"></h3><p id="dp"></p><a class="btn btn--secondary" href="../../site/proyectos/index.html">Ver proyectos <span class="icon " aria-hidden="true">arrow_forward</span></a></div><div class="detail__img" id="di"></div></div><p class="mock-note">Las industrias son nodos de un diagrama de proceso unidos por una tubería animada (guiño a un P&ID). Al tocar un nodo se abre el detalle abajo.</p>
+    <div class="section__cta section__cta--stack">
+      <p>¿No ves tu industria? Igual podemos ayudarte.</p>
+      <a class="btn btn--primary" href="#contacto">Contanos tu proceso <span class="icon" aria-hidden="true">arrow_forward</span></a>
+    </div>
+  </div>
+</section>
+</main>
+<script>
+var D=[{"n": "Manufactura", "d": "Optimizá la producción y reducí costos operativos con nuestras soluciones de automatización eficientes y confiables.", "i": "../../site/img/industria-manufactura-1100.webp"}, {"n": "Alimentos y Bebidas", "d": "Garantizá la calidad y trazabilidad de tus productos con nuestros procesos automatizados y sistemas de control.", "i": "../../site/img/frame-285-800.webp"}, {"n": "Energía", "d": "Mejorá la eficiencia energética y gestioná tu infraestructura crítica con soluciones robustas de control y gestión.", "i": "../../site/img/gabinete-exterior-planta.webp"}, {"n": "Minería", "d": "Automatizá procesos, monitoreá las condiciones de operación y garantizá una extracción de minerales segura y eficiente en entornos extremos.", "i": "../../site/img/planta-evaporador-hero-800.webp"}, {"n": "Industria Automotriz", "d": "Alcanzá precisión y eficiencia en la producción en masa y el control de calidad del ensamblaje con nuestras soluciones de automatización de vanguardia.", "i": "../../site/img/panel-tableros-tecnicos.webp"}, {"n": "Química y petroquímica", "d": "Garantizá la seguridad, precisión y eficiencia en el manejo, procesamiento y control de calidad de productos químicos.", "i": "../../site/img/frame-288-800.webp"}, {"n": "Farmacéutica", "d": "Mantené los más altos estándares de precisión y seguridad en la producción, empaquetado y control de calidad de productos farmacéuticos.", "i": "../../site/img/industria-farmaceutica-1100.webp"}, {"n": "Petróleo y gas", "d": "Optimizá la exploración, producción y distribución de petróleo y gas con soluciones innovadoras de automatización y control.", "i": "../../site/img/tecnicos-revision-tablero.webp"}];
+var nd=document.querySelectorAll('.node');
+function sel(i){nd.forEach(function(x,k){x.setAttribute('aria-pressed',k===i);});
+var t=document.querySelector('.detail__txt');t.style.animation='none';t.offsetWidth;t.style.animation='';
+document.getElementById('dt').textContent=D[i].n;document.getElementById('dp').textContent=D[i].d;
+document.getElementById('di').style.backgroundImage="url('"+D[i].i+"')";}
+nd.forEach(function(n,i){n.addEventListener('click',function(){sel(i);});});sel(0);
+
+</script>
+</body></html>

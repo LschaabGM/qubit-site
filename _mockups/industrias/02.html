@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es-AR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Industrias · Opción 2 · Tablero de breakers</title>
+<link rel="stylesheet" href="../../site/css/styles.css">
+<link rel="stylesheet" href="shared.css">
+<style>
+
+.board{background:#0b0b0b;border:1px solid var(--color-border-strong);padding:clamp(16px,2.5vw,28px)}
+.board__bar{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin-bottom:20px;font-family:var(--font-data);font-size:.8125rem;letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-muted)}
+.board__bar button{font:inherit;letter-spacing:inherit;text-transform:inherit;background:none;color:#fff;border:1px solid var(--color-border-strong);padding:8px 14px;cursor:pointer}
+.board__bar button:hover{background:#fff;color:#080808}
+.brks{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:640px){.brks{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.brks{grid-template-columns:repeat(4,1fr)}}
+.brk{display:flex;flex-direction:column;gap:16px;text-align:left;font:inherit;color:#fff;cursor:pointer;padding:20px;background:var(--color-surface-2);border:1px solid var(--color-border);transition:background .3s,border-color .3s,box-shadow .3s}
+.brk:hover{border-color:var(--color-border-strong)}
+.brk__top{display:flex;justify-content:space-between;align-items:center;font-family:var(--font-data);font-size:.8125rem;letter-spacing:.12em;color:var(--color-text-muted)}
+.led{display:inline-block;width:10px;height:10px;border-radius:50%;background:#444;margin-right:8px;transition:.3s}
+.brk .icon{font-size:40px;color:var(--color-text-muted);transition:color .3s}
+.brk h3{font-size:1.125rem;margin:0}
+/* Switch: a little track with a knob that slides when "on" */
+.sw{position:relative;width:48px;height:26px;background:#333;border-radius:13px;transition:background .3s;flex:none}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .3s var(--ease)}
+.brk__row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brk__desc{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
+.brk__desc > span{display:block;overflow:hidden;min-height:0;font-size:.9375rem;color:var(--color-neutral-20)}
+.brk[aria-pressed="true"]{background:linear-gradient(160deg,rgba(135,83,255,.28),rgba(73,22,156,.35));border-color:var(--color-brand-primary);box-shadow:0 0 0 1px var(--color-brand-primary),0 10px 40px rgba(119,47,246,.25)}
+.brk[aria-pressed="true"] .led{background:var(--color-lavender);box-shadow:0 0 10px 2px var(--color-brand-primary)}
+.brk[aria-pressed="true"] .icon{color:#fff}
+.brk[aria-pressed="true"] .sw{background:var(--color-brand)}
+.brk[aria-pressed="true"] .sw::after{transform:translateX(22px)}
+.brk[aria-pressed="true"] .brk__desc{grid-template-rows:1fr}
+
+</style></head>
+<body>
+<a class="mock-back" href="index.html">← Todas las opciones</a>
+<main>
+<section class="section section--alt" id="industrias" aria-labelledby="industrias-titulo">
+  <div class="container">
+    <span class="mock-tag">Opción 2 · Tablero de breakers</span>
+    <div class="section__head">
+      <span class="eyebrow">Industrias</span>
+      <h2 id="industrias-titulo">Experiencia en los procesos de cada industria</h2>
+      <p>Cada industria tiene sus propias normas, tiempos de parada y riesgos. Mirá cómo trabajamos en la tuya.</p>
+    </div>
+<div class="board"><div class="board__bar"><span>Tablero de industrias · 8 circuitos</span><button type="button" id="all">Energizar todo</button></div><ul class="brks mock-ul"><li><button class="brk" type="button" aria-pressed="false"><span class="brk__top"><span><span class="led"></span>Q1</span><span class="state">OFF</span></span><span class="icon " aria-hidden="true">precision_manufacturing</span><span class="brk__row"><h3>Manufactura</h3><span class="sw"></span></span><span class="brk__desc"><span>Optimizá la producción y reducí costos operativos con nuestras soluciones de automatización eficientes y confiables.</span></span></button></li><li><button class="brk" type="button" aria-pressed="false"><span class="brk__top"><span><span class="led"></span>Q2</span><span class="state">OFF</span></span><span class="icon " aria-hidden="true">restaurant</span><span class="brk__row"><h3>Alimentos y Bebidas</h3><span class="sw"></span></span><span class="brk__desc"><span>Garantizá la calidad y trazabilidad de tus productos con nuestros procesos automatizados y sistemas de control.</span></span></button></li><li><button class="brk" type="button" aria-pressed="false"><span class="brk__top"><span><span class="led"></span>Q3</span><span class="state">OFF</span></span><span class="icon " aria-hidden="true">bolt</span><span class="brk__row"><h3>Energía</h3><span class="sw"></span></span><span class="brk__desc"><span>Mejorá la eficiencia energética y gestioná tu infraestructura crítica con soluciones robustas de control y gestión.</span></span></button></li><li><button class="brk" type="button" aria-pressed="false"><span class="brk__top"><span><span class="led"></span>Q4</span><span class="state">OFF</span></span><span class="icon " aria-hidden="true">landscape</span><span class="brk__row"><h3>Minería</h3><span class="sw"></span></span><span class="brk__desc"><span>Automatizá procesos, monitoreá las condiciones de operación y garantizá una extracción de minerales segura y eficiente en entornos extremos.</span></span></button></li><li><button class="brk" type="button" aria-pressed="false"><span class="brk__top"><span><span class="led"></span>Q5</span><span class="state">OFF</span></span><span class="icon " aria-hidden="true">directions_car</span><span class="brk__row"><h3>Industria Automotriz</h3><span class="sw"></span></span><span class="brk__desc"><span>Alcanzá precisión y eficiencia en la producción en masa y el control de calidad del ensamblaje con nuestras soluciones de automatización de vanguardia.</span></span></button></li><li><button class="brk" type="button" aria-pressed="false"><span class="brk__top"><span><span class="led"></span>Q6</span><span class="state">OFF</span></span><span class="icon " aria-hidden="true">science</span><span class="brk__row"><h3>Química y petroquímica</h3><span class="sw"></span></span><span class="brk__desc"><span>Garantizá la seguridad, precisión y eficiencia en el manejo, procesamiento y control de calidad de productos químicos.</span></span></button></li><li><button class="brk" type="button" aria-pressed="false"><span class="brk__top"><span><span class="led"></span>Q7</span><span class="state">OFF</span></span><span class="icon " aria-hidden="true">medication</span><span class="brk__row"><h3>Farmacéutica</h3><span class="sw"></span></span><span class="brk__desc"><span>Mantené los más altos estándares de precisión y seguridad en la producción, empaquetado y control de calidad de productos farmacéuticos.</span></span></button></li><li><button class="brk" type="button" aria-pressed="false"><span class="brk__top"><span><span class="led"></span>Q8</span><span class="state">OFF</span></span><span class="icon " aria-hidden="true">oil_barrel</span><span class="brk__row"><h3>Petróleo y gas</h3><span class="sw"></span></span><span class="brk__desc"><span>Optimizá la exploración, producción y distribución de petróleo y gas con soluciones innovadoras de automatización y control.</span></span></button></li></ul></div><p class="mock-note">Es literalmente un tablero eléctrico: cada industria es un breaker. Al tocarlo se “energiza”, se enciende el LED y se abre la descripción. Se pueden encender varios a la vez.</p>
+    <div class="section__cta section__cta--stack">
+      <p>¿No ves tu industria? Igual podemos ayudarte.</p>
+      <a class="btn btn--primary" href="#contacto">Contanos tu proceso <span class="icon" aria-hidden="true">arrow_forward</span></a>
+    </div>
+  </div>
+</section>
+</main>
+<script>
+
+var b=document.querySelectorAll('.brk'),all=document.getElementById('all'),on=false;
+function set(el,v){el.setAttribute('aria-pressed',v);el.querySelector('.state').textContent=v?'ON':'OFF';}
+b.forEach(function(el){el.addEventListener('click',function(){set(el,el.getAttribute('aria-pressed')!=='true');});});
+all.addEventListener('click',function(){on=!on;b.forEach(function(el,i){setTimeout(function(){set(el,on);},i*70);});all.textContent=on?'Apagar todo':'Energizar todo';});
+
+</script>
+</body></html>

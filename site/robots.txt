@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /gracias/
+Disallow: /noticias/_plantilla/
+
+Sitemap: https://qubit.la/sitemap.xml

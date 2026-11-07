@@ -1,0 +1,12 @@
+<!doctype html><meta charset=utf-8><pre id=out>pending</pre>
+<iframe id=f style="width:1440px;height:900px;border:0" src="/site/proyectos/index.html"></iframe>
+<script>
+const f=document.getElementById('f'),log=[];let step=0;
+f.onload=()=>{const w=f.contentWindow;
+ if(step==0){step=1;setTimeout(()=>{const a=[...w.document.querySelectorAll('a')].filter(a=>/proyectos\/automatizacion|automatizacion-de/.test(a.getAttribute('href')))[0];
+   w.document.documentElement.style.scrollBehavior='auto';w.scrollTo(0,w.document.documentElement.scrollHeight);
+   log.push('list docH='+w.document.documentElement.scrollHeight+' y='+Math.round(w.scrollY)+' link='+a.getAttribute('href'));
+   setTimeout(()=>a.click(),300)},500);}
+ else{[100,800,2500].forEach(t=>setTimeout(()=>{log.push('project +'+t+'ms y='+Math.round(w.scrollY)+' docH='+w.document.documentElement.scrollHeight);
+   if(t==2500)document.getElementById('out').textContent=log.join(' | ')},t));}};
+</script>

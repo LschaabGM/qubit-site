@@ -1,0 +1,21 @@
+# Old WordPress URL  ->  new URL   (Netlify / Cloudflare Pages `_redirects` format; 301 = permanent)
+/sobre-nosotros/   /nosotros/   301
+/blog/   /noticias/   301
+/category/noticias/   /noticias/   301
+/category/blog/   /noticias/   301
+/servicios/   /#soluciones   301
+# TODO: decide what happens with /impresoras/ (Qubit has to confirm) and any URL with traffic in Search Console
+/monitoreo-remoto-de-planta-de-efluentes/   /proyectos/monitoreo-remoto-de-planta-de-efluentes/   301
+/soporte-tecnico-en-llenadora-automatica/   /proyectos/soporte-tecnico-en-llenadora-automatica/   301
+/monitoreo-remoto-de-tanque-de-efluentes-con-plc-y-webserver/   /proyectos/monitoreo-remoto-de-tanque-de-efluentes-con-plc-y-webserver/   301
+/mejora-en-blisteadora-con-vision-artificial/   /proyectos/mejora-en-blisteadora-con-vision-artificial/   301
+/automatizacion-de-plantas-de-osmosis-inversa/   /proyectos/automatizacion-de-plantas-de-osmosis-inversa/   301
+/automatizacion-de-secador-de-spray/   /proyectos/automatizacion-de-secador-de-spray/   301
+/automatizacion-de-compresores-de-amoniaco/   /proyectos/automatizacion-de-compresores-de-amoniaco/   301
+/automatizacion-de-plantas-de-efluentes/   /proyectos/automatizacion-de-plantas-de-efluentes/   301
+/automatizacion-de-infusores-y-linea-de-embotellado/   /proyectos/automatizacion-de-infusores-y-linea-de-embotellado/   301
+/revamping-de-paneles-electricos-y-automatizacion-integral/   /proyectos/revamping-de-paneles-electricos-y-automatizacion-integral/   301
+/automatizacion-de-un-evaporador-de-4-efectos/   /proyectos/automatizacion-de-un-evaporador-de-4-efectos/   301
+/metodologia-5s/   /noticias/metodologia-5s/   301
+/guia-mantenimiento-electrico/   /noticias/guia-mantenimiento-electrico/   301
+/bancos-de-capacitores-optimizacion-del-factor-de-potencia-y-cumplimiento-con-la-nueva-normativa-de-edenor-2024/   /noticias/bancos-de-capacitores-optimizacion-del-factor-de-potencia-y-cumplimiento-con-la-nueva-normativa-de-edenor-2024/   301

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es-AR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Industrias · Opción 7 · Mosaico bento</title>
+<link rel="stylesheet" href="../../site/css/styles.css">
+<link rel="stylesheet" href="shared.css">
+<style>
+
+.bento{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:640px){.bento{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.bento{grid-template-columns:repeat(4,1fr);grid-auto-rows:240px}
+.bento li:nth-child(1){grid-column:span 2;grid-row:span 2}
+.bento li:nth-child(4){grid-column:span 2}}
+.bx{position:relative;overflow:hidden;height:100%;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;padding:24px;border:1px solid var(--color-border);background:var(--color-surface-2);transition:border-color .3s,transform .4s var(--ease)}
+.bx:hover{border-color:var(--color-brand-primary);transform:translateY(-3px)}
+.bx--img{background:#1a1a1a var(--img) center/cover}
+.bx--img::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,8,.2),rgba(8,8,8,.92))}
+.bx > *{position:relative}
+.bx .tile{color:#fff}
+.bx h3{font-size:1.25rem;margin-bottom:.3em}
+.bx p{margin:0;font-size:.9375rem;color:var(--color-neutral-20);max-width:42ch}
+.bx--big h3{font-size:2rem}.bx--big .tile{width:72px;height:72px}.bx--big .tile .icon{font-size:42px}
+/* Small tiles: a huge ghost icon in the corner, description appears on hover */
+.bx:not(.bx--img) .ghost{position:absolute;right:-10px;bottom:-24px;font-size:140px;color:rgba(135,83,255,.14);transition:transform .5s var(--ease),color .3s}
+.bx:not(.bx--img):hover .ghost{transform:scale(1.15) rotate(-6deg);color:rgba(135,83,255,.28)}
+.bx:not(.bx--big):not(.bx--wide) p{max-height:0;opacity:0;overflow:hidden;transition:.4s var(--ease)}
+.bx:not(.bx--big):not(.bx--wide):hover p,.bx:not(.bx--big):not(.bx--wide):focus-within p{max-height:10em;opacity:1}
+@media(hover:none){.bx:not(.bx--big):not(.bx--wide) p{max-height:none;opacity:1}}
+
+</style></head>
+<body>
+<a class="mock-back" href="index.html">← Todas las opciones</a>
+<main>
+<section class="section section--alt" id="industrias" aria-labelledby="industrias-titulo">
+  <div class="container">
+    <span class="mock-tag">Opción 7 · Mosaico bento</span>
+    <div class="section__head">
+      <span class="eyebrow">Industrias</span>
+      <h2 id="industrias-titulo">Experiencia en los procesos de cada industria</h2>
+      <p>Cada industria tiene sus propias normas, tiempos de parada y riesgos. Mirá cómo trabajamos en la tuya.</p>
+    </div>
+<ul class="bento mock-ul"><li><a class="bx bx--img bx--big" href="../../site/proyectos/index.html" style="--img:url('../../site/img/industria-manufactura-1100.webp');color:#fff;text-decoration:none"><span class="tile"><span class="icon " aria-hidden="true">precision_manufacturing</span></span><span><h3>Manufactura</h3><p>Optimizá la producción y reducí costos operativos con nuestras soluciones de automatización eficientes y confiables.</p></span></a></li><li><a class="bx " href="../../site/proyectos/index.html" style="--img:url('../../site/img/frame-285-800.webp');color:#fff;text-decoration:none"><span class="tile"><span class="icon " aria-hidden="true">restaurant</span></span><span class="icon ghost" aria-hidden="true">restaurant</span><span><h3>Alimentos y Bebidas</h3><p>Garantizá la calidad y trazabilidad de tus productos con nuestros procesos automatizados y sistemas de control.</p></span></a></li><li><a class="bx " href="../../site/proyectos/index.html" style="--img:url('../../site/img/gabinete-exterior-planta.webp');color:#fff;text-decoration:none"><span class="tile"><span class="icon " aria-hidden="true">bolt</span></span><span class="icon ghost" aria-hidden="true">bolt</span><span><h3>Energía</h3><p>Mejorá la eficiencia energética y gestioná tu infraestructura crítica con soluciones robustas de control y gestión.</p></span></a></li><li><a class="bx bx--img bx--wide" href="../../site/proyectos/index.html" style="--img:url('../../site/img/planta-evaporador-hero-800.webp');color:#fff;text-decoration:none"><span class="tile"><span class="icon " aria-hidden="true">landscape</span></span><span><h3>Minería</h3><p>Automatizá procesos, monitoreá las condiciones de operación y garantizá una extracción de minerales segura y eficiente en entornos extremos.</p></span></a></li><li><a class="bx " href="../../site/proyectos/index.html" style="--img:url('../../site/img/panel-tableros-tecnicos.webp');color:#fff;text-decoration:none"><span class="tile"><span class="icon " aria-hidden="true">directions_car</span></span><span class="icon ghost" aria-hidden="true">directions_car</span><span><h3>Industria Automotriz</h3><p>Alcanzá precisión y eficiencia en la producción en masa y el control de calidad del ensamblaje con nuestras soluciones de automatización de vanguardia.</p></span></a></li><li><a class="bx " href="../../site/proyectos/index.html" style="--img:url('../../site/img/frame-288-800.webp');color:#fff;text-decoration:none"><span class="tile"><span class="icon " aria-hidden="true">science</span></span><span class="icon ghost" aria-hidden="true">science</span><span><h3>Química y petroquímica</h3><p>Garantizá la seguridad, precisión y eficiencia en el manejo, procesamiento y control de calidad de productos químicos.</p></span></a></li><li><a class="bx " href="../../site/proyectos/index.html" style="--img:url('../../site/img/industria-farmaceutica-1100.webp');color:#fff;text-decoration:none"><span class="tile"><span class="icon " aria-hidden="true">medication</span></span><span class="icon ghost" aria-hidden="true">medication</span><span><h3>Farmacéutica</h3><p>Mantené los más altos estándares de precisión y seguridad en la producción, empaquetado y control de calidad de productos farmacéuticos.</p></span></a></li><li><a class="bx " href="../../site/proyectos/index.html" style="--img:url('../../site/img/tecnicos-revision-tablero.webp');color:#fff;text-decoration:none"><span class="tile"><span class="icon " aria-hidden="true">oil_barrel</span></span><span class="icon ghost" aria-hidden="true">oil_barrel</span><span><h3>Petróleo y gas</h3><p>Optimizá la exploración, producción y distribución de petróleo y gas con soluciones innovadoras de automatización y control.</p></span></a></li></ul><p class="mock-note">Mosaico tipo “bento”: las industrias tienen distinto peso visual (Manufactura grande, Minería ancha). Ojo: hay que decidir cuáles destacar y por qué.</p>
+    <div class="section__cta section__cta--stack">
+      <p>¿No ves tu industria? Igual podemos ayudarte.</p>
+      <a class="btn btn--primary" href="#contacto">Contanos tu proceso <span class="icon" aria-hidden="true">arrow_forward</span></a>
+    </div>
+  </div>
+</section>
+</main>
+<script>
+
+</script>
+</body></html>
