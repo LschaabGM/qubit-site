@@ -42,8 +42,8 @@
     <div class="site-header__actions">
       <!-- Header: language switch (placeholder). ES is the current language; EN is disabled until the English version exists.
            When it does: turn the EN button into a link to the English page and set aria-current on the active one. -->
-      <div class="lang-switch" role="group" aria-label="Idioma"><button type="button" class="lang-switch__opt" lang="es" aria-pressed="true">ES</button><button type="button" class="lang-switch__opt" lang="en" aria-pressed="false" disabled title="Próximamente">EN<span class="sr-only"> (próximamente)</span></button></div>
-      <a class="btn btn--primary btn--small site-header__contact" href="../../index.html#contacto">Contacto</a>
+      <div class="lang-switch" role="group" aria-label="Idioma"><a class="lang-switch__opt" lang="es" hreflang="es" href="#" aria-current="page">ES</a><a class="lang-switch__opt" lang="en" hreflang="en" href="../../en/sentinel/calderas/index.html">EN</a></div>
+      <a class="btn btn--primary btn--small site-header__contact" href="#contacto">Contacto</a>
 
       <!-- Mobile menu: <details> opens/closes with no JavaScript -->
       <details class="mobile-menu">
@@ -58,7 +58,7 @@
 <li><a href="../../noticias/index.html">Blog</a></li>
             </ul>
           </nav>
-          <a class="btn btn--primary" href="../../index.html#contacto">Contacto</a>
+          <a class="btn btn--primary" href="#contacto">Contacto</a>
         </div>
       </details>
     </div>
@@ -83,18 +83,19 @@
     <section class="page-hero s-hero s-hero--app" aria-labelledby="calderas-titulo">
       <div class="container s-hero__grid">
         <div>
-          <span class="eyebrow">Sentinel</span>
-          <h1 id="calderas-titulo">Sentinel para calderas</h1>
-          <p class="s-hero__tagline">Monitoreo y control remoto de calderas industriales en tiempo real.</p>
+          <span class="eyebrow">Sentinel para calderas</span>
+          <h1 id="calderas-titulo">Monitoreo y control remoto de calderas industriales en tiempo&nbsp;real</h1>
           <p>Sentinel se integra a la caldera y a los instrumentos ya instalados, sin modificar la sala ni el proceso.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="#contacto">Pedí tu relevamiento técnico <span class="icon" aria-hidden="true">arrow_forward</span></a>
+            <a class="btn btn--secondary" href="../index.html#precios">Mirá cuánto cuesta <span class="icon" aria-hidden="true">arrow_forward</span></a>
           </div>
-          <p class="placeholder placeholder--left">Botón secundario «Descargá el brochure (PDF)»: falta exportar el PDF del brochure de calderas.</p>
         </div>
-        <div class="media-ph" role="img" aria-label="Espacio reservado para una foto de la sala de calderas">
-          <span class="icon" aria-hidden="true">local_fire_department</span>
-          <span class="media-ph__label">PLACEHOLDER: foto/captura</span>
+        <div class="s-hero__media">   <!-- carries the violet glow; keep it when the real photo arrives -->
+          <div class="media-ph" role="img" aria-label="Espacio reservado para una foto de la sala de calderas">
+            <span class="icon" aria-hidden="true">local_fire_department</span>
+            <span class="media-ph__label">PLACEHOLDER: foto/captura</span>
+          </div>
         </div>
       </div>
     </section>
@@ -135,7 +136,6 @@
             <div class="compare__cell compare__cell--after"><span class="compare__tag">Con Sentinel</span><h3>Historial y reportes</h3><p>Registro de variables, alarmas y maniobras, con reportes automáticos.</p></div>
           </li>
         </ul>
-        <p class="compare-note">La solución se integra a la caldera y a los instrumentos ya instalados, sin modificar la sala ni el proceso.</p>
       </div>
     </section>
 
@@ -143,7 +143,7 @@
     <section class="section section--violet" aria-labelledby="costo-titulo">
       <div class="container cost">
         <div class="section__head">
-            <span class="eyebrow">Referencias de eficiencia</span>
+            <span class="eyebrow">Datos de la industria</span>
             <h2 id="costo-titulo">Cuánto cuesta no medir</h2>
             <p>Referencias de eficiencia en calderas industriales.</p>
           </div>
@@ -180,13 +180,12 @@
           <span class="eyebrow">Cómo funciona</span>
           <h2 id="sent-titulo">SENTinel: la solución para tu planta</h2>
         </div>
-        <ol class="sent">
+        <ol class="sent sent--flow">
           <li class="sent__item"><span class="sent__letter" aria-hidden="true">S</span><div class="sent__body"><h3>Sensorización</h3><p>Sensores que miden lo que necesitás: temperatura, presión, nivel y conductividad del agua.</p></div></li>
           <li class="sent__item"><span class="sent__letter" aria-hidden="true">E</span><div class="sent__body"><h3>Edge</h3><p>Un controlador en la sala procesa los datos al instante y acciona la purga.</p></div></li>
           <li class="sent__item"><span class="sent__letter" aria-hidden="true">N</span><div class="sent__body"><h3>Nube</h3><p>La plataforma reúne toda la información y la presenta en una sola pantalla.</p></div></li>
           <li class="sent__item"><span class="sent__letter" aria-hidden="true">T</span><div class="sent__body"><h3>Toma de decisiones</h3><p>La IA analiza el historial, anticipa fallas y sugiere cuándo intervenir.</p></div></li>
         </ol>
-        <p class="compare-note">Las cuatro capas trabajan integradas sobre la caldera y los instrumentos que ya están en planta.</p>
       </div>
     </section>
 
@@ -266,7 +265,7 @@
       </div>
     </section>
 
-    <!-- 11. OTHER APPLICATIONS — the other applications (Guido's list and slugs) as small cards + link to pricing + back to the hub -->
+    <!-- 11. OTHER APPLICATIONS — right before the contact form: Guido's list and slugs as small cards -->
     <section class="section" aria-labelledby="otras-titulo">
       <div class="container">
         <div class="section__head">
@@ -311,10 +310,6 @@
             <span class="app-card__cta" aria-hidden="true">Contanos cómo es tu planta <span class="icon">arrow_forward</span></span>
           </li>
         </ul>
-        <div class="link-row">
-          <a class="link-cta" href="../index.html#precios">Ver precios de Sentinel <span class="icon" aria-hidden="true">arrow_forward</span></a>
-          <a class="link-cta link-cta--back" href="../index.html"><span class="icon" aria-hidden="true">arrow_back</span> Ver todo Sentinel</a>
-        </div>
       </div>
     </section>
 
@@ -325,20 +320,17 @@
       <span class="eyebrow">Contacto</span>
       <h2 id="contacto-titulo">Pedí tu relevamiento técnico</h2>
       <p class="lead">Contanos qué equipos querés monitorear. <strong class="contact__promise">Te respondemos dentro de 1 día hábil.</strong></p>
-      <div class="person">
-        <img src="../../img/guido-fada-edit.webp" alt="" width="64" height="64" loading="lazy" decoding="async">
-        <div><strong>Guido Fada</strong><span>Comercial · Automatización Industrial &amp; IoT</span></div>
-      </div>
       <dl class="contact-info">
         <div><dt><span class="icon" aria-hidden="true">mail</span>Email</dt><dd><a href="mailto:info@qubit.la">info@qubit.la</a></dd></div>
         <div><dt><span class="icon" aria-hidden="true">call</span>Teléfono</dt><dd><a href="tel:+541122755716">+54 11 2275-5716</a></dd></div>
+        <div><dt><svg aria-hidden="true" focusable="false" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>WhatsApp</dt><dd><a href="https://wa.me/541122755716?text=Hola%2C%20quiero%20hacer%20una%20consulta%20sobre%E2%80%A6" target="_blank" rel="noopener">+54 11 2275-5716<span class="sr-only"> (abre un chat de WhatsApp en una pestaña nueva)</span></a></dd></div>
         <div><dt><span class="icon" aria-hidden="true">location_on</span>Oficina</dt><dd><a href="https://maps.app.goo.gl/x2JC9hFkx9YQkM2o8" target="_blank" rel="noopener">Burela 1984, Villa Urquiza, CABA<span class="sr-only"> (se abre en una pestaña nueva)</span></a></dd></div>
       </dl>
     </div>
 
     <!-- The form posts straight to Salesforce, exactly like the old site.
          Field names (first_name, last_name, company, email, phone, 00N0a00000DTK6x) must not change. -->
-    <form class="form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dj0000000IZFq" method="POST">
+    <form class="form"  method="POST">
       <input type="hidden" name="oid" value="00Dj0000000IZFq">
       <input type="hidden" name="retURL" value="https://qubit.la/gracias/">
       <input type="hidden" name="lead_source" value="Qubit">
@@ -385,7 +377,6 @@
   </div>
 </section>
 
-
   </main>
 <footer class="site-footer">
   <div class="container">
@@ -426,7 +417,7 @@
           <li><a href="mailto:info@qubit.la">info@qubit.la</a></li>
           <li><a href="tel:+541122755716">+54 11 2275-5716</a></li>
           <li><a href="https://wa.me/541122755716?text=Hola%2C%20quiero%20hacer%20una%20consulta%20sobre%E2%80%A6" target="_blank" rel="noopener">WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
-          <li><a href="https://maps.app.goo.gl/x2JC9hFkx9YQkM2o8" target="_blank" rel="noopener">Burela 1984, Villa Urquiza<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
+          <li><a href="https://maps.app.goo.gl/x2JC9hFkx9YQkM2o8" target="_blank" rel="noopener">Burela 1984, Villa Urquiza, CABA<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
         </ul>
       </div>
     </div>
@@ -435,5 +426,7 @@
 </footer>
   <!-- WhatsApp floating button (replaces the old back-to-top arrow). It fades in after scrolling (see .wa-float in styles.css). -->
   <a class="wa-float" href="https://wa.me/541122755716?text=Hola%2C%20quiero%20hacer%20una%20consulta%20sobre%E2%80%A6" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp (se abre en una pestaña nueva)"><svg width="26" height="26" aria-hidden="true" focusable="false" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
+<div id="qb-preview-badge" style="position:fixed;left:max(12px,env(safe-area-inset-left,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#ffd400;color:#111;font:600 12px/1.3 system-ui,sans-serif;padding:6px 10px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.25);pointer-events:none">Borrador de diseño · vista previa para revisión</div>
+<script>document.addEventListener('submit',function(e){e.preventDefault();var b=e.target.querySelector('[type=submit],button');if(b){b.textContent='Formulario desactivado en la vista previa';}},true);</script>
 </body>
 </html>

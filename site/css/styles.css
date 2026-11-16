@@ -61,7 +61,7 @@
   --color-brand-text: #a385ff;    /* violet 40%: violet text on dark */
   --color-lavender: #c1b1ff;      /* violet 30%: focus ring, soft accents */
   --color-violet-soft: #dbd4ff;   /* violet 20% */
-  --color-whatsapp: #128c4b;      /* WhatsApp icon on a white button */
+  --color-whatsapp: #128c4b;      /* WhatsApp green: the floating chat button */
 
   /* Type: Work Sans = all text, including every H1 (readability first). Saira = numbers/data.
      Audiowide (--font-display) = short display moments only: a few large letters or 1–2 words that are not
@@ -168,9 +168,6 @@ a:hover { color: var(--color-lavender); }
 .btn--secondary:hover { background: #fff; color: #080808; }
 .btn--inverse { background: #fff; color: #080808; }   /* the one filled button on a violet section */
 .btn--inverse:hover { background: var(--color-lavender); color: #080808; }
-.btn--whatsapp { background: #fff; color: #080808; }
-.btn--whatsapp:hover { background: var(--color-lavender); color: #080808; }
-.btn--whatsapp svg { width: 20px; height: 20px; fill: var(--color-whatsapp); flex: none; }
 /* Header WhatsApp: outlined (secondary) so the filled violet "Contacto" stays the main action */
 .btn--wa-header svg { width: 20px; height: 20px; fill: currentColor; flex: none; }   /* white like the text; turns dark on hover with it */
 .btn--small { min-height: 44px; padding: .5rem 1.1rem; font-size: .95rem; }
@@ -315,7 +312,7 @@ a:hover { color: var(--color-lavender); }
 .section__cta { margin-top: clamp(28px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
 .section__cta p { margin: 0; color: var(--color-text-muted); }
 /* Question on top, button underneath (instead of side by side) */
-.section__cta--stack { flex-direction: column; align-items: flex-start; gap: 16px; margin-top: 24px; } /* closer to the cards above */
+.section__cta--stack { flex-direction: column; align-items: flex-start; gap: 16px; margin-top: clamp(40px, 5vw, 64px); } /* clear space from the cards above */
 .section__cta--stack p { font-size: 1.125rem; color: var(--color-text); }
 
 /* Stats */
@@ -515,6 +512,7 @@ a:hover { color: var(--color-lavender); }
 .why-card__text .lead { color: var(--color-violet-soft); max-width: 52ch; }
 .why-card__text p:last-child { margin-bottom: 0; }
 /* Photo container: keeps the photo's own 3:2 shape, so nobody is ever cropped. Corner = card corner minus the card padding. */
+@media (max-width: 1023px) { .why-card__text { align-items: center; text-align: center; } }   /* one column: center the team text */
 .why-card__media { overflow: hidden; aspect-ratio: 3 / 2; align-self: center; background: var(--color-surface); }
 .why-card__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .why { display: grid; gap: 40px; }
@@ -1085,8 +1083,8 @@ mark.todo { background: #ffe14d; color: #080808; padding: 0 .3em; font-weight: 6
 .pid{display:grid;gap:20px}
 @media(min-width:900px){.pid{grid-template-columns:340px 1fr;gap:32px}}
 /* Left: the list. Each industry is a node on a vertical pipe. */
-.pid__list{position:relative;display:flex;flex-direction:row;gap:8px;overflow-x:auto;padding-bottom:8px}
-@media(min-width:900px){.pid__list{flex-direction:column;gap:14px;overflow:visible;padding:0}}
+.pid__list{position:relative;display:flex;flex-direction:row;gap:8px;overflow-x:auto;padding:16px 14px;margin:-16px -14px 0}   /* room for the selected tile's scale and glow, which the scroll box would clip */
+@media(min-width:900px){.pid__list{flex-direction:column;gap:14px;overflow:visible;padding:0;margin:0}}
 /* The pipe: dashed line that keeps moving (fluid) + a solid violet line that fills down to the active node */
 .pid__pipe,.pid__fill{display:none;position:absolute;left:27px;top:28px;width:3px}
 @media(min-width:900px){.pid__pipe,.pid__fill{display:block}}
@@ -1158,7 +1156,9 @@ mark.todo { background: #ffe14d; color: #080808; padding: 0 .3em; font-weight: 6
    ES = current language (filled); EN = disabled. Replaces the old WhatsApp button in the header (WhatsApp stays as the floating button and in the footer). */
 .lang-switch { display: inline-flex; border: 1px solid var(--color-border-strong); }
 .lang-switch__opt { min-height: 42px; min-width: 44px; padding: 0 .6rem; border: 0; border-radius: 0; background: transparent; color: var(--color-text-muted); font: inherit; font-size: .875rem; font-weight: 600; letter-spacing: .06em; cursor: pointer; }
-.lang-switch__opt[aria-pressed="true"] { background: var(--color-surface-2); color: var(--color-text); }
+.lang-switch__opt[aria-pressed="true"], .lang-switch__opt[aria-current="page"] { background: var(--color-surface-2); color: var(--color-text); }
+a.lang-switch__opt { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }   /* pages with an English version: the switch is two real links */
+a.lang-switch__opt:not([aria-current]):hover { color: var(--color-text); }
 .lang-switch__opt:disabled { cursor: not-allowed; opacity: .7; }
 .lang-switch__opt + .lang-switch__opt { border-left: 1px solid var(--color-border-strong); }
 @media (max-width: 480px) { .lang-switch__opt { min-width: 38px; padding: 0 .4rem; } }
@@ -1204,24 +1204,34 @@ mark.todo { background: #ffe14d; color: #080808; padding: 0 .3em; font-weight: 6
 
 /* EMPTY STATE: industry pages that have no published projects yet (Proyectos > Minería, Energía…).
    Same square language as the cards: violet icon tile, then a clear next step, never a dead end. */
-.empty-state { display: grid; justify-items: start; gap: 16px; max-width: 46rem; padding: clamp(28px, 5vw, 48px); background: var(--color-surface); border: 1px dashed var(--color-border-strong); }
-.empty-state__icon { display: grid; place-items: center; width: 56px; height: 56px; background: var(--color-brand-primary); color: #fff; }
-.empty-state__icon .icon { font-size: 28px; }
+.empty-state { display: grid; justify-items: center; gap: 16px; max-width: 40rem; margin-inline: auto; padding-block: clamp(32px, 6vw, 72px); text-align: center; }   /* no box: centered, open space */
+.empty-state__icon { display: grid; place-items: center; width: 112px; height: 112px; margin-bottom: 8px; border-radius: 50%; background: radial-gradient(circle, rgba(135,83,255,.22) 0 52%, rgba(135,83,255,.08) 53% 100%); box-shadow: inset 0 0 0 1px rgba(135,83,255,.35); color: var(--color-lavender); }   /* soft halo, not a solid button-like tile */
+.empty-state__icon .icon { font-size: 48px; }
 .empty-state h2 { margin: 8px 0 0; font-size: clamp(1.375rem, 1.1rem + 1vw, 1.75rem); text-wrap: balance; }
 .empty-state p { margin: 0; color: var(--color-neutral-20); max-width: 52ch; text-wrap: pretty; }
-.empty-state .btn-row { margin-top: 8px; gap: 16px 28px; align-items: center; }
+.empty-state .btn-row { margin-top: 8px; justify-content: center; }
 
 /* SHAPE SYSTEM (rules in the SHAPE RULE at the top of this file; Sentinel adds its own pieces in sentinel-morph.css) */
 /* Rule 3 · Featured blocks: ONE softened corner, top-right (border-start-end = top-right in left-to-right languages) */
 .why-card,                 /* Home: the violet team block */
-.case-tile--big,           /* Home: the two large project tiles */
 .case-grid--feature > li:first-child .case-card,   /* Proyectos: the featured project at the top */
 .quote-slider__card,       /* testimonial card */
 .form {                    /* contact form: the conversion point of every page */
   border-start-end-radius: var(--radius-signature);
 }
-.why-card__media { border-start-end-radius: calc(var(--radius-signature) * .6); }   /* the team photo echoes its block's corner, smaller */
+.why-card__media { border-radius: calc(var(--radius-signature) * .6); }   /* the team photo: all four corners rounded */
 .quote-slider__card, .form { border-start-end-radius: calc(var(--radius-signature) * .6); }   /* smaller boxes, proportionally smaller curve */
+
+/* Home "Resultados" mosaic: only the corners on the outside of the group are round; corners between tiles stay square */
+.case-mosaic > li:first-child { border-start-start-radius: var(--radius-signature); border-start-end-radius: var(--radius-signature); }   /* 1 column */
+.case-mosaic > li:last-child { border-end-start-radius: var(--radius-signature); border-end-end-radius: var(--radius-signature); }
+@media (min-width: 1024px) {   /* 2 x 2 checkerboard: each tile keeps only its own outer corner */
+  .case-mosaic > li:nth-child(1) { border-start-end-radius: 0; }
+  .case-mosaic > li:nth-child(2) { border-start-end-radius: var(--radius-signature); }
+  .case-mosaic > li:nth-child(3) { border-end-start-radius: var(--radius-signature); }
+  .case-mosaic > li:nth-child(4) { border-end-start-radius: 0; }
+}
+.case-mosaic > li:first-child .case-tile__industry { padding-left: calc(var(--radius-signature) * .6); }   /* keep the tag text clear of the rounded top-left corner */
 
 /* Rule 2 · Small things are round */
 /* Eyebrow marker: the little square plus a dot up and to its right, a tiny echo of the logo (two background layers, one element) */

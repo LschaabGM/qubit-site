@@ -25,15 +25,12 @@
 .media-ph,                      /* image / screenshot blocks (application pages) */
 .screen--front,                 /* hub hero: the front Sentinel screenshot */
 .sn-showcase__shot,             /* hub "Qué es": the big pumping-station screenshot */
-.ai-block,                      /* the deep-violet AI panel */
 .plan,                          /* hub pricing: the violet "Plan Sentinel" card */
 .sn-case,                       /* hub: the featured Ferraro project tile */
-.compare__cell--after,          /* every "Con Sentinel" answer: the solution gets the soft corner */
-.person,                        /* contact card with a photo (application pages) */
-.sn-faq__card {                 /* hub FAQ: the WhatsApp + email card */
+.compare__cell--after {         /* every "Con Sentinel" answer: the solution gets the soft corner */
   border-start-end-radius: var(--radius-signature);   /* = top-right in left-to-right languages */
 }
-.compare__cell--after, .person, .sn-faq__card { border-start-end-radius: calc(var(--radius-signature) * .6); }  /* smaller boxes get a proportionally smaller curve */
+.compare__cell--after { border-start-end-radius: calc(var(--radius-signature) * .6); }  /* smaller boxes get a proportionally smaller curve */
 
 /* Inside the image blocks, the violet corner SQUARE becomes a DOT,
    so each placeholder reads like the logo: a soft block + a separate circle. */
@@ -54,7 +51,6 @@
     linear-gradient(var(--color-brand-primary), var(--color-brand-primary)) 0 3px / 9px 9px no-repeat; /* the square */
   background-color: transparent;
 }
-.ai-block .eyebrow::before,
 .section--violet .eyebrow::before {   /* white version on violet backgrounds */
   background:
     radial-gradient(circle 3px at 14px 3px, var(--color-text) 97%, transparent 100%),
@@ -63,8 +59,7 @@
 
 .steps__num { border-radius: 50%; }             /* 1 · 2 · 3 become circles on the dashed line */
 .app-card .icon--big { border-radius: 50%; }     /* icon tiles in "Otras aplicaciones" */
-.person img { border-radius: 50%; }              /* contact photo */
-.sn-points__icon { border-radius: 50%; }         /* hub "Qué es": the three small icon tiles */
+.sn-points__icon, .split-list__items .icon { border-radius: 50%; }   /* small icon tiles: hub "Qué es" and the application "correctivo → predictivo" list */
 .usecase__value { border-radius: 14px; }          /* hub applications: the small value callout on each drawing */
 
 /* ---------- RULE 4 · S·E·N·T: from square to circle ----------

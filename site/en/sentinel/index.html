@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sentinel: real-time remote monitoring and control of your plant | Qubit</title>
+  <meta name="description" content="Sentinel connects to your PLCs and sensors, shows your plant in a real synoptic view, and alerts you by email or SMS before a failure.">
+  <link rel="canonical" href="https://qubit.la/en/sentinel/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Qubit">
+  <meta property="og:title" content="Sentinel: real-time remote monitoring and control of your plant | Qubit">
+  <meta property="og:description" content="Sentinel connects to your PLCs and sensors, shows your plant in a real synoptic view, and alerts you by email or SMS before a failure.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://qubit.la/img/og-qubit.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#080808">
+  <link rel="icon" href="../../img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../fonts/work-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../fonts/audiowide.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../fonts/material-symbols.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../css/styles.css">
+  <!-- Sentinel-only components (hero screens, application cards, S·E·N·T, price sheet, FAQ...). Shared by every Sentinel page. -->
+  <link rel="stylesheet" href="../../css/sentinel.css">
+  <link rel="stylesheet" href="../../css/sentinel-morph.css"> <!-- experiment: square/circle play from the logo. Delete this line to switch it off -->
+  <!-- Structured data: lets Google show the product and its monthly price (from Guido's page) -->
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "Sentinel", "brand": {"@type": "Organization", "name": "Qubit", "url": "https://qubit.la/"}, "description": "Remote monitoring and control platform for industrial plants, with automatic alarms, history, reports, and AI for predictive maintenance.", "url": "https://qubit.la/sentinel/", "offers": {"@type": "Offer", "price": "130", "priceCurrency": "USD", "description": "Monthly subscription, excl. VAT"}}</script>
+</head>
+<body id="inicio">
+    <a class="skip-link" href="#contenido">Skip to content</a>
+<header class="site-header">
+  <div class="container site-header__bar">
+    <a class="brand" href="../index.html" aria-label="Qubit, go to home page"><img src="../../img/logo-qubit.svg" alt="Qubit" width="437" height="120"></a>
+
+    <nav class="nav-desktop" aria-label="Main">
+      <ul class="nav-list">
+<li><a href="../index.html#industrias">Industries</a></li>
+<li><a href="../index.html#soluciones">Solutions</a></li>
+<li><a href="../proyectos/index.html">Projects</a></li>
+<li><a href="../nosotros/index.html">About us</a></li>
+<li><a href="../noticias/index.html">Blog</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <!-- Header: language switch (placeholder). ES is the current language; EN is disabled until the English version exists.
+           When it does: turn the EN button into a link to the English page and set aria-current on the active one. -->
+      <div class="lang-switch" role="group" aria-label="Language"><a class="lang-switch__opt" lang="es" hreflang="es" href="../../sentinel/index.html">ES</a><a class="lang-switch__opt" lang="en" hreflang="en" href="#" aria-current="page">EN</a></div>
+      <a class="btn btn--primary btn--small site-header__contact" href="#contacto">Contact</a>
+
+      <!-- Mobile menu: <details> opens/closes with no JavaScript -->
+      <details class="mobile-menu">
+        <summary><span class="sr-only">Menu</span><span class="icon icon--menu" aria-hidden="true">menu</span><span class="icon icon--close" aria-hidden="true">close</span></summary>
+        <div class="mobile-menu__panel">
+          <nav aria-label="Main">
+            <ul>
+<li><a href="../index.html#industrias">Industries</a></li>
+<li><a href="../index.html#soluciones">Solutions</a></li>
+<li><a href="../proyectos/index.html">Projects</a></li>
+<li><a href="../nosotros/index.html">About us</a></li>
+<li><a href="../noticias/index.html">Blog</a></li>
+            </ul>
+          </nav>
+          <a class="btn btn--primary" href="#contacto">Contact</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+
+  <main id="contenido" tabindex="-1">
+
+    <!-- Copy source: Guido's Sentinel page (06/11/2026). His text and facts rule; only the approved copy fixes
+         from "_sentinel-guido/Auditoría de contenido" were applied. Layout per section is noted above each one.
+         Section order: hero · qué es · aplicaciones · cuánto cuesta no medir · IA · cómo funciona (S·E·N·T) ·
+         tres etapas · precios · proyectos · preguntas · contacto. -->
+
+    <!-- 1. HERO — text left, two real Sentinel screens right (the front one gets the softened top-right corner) -->
+    <section class="page-hero sn-hero" aria-labelledby="sentinel-titulo">
+      <div class="container sn-hero__grid">
+        <div class="sn-hero__text">
+          <span class="eyebrow">Sentinel</span>
+          <h1 id="sentinel-titulo">Your plant in real time, from&nbsp;anywhere</h1>
+          <p class="sn-hero__lead">It connects to your PLCs and sensors, shows your plant as it really is, and alerts you before something&nbsp;fails.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="#contacto">Request a technical survey <span class="icon" aria-hidden="true">arrow_forward</span></a>
+            <a class="btn btn--secondary" href="#precios">See what it costs <span class="icon" aria-hidden="true">arrow_forward</span></a>
+          </div>
+          <ul class="hero-facts">
+            <li><span class="icon" aria-hidden="true">check</span>No changes to the production process</li>
+            <li><span class="icon" aria-hidden="true">check</span>Alarms by email or SMS</li>
+          </ul>
+        </div>
+
+        <div class="screens">
+          <!-- Back screen: decorative (same panel as "Qué es"), hidden on phones -->
+          <figure class="screen screen--back" aria-hidden="true">
+            <img src="../../img/sentinel-panel-estacion-bombeo-640.webp" alt="" width="640" height="378" decoding="async">
+          </figure>
+          <figure class="screen screen--front">
+            <img src="../../img/sentinel-panel-energia-1400.webp"
+                 srcset="../../img/sentinel-panel-energia-800.webp 800w, ../../img/sentinel-panel-energia-1400.webp 1400w"
+                 sizes="(min-width: 1024px) 56vw, 100vw"
+                 alt="Sentinel dashboard with electrical monitoring: voltage per phase, total current, active power, consumption over the last 24 hours, status of each meter, and active alarms"
+                 width="1400" height="859" fetchpriority="high" decoding="async">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. QUÉ ES — Guido's intro row, then a big screenshot (soft corner) with his 3 points as a compact list beside it -->
+    <section class="section" id="que-es" aria-labelledby="que-es-titulo">
+      <div class="container">
+        <div class="sn-intro">
+          <span class="eyebrow">What Sentinel is</span>
+          <h2 id="que-es-titulo">Your whole process on a single&nbsp;screen</h2>
+          <p>Sentinel is the remote monitoring and control platform from Qubit. It integrates with the PLCs, sensors, and protocols already in your plant. It brings all the data together in a dashboard with the real layout of your equipment, and uses that data to alert you, log every event, and anticipate failures.</p>
+        </div>
+
+        <div class="sn-showcase">
+          <figure class="sn-showcase__shot">
+            <img src="../../img/sentinel-panel-estacion-bombeo-1100.webp"
+                 srcset="../../img/sentinel-panel-estacion-bombeo-640.webp 640w, ../../img/sentinel-panel-estacion-bombeo-1100.webp 1100w"
+                 sizes="(min-width: 1024px) 58vw, 100vw"
+                 alt="Sentinel dashboard for a pumping station: system running, lake level at 72.4%, 2 of 3 pumps active, level trend over the last 24 hours, cavitation, status of each pump, and latest alarms"
+                 width="1100" height="649" loading="lazy" decoding="async">
+          </figure>
+          <ul class="sn-points">
+            <li><span class="sn-points__icon" aria-hidden="true"><span class="icon">devices</span></span><div><h3>Control from anywhere</h3><p>See and operate your equipment in real time from a PC, tablet, or phone, without being at the plant.</p></div></li>
+            <li><span class="sn-points__icon" aria-hidden="true"><span class="icon">notifications_active</span></span><div><h3>Know before something&nbsp;fails</h3><p>Automatic alarms by email or SMS, and AI that detects when equipment starts to degrade.</p></div></li>
+            <li><span class="sn-points__icon" aria-hidden="true"><span class="icon">history</span></span><div><h3>Everything is logged</h3><p>Auditable history of variables and events, with a daily operations report that is generated automatically.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. APLICACIONES — Guido's 6 + 1 cards. Every drawing shares one scale (ground line at y=172), one stroke weight,
+         and one callout in the top-right corner. Callouts with a sourced figure (2%, 12%, 15–40%) are read by screen readers;
+         the illustrative readings (72 %, 231,4 V...) are decorative and hidden from them. -->
+    <section class="section section--alt" id="aplicaciones" aria-labelledby="aplicaciones-titulo">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">What it can do</span>
+          <h2 id="aplicaciones-titulo">Monitoring designed for each&nbsp;process</h2>
+          <p>Choose your application and see which variables Sentinel tracks in each&nbsp;case.</p>
+        </div>
+        <ul class="usecase-grid">
+
+          <li class="usecase">
+            <div class="usecase__media">
+              <svg viewBox="0 0 320 200" focusable="false" aria-hidden="true">
+                <line class="sv-ground" x1="20" y1="172" x2="230" y2="172"/>
+                <line class="sv-line" x1="90" y1="160" x2="90" y2="172"/><line class="sv-line" x1="170" y1="160" x2="170" y2="172"/>
+                <rect class="sv-body" x="160" y="70" width="14" height="28"/>
+                <rect class="sv-body" x="50" y="96" width="160" height="64" rx="32"/>
+                <line class="sv-thin" x1="96" y1="98" x2="96" y2="158"/><line class="sv-thin" x1="164" y1="98" x2="164" y2="158"/>
+                <rect class="sv-body" x="22" y="112" width="28" height="32"/>
+                <rect class="sv-acc" x="30" y="122" width="12" height="12"/>
+                <line class="sv-line" x1="130" y1="96" x2="130" y2="88"/>
+                <circle class="sv-body" cx="130" cy="78" r="10"/>
+                <line class="sv-acc-line" x1="130" y1="78" x2="136" y2="72"/>
+                <line class="sv-dash" x1="140" y1="74" x2="262" y2="40"/>
+              </svg>
+              <p class="usecase__value"><span>Extra fuel per mm of&nbsp;scale</span><strong>2%</strong></p>
+            </div>
+            <div class="usecase__body">
+              <h3><a href="calderas/index.html">Boilers</a></h3>
+              <p>Pressure, temperature, and burner status in real time, with an alarm for any deviation.</p>
+              <span class="usecase__more" aria-hidden="true">View Sentinel for boilers <span class="icon">arrow_forward</span></span>
+            </div>
+          </li>
+
+          <li class="usecase">
+            <div class="usecase__media">
+              <svg viewBox="0 0 320 200" focusable="false" aria-hidden="true">
+                <line class="sv-ground" x1="20" y1="172" x2="230" y2="172"/>
+                <polygon class="sv-body" points="64,160 88,86 172,86 196,160"/>
+                <line class="sv-thin" x1="82" y1="104" x2="178" y2="104"/><line class="sv-thin" x1="76" y1="122" x2="184" y2="122"/><line class="sv-thin" x1="70" y1="140" x2="190" y2="140"/>
+                <line class="sv-dash" x1="104" y1="108" x2="104" y2="156"/><line class="sv-dash" x1="130" y1="108" x2="130" y2="156"/><line class="sv-dash" x1="156" y1="108" x2="156" y2="156"/>
+                <rect class="sv-body" x="104" y="72" width="52" height="14"/>
+                <ellipse class="sv-acc-line" cx="130" cy="68" rx="30" ry="5"/>
+                <line class="sv-acc-line" x1="130" y1="68" x2="130" y2="60"/>
+                <rect class="sv-body" x="44" y="160" width="172" height="12"/>
+                <line class="sv-acc-line" x1="48" y1="166" x2="212" y2="166"/>
+                <line class="sv-dash" x1="164" y1="72" x2="262" y2="40"/>
+              </svg>
+              <p class="usecase__value"><span>Extra energy with 0.3&nbsp;mm of&nbsp;scale</span><strong>12%</strong></p>
+            </div>
+            <div class="usecase__body">
+              <h3><a href="../../sentinel/torres-de-enfriamiento/index.html">Cooling towers</a></h3>
+              <p>Inlet and outlet temperatures, fans, and pumps, to protect performance and consumption.</p>
+              <span class="usecase__more" aria-hidden="true">View Sentinel for cooling towers <span class="icon">arrow_forward</span></span>
+            </div>
+          </li>
+
+          <li class="usecase">
+            <div class="usecase__media">
+              <svg viewBox="0 0 320 200" focusable="false" aria-hidden="true">
+                <line class="sv-ground" x1="20" y1="172" x2="230" y2="172"/>
+                <line class="sv-line" x1="104" y1="124" x2="104" y2="96"/><line class="sv-line" x1="204" y1="124" x2="204" y2="96"/>
+                <line class="sv-line" x1="104" y1="96" x2="224" y2="96"/>
+                <rect class="sv-body" x="28" y="132" width="52" height="32"/><rect class="sv-body" x="80" y="142" width="8" height="12"/>
+                <circle class="sv-body" cx="104" cy="146" r="20"/><circle class="sv-acc" cx="104" cy="146" r="5"/>
+                <rect class="sv-acc" x="40" y="142" width="12" height="12"/>
+                <rect class="sv-body" x="128" y="132" width="52" height="32"/><rect class="sv-body" x="180" y="142" width="8" height="12"/>
+                <circle class="sv-body" cx="204" cy="146" r="20"/><circle class="sv-line" cx="204" cy="146" r="5"/>
+                <rect class="sv-thin" x="140" y="142" width="12" height="12"/>
+                <line class="sv-dash" x1="46" y1="132" x2="46" y2="96"/>
+                <line class="sv-dash" x1="224" y1="96" x2="262" y2="40"/>
+              </svg>
+              <p class="usecase__value" aria-hidden="true"><span>Pump 1</span><strong>Running</strong></p>
+            </div>
+            <div class="usecase__body">
+              <h3><a href="../../sentinel/bombas/index.html">Pumps and pumping stations</a></h3>
+              <p>Status, running hours, and alternation of each pump. Start or stop them from your phone.</p>
+              <span class="usecase__more" aria-hidden="true">View Sentinel for pumps <span class="icon">arrow_forward</span></span>
+            </div>
+          </li>
+
+          <li class="usecase">
+            <div class="usecase__media">
+              <svg viewBox="0 0 320 200" focusable="false" aria-hidden="true">
+                <line class="sv-ground" x1="20" y1="172" x2="230" y2="172"/>
+                <rect class="sv-body" x="88" y="62" width="88" height="110"/>
+                <rect class="sv-acc sv-acc--soft" x="89" y="93" width="86" height="78"/>
+                <line class="sv-thin" x1="76" y1="72" x2="82" y2="72"/><line class="sv-thin" x1="76" y1="98" x2="82" y2="98"/><line class="sv-thin" x1="76" y1="124" x2="82" y2="124"/><line class="sv-thin" x1="76" y1="150" x2="82" y2="150"/>
+                <line class="sv-line" x1="40" y1="54" x2="132" y2="54"/><line class="sv-line" x1="132" y1="54" x2="132" y2="62"/>
+                <line class="sv-line" x1="176" y1="160" x2="214" y2="160"/>
+                <line class="sv-dash" x1="176" y1="93" x2="262" y2="40"/>
+              </svg>
+              <p class="usecase__value" aria-hidden="true"><span>Level</span><strong>72&nbsp;%</strong></p>
+            </div>
+            <div class="usecase__body">
+              <h3><a href="../../sentinel/tanques/index.html">Tanks</a></h3>
+              <p>Real-time level, an alert before a tank overflows or runs empty, and consumption history.</p>
+              <span class="usecase__more" aria-hidden="true">View Sentinel for tanks <span class="icon">arrow_forward</span></span>
+            </div>
+          </li>
+
+          <li class="usecase">
+            <div class="usecase__media">
+              <svg viewBox="0 0 320 200" focusable="false" aria-hidden="true">
+                <line class="sv-ground" x1="20" y1="172" x2="230" y2="172"/>
+                <line class="sv-line" x1="56" y1="80" x2="56" y2="172"/><line class="sv-line" x1="204" y1="80" x2="204" y2="172"/>
+                <rect class="sv-body" x="56" y="88" width="148" height="18" rx="9"/>
+                <rect class="sv-body" x="56" y="114" width="148" height="18" rx="9"/>
+                <rect class="sv-body" x="56" y="140" width="148" height="18" rx="9"/>
+                <line class="sv-acc-line" x1="204" y1="97" x2="226" y2="97"/><line class="sv-acc-line" x1="204" y1="123" x2="226" y2="123"/><line class="sv-acc-line" x1="204" y1="149" x2="226" y2="149"/>
+                <line class="sv-line" x1="24" y1="123" x2="56" y2="123"/>
+                <circle class="sv-body" cx="36" cy="104" r="9"/><line class="sv-line" x1="36" y1="113" x2="36" y2="123"/>
+                <line class="sv-dash" x1="226" y1="97" x2="262" y2="40"/>
+              </svg>
+              <p class="usecase__value"><span>Loss from fouled membranes</span><strong>15–40%</strong></p>
+            </div>
+            <div class="usecase__body">
+              <h3><a href="../../sentinel/osmosis-inversa/index.html">Reverse osmosis</a></h3>
+              <p>Pressures, flows, and conductivity, so you know when to clean or replace the membranes.</p>
+              <span class="usecase__more" aria-hidden="true">View Sentinel for reverse osmosis <span class="icon">arrow_forward</span></span>
+            </div>
+          </li>
+
+          <li class="usecase">
+            <div class="usecase__media">
+              <svg viewBox="0 0 320 200" focusable="false" aria-hidden="true">
+                <line class="sv-ground" x1="20" y1="172" x2="230" y2="172"/>
+                <rect class="sv-body" x="64" y="62" width="104" height="110"/>
+                <line class="sv-thin" x1="72" y1="70" x2="160" y2="70"/>
+                <rect class="sv-body" x="80" y="78" width="72" height="28"/>
+                <rect class="sv-acc" x="86" y="94" width="6" height="8"/><rect class="sv-acc" x="96" y="88" width="6" height="14"/><rect class="sv-acc" x="106" y="91" width="6" height="11"/><rect class="sv-acc" x="116" y="84" width="6" height="18"/><rect class="sv-acc" x="126" y="87" width="6" height="15"/><rect class="sv-acc" x="136" y="90" width="6" height="12"/>
+                <rect class="sv-thin" x="80" y="118" width="14" height="20"/><rect class="sv-thin" x="99" y="118" width="14" height="20"/><rect class="sv-thin" x="118" y="118" width="14" height="20"/><rect class="sv-thin" x="137" y="118" width="14" height="20"/>
+                <rect class="sv-thin" x="80" y="146" width="14" height="20"/><rect class="sv-thin" x="99" y="146" width="14" height="20"/><rect class="sv-thin" x="118" y="146" width="14" height="20"/><rect class="sv-thin" x="137" y="146" width="14" height="20"/>
+                <line class="sv-dash" x1="152" y1="88" x2="262" y2="40"/>
+              </svg>
+              <p class="usecase__value" aria-hidden="true"><span>Phase S voltage</span><strong>231.4&nbsp;V</strong></p>
+            </div>
+            <div class="usecase__body">
+              <h3><a href="../../sentinel/energia/index.html">Electrical energy</a></h3>
+              <p>Voltage, current, and consumption per circuit, with an alert for overvoltage or load peaks.</p>
+              <span class="usecase__more" aria-hidden="true">View Sentinel for electrical energy <span class="icon">arrow_forward</span></span>
+            </div>
+          </li>
+
+          <li class="usecase usecase--wide">
+            <div class="usecase__media">
+              <svg viewBox="0 0 560 200" preserveAspectRatio="xMidYMid meet" focusable="false" aria-hidden="true">
+                <line class="sv-ground" x1="24" y1="172" x2="420" y2="172"/>
+                <!-- tank -->
+                <rect class="sv-body" x="40" y="100" width="48" height="72"/>
+                <rect class="sv-acc sv-acc--soft" x="41" y="124" width="46" height="47"/>
+                <!-- pump -->
+                <rect class="sv-body" x="104" y="146" width="28" height="18"/><circle class="sv-body" cx="146" cy="155" r="12"/><circle class="sv-acc" cx="146" cy="155" r="4"/>
+                <!-- RO vessels -->
+                <rect class="sv-body" x="176" y="118" width="88" height="14" rx="7"/><rect class="sv-body" x="176" y="138" width="88" height="14" rx="7"/><rect class="sv-body" x="176" y="158" width="88" height="14" rx="7"/>
+                <!-- boiler -->
+                <rect class="sv-body" x="284" y="124" width="96" height="44" rx="22"/><rect class="sv-body" x="360" y="96" width="10" height="28"/>
+                <!-- bus to the callout -->
+                <line class="sv-dash" x1="64" y1="100" x2="64" y2="64"/><line class="sv-dash" x1="146" y1="143" x2="146" y2="64"/><line class="sv-dash" x1="220" y1="118" x2="220" y2="64"/><line class="sv-dash" x1="332" y1="124" x2="332" y2="64"/>
+                <line class="sv-dash" x1="64" y1="64" x2="500" y2="64"/>
+              </svg>
+              <p class="usecase__value" aria-hidden="true"><span>Synoptic view</span><strong>Whole plant</strong></p>
+            </div>
+            <div class="usecase__body">
+              <h3><a href="#contacto">Whole plants</a></h3>
+              <p>Is your process not on the list? Sentinel adapts to any type of plant: we integrate all areas and equipment in a single synoptic view.</p>
+              <span class="usecase__more" aria-hidden="true">Tell us about your plant <span class="icon">arrow_forward</span></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4. CÓMO FUNCIONA — S·E·N·T: four smaller tiles that morph square → circle, joined by a thin flow line with an arrow -->
+    <section class="section" id="como-funciona" aria-labelledby="sent-titulo">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">How it works</span>
+          <h2 id="sent-titulo">SENTinel: four layers that work&nbsp;together</h2>
+          <p>Sentinel adds to what you already have, without replacing your equipment or changing the production&nbsp;process.</p>
+        </div>
+        <ol class="sent sent--flow">
+          <li class="sent__item"><span class="sent__letter" aria-hidden="true">S</span><div class="sent__body"><h3>Sensing</h3><p>Sensors that measure what you need: temperature, pressure, level, flow, or conductivity.</p></div></li>
+          <li class="sent__item"><span class="sent__letter" aria-hidden="true">E</span><div class="sent__body"><h3>Edge</h3><p>An on-site gateway processes the data instantly and actuates the equipment.</p></div></li>
+          <li class="sent__item"><span class="sent__letter" aria-hidden="true">N</span><div class="sent__body"><h3>Cloud</h3><p>The platform brings all the information together and shows it on a single screen.</p></div></li>
+          <li class="sent__item"><span class="sent__letter" aria-hidden="true">T</span><div class="sent__body"><h3>Decision-making</h3><p>AI analyzes the history, anticipates failures, and suggests when to intervene.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 5. TRES ETAPAS — Guido's 3 steps as a slim horizontal timeline with round numbers, right before the price -->
+    <section class="section section--alt sn-stages" aria-labelledby="etapas-titulo">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Implementation</span>
+          <h2 id="etapas-titulo">From the first visit to live monitoring</h2>
+        </div>
+        <ol class="steps steps--timeline">
+          <li><span class="steps__num" aria-hidden="true">1</span><div><h3>Technical survey</h3><p>We assess your PLCs, the sensors you already have, and what you need to see or control.</p></div></li>
+          <li><span class="steps__num" aria-hidden="true">2</span><div><h3>Proposal and quote</h3><p>We send you a detailed quote for sensors, gateway, and installation, together with the platform subscription.</p></div></li>
+          <li><span class="steps__num" aria-hidden="true">3</span><div><h3>Installation and commissioning</h3><p>We install the equipment, build the synoptic view of your plant, set up alarms and users, and start monitoring.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 6. PRECIOS — violet plan card (soft corner) left; right: monthly packs table + one-off costs table (one price sheet) -->
+    <section class="section" id="precios" aria-labelledby="precios-titulo">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Pricing</span>
+          <h2 id="precios-titulo">A monthly subscription plus add-on packs as you&nbsp;need&nbsp;them</h2>
+        </div>
+
+        <div class="pricing">
+          <div class="plan">
+            <h3>Sentinel plan</h3>
+            <p class="plan__price"><data value="130">USD 130</data><span>per month</span></p>
+            <p class="plan__note">Platform subscription, excl. VAT.</p>
+            <ul class="checklist">
+              <li><span class="icon" aria-hidden="true">check</span>Synoptic view with the real layout of your plant</li>
+              <li><span class="icon" aria-hidden="true">check</span>Remote control of equipment from a PC, tablet, or phone</li>
+              <li><span class="icon" aria-hidden="true">check</span>Automatic alarms and auditable history</li>
+              <li><span class="icon" aria-hidden="true">check</span>Automatic daily operations report</li>
+              <!-- PENDING: Guido has to send the quotas included in the plan. Never invent them. -->
+              <li><span class="icon" aria-hidden="true">check</span><span>Includes <span class="placeholder placeholder--inline">[N] devices, [N] users, [N] alarms, [N] emails, and [N] SMS</span></span></li>
+            </ul>
+            <a class="btn btn--inverse" href="#contacto">Get a Sentinel quote for your plant <span class="icon" aria-hidden="true">arrow_forward</span></a>
+          </div>
+
+          <div class="price-sheet">
+            <div class="packs">
+              <h3>Add-on packs</h3>
+              <p>You add them to the subscription. We bill them monthly.</p>
+              <ul class="pack-list">
+                <li><strong>Devices</strong><span>5 more devices</span><data value="25">USD 25<small>/mo</small></data></li>
+                <li><strong>Users</strong><span>2 more users</span><data value="15">USD 15<small>/mo</small></data></li>
+                <li><strong>Data traffic</strong><span>250,000 messages and 500,000 data points</span><data value="10">USD 10<small>/mo</small></data></li>
+                <li><strong>Processing</strong><span>500,000 rule executions and 100,000 script executions</span><data value="35">USD 35<small>/mo</small></data></li>
+                <li><strong>Alarms</strong><span>100 alarms created</span><data value="8">USD 8<small>/mo</small></data></li>
+                <li><strong>Emails</strong><span>100 emails</span><data value="8">USD 8<small>/mo</small></data></li>
+                <li><strong>SMS</strong><span>100 SMS</span><data value="80">USD 80<small>/mo</small></data></li>
+              </ul>
+            </div>
+            <div class="packs packs--once">
+              <h3>One-time costs and services</h3>
+              <ul class="pack-list">
+                <li><strong>Gateway and sensors</strong><span>Depend on the equipment you already have at the plant.</span><em>Based on the survey</em></li>
+                <li><strong>Installation and commissioning</strong><span>Equipment installation and system activation.</span><em>One-time payment</em></li>
+                <li><strong>Technical support</strong><span>For changes to the system.</span><data value="50">USD 50<small>/h</small></data></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <p class="pricing__more">Questions about equipment, currency, or support? <a href="#preguntas-precios">See the pricing questions</a>.</p>
+      </div>
+    </section>
+
+    <!-- 7. PROYECTOS — one wide featured tile (photo left, text right). Only real Sentinel projects are shown. -->
+    <section class="section section--alt" id="proyectos" aria-labelledby="proyectos-titulo">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Projects</span>
+          <h2 id="proyectos-titulo">Sentinel at work in the plant</h2>
+          <p>Plants that Sentinel monitors and controls today.</p>
+        </div>
+        <article class="sn-case">
+          <div class="sn-case__media">
+            <img src="../../img/ferraro-planta-efluentes-1200.webp"
+                 srcset="../../img/ferraro-planta-efluentes-600.webp 600w, ../../img/ferraro-planta-efluentes-1200.webp 1200w"
+                 sizes="(min-width: 1024px) 60vw, 100vw"
+                 alt="Control panel of a Ferraro y Asociados wastewater treatment plant, with contactors and a wired PLC"
+                 width="1200" height="1600" loading="lazy" decoding="async">
+            <span class="case-tile__industry">Water and wastewater</span>
+          </div>
+          <div class="sn-case__body">
+            <img class="sn-case__logo" src="../../img/ferraro-logo-blanco.webp" alt="Ferraro Ingeniería del Agua" width="134" height="66" loading="lazy" decoding="async">
+            <h3><a href="../../proyectos/monitoreo-remoto-de-planta-de-efluentes/index.html">Ferraro y Asociados: remote monitoring of a wastewater treatment plant</a></h3>
+            <p class="case-card__result"><strong>−90%</strong><span>in unnecessary technical visits</span></p>
+            <span class="sn-case__more" aria-hidden="true">View the project <span class="icon">arrow_forward</span></span>
+          </div>
+        </article>
+        <div class="section__cta">
+          <a class="btn btn--secondary" href="../proyectos/index.html">Explore all projects <span class="icon" aria-hidden="true">arrow_forward</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. PREGUNTAS — left: heading + sticky contact card (WhatsApp + email). Right: questions in 3 groups, the first one open.
+         Phones: the contact card moves under the questions. -->
+    <section class="section" id="preguntas" aria-labelledby="preguntas-titulo">
+      <div class="container sn-faq">
+        <div class="sn-faq__side">
+          <div class="section__head sn-faq__head">
+            <span class="eyebrow">Frequently asked questions</span>
+            <h2 id="preguntas-titulo">The questions we get most</h2>
+            <p>Do you have another question? Write to <a href="mailto:info@qubit.la">info@qubit.la</a> or use the form. We reply within 1 business&nbsp;day.</p>
+          </div>
+        </div>
+
+        <div class="faq-groups">
+          <h3 class="faq-groups__label">Installation</h3>
+          <div class="faq">
+            <details open>
+              <summary>Do I have to replace my PLCs or sensors?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>No. Sentinel integrates with the industry-standard PLCs, sensors, and protocols that you already have. During the technical survey, we check your equipment and tell you what is necessary to connect it.</p>
+            </details>
+            <details>
+              <summary>Do I have to change the production process?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>No. Sentinel reads and controls your equipment without changing how the plant produces. We coordinate the installation work with your team.</p>
+            </details>
+            <details>
+              <summary>Which devices can I use it on?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>A PC, tablet, or phone, anywhere with an internet connection.</p>
+            </details>
+          </div>
+
+          <h3 class="faq-groups__label">Use and alarms</h3>
+          <div class="faq">
+            <details>
+              <summary>Can I operate the equipment, or only see it?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>Both. From the same dashboard, you turn equipment on or off and adjust parameters, based on the permissions of each user.</p>
+            </details>
+            <details>
+              <summary>How do I know if something fails?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>Sentinel sends automatic alarms by email or SMS for any anomaly, and logs every event in the history.</p>
+            </details>
+            <details>
+              <summary>What does the artificial intelligence do?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>It analyzes the data that Sentinel already collects, with no additional sensors. It anticipates when a variable will exceed a critical limit, calculates the health of each piece of equipment, detects deviations from normal behavior, and answers questions about your data.</p>
+            </details>
+            <details>
+              <summary>Can I see several plants on the same dashboard?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>Yes. All your plants or sites are on the same dashboard.</p>
+            </details>
+            <details>
+              <summary>Who can access the system?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>Each user has a profile with an access level. For example, a supervisor can see the plant but cannot operate equipment.</p>
+            </details>
+          </div>
+
+          <h3 class="faq-groups__label" id="preguntas-precios">Pricing</h3>
+          <div class="faq">
+            <details>
+              <summary>Is the equipment included in the subscription?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>No. If a gateway or sensors are necessary, we quote them separately.</p>
+            </details>
+            <details>
+              <summary>What if my plant grows?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>You add the packs you need (more devices, users, alarms, or SMS) without a change of plan. Sentinel is designed to grow with your plant.</p>
+            </details>
+            <details>
+              <summary>Which currency do I pay in?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>Prices are in U.S. dollars, excl. VAT. You can pay in U.S. dollars or in Argentine pesos, at the Banco Nación selling exchange rate of the day before payment.</p>
+            </details>
+            <details>
+              <summary>Does technical support cost extra?<span class="icon" aria-hidden="true">close</span></summary>
+              <p>Training on the use of the platform is included. We bill technical support hours for changes separately (USD 50 per hour).</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. CONTACTO — violet band, Guido's copy, same Salesforce form as the rest of the site -->
+<section class="section section--violet" id="contacto" aria-labelledby="contacto-titulo">
+  <div class="container contact">
+    <div>
+      <span class="eyebrow">Contact</span>
+      <h2 id="contacto-titulo">Request a technical&nbsp;survey</h2>
+      <p class="lead">Tell us which equipment you want to monitor, and we schedule the visit. <strong class="contact__promise">We reply within 1&nbsp;business&nbsp;day.</strong></p>
+      <dl class="contact-info">
+        <div><dt><span class="icon" aria-hidden="true">mail</span>Email</dt><dd><a href="mailto:info@qubit.la">info@qubit.la</a></dd></div>
+        <div><dt><span class="icon" aria-hidden="true">call</span>Phone</dt><dd><a href="tel:+541122755716">+54 11 2275-5716</a></dd></div>
+        <div><dt><svg aria-hidden="true" focusable="false" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>WhatsApp</dt><dd><a href="https://wa.me/541122755716?text=Hola%2C%20quiero%20hacer%20una%20consulta%20sobre%E2%80%A6" target="_blank" rel="noopener">+54 11 2275-5716<span class="sr-only"> (opens a WhatsApp chat in a new tab)</span></a></dd></div>
+        <div><dt><span class="icon" aria-hidden="true">location_on</span>Office</dt><dd><a href="https://maps.app.goo.gl/x2JC9hFkx9YQkM2o8" target="_blank" rel="noopener">Burela 1984, Villa Urquiza, CABA<span class="sr-only"> (opens in a new tab)</span></a></dd></div>
+      </dl>
+    </div>
+
+    <!-- The form posts straight to Salesforce, exactly like the old site.
+         Field names (first_name, last_name, company, email, phone, 00N0a00000DTK6x) must not change. -->
+    <form class="form"  method="POST">
+      <input type="hidden" name="oid" value="00Dj0000000IZFq">
+      <input type="hidden" name="retURL" value="https://qubit.la/gracias/">
+      <input type="hidden" name="lead_source" value="Qubit">
+      <input type="hidden" name="captcha_settings" value='{"keyname":"Qubit","fallback":"true","orgId":"00Dj0000000IZFq","ts":""}'>
+
+      <div class="form__row">
+        <div class="field">
+          <label for="first_name">First name</label>
+          <input id="first_name" name="first_name" type="text" maxlength="40" autocomplete="given-name" required>
+        </div>
+        <div class="field">
+          <label for="last_name">Last name</label>
+          <input id="last_name" name="last_name" type="text" maxlength="80" autocomplete="family-name" required>
+        </div>
+      </div>
+      <div class="form__row">
+        <div class="field">
+          <label for="company">Company</label>
+          <input id="company" name="company" type="text" maxlength="40" autocomplete="organization" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" maxlength="80" autocomplete="email" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="phone">Phone <span class="optional">(optional)</span></label>
+        <input id="phone" name="phone" type="tel" inputmode="tel" maxlength="40" autocomplete="tel">
+      </div>
+      <div class="field">
+        <label for="00N0a00000DTK6x">Which equipment do you want to monitor?</label>
+        <textarea id="00N0a00000DTK6x" name="00N0a00000DTK6x" rows="5" required></textarea>
+      </div>
+      <!-- TODO (MEJ-03): add the "tipo de consulta" dropdown once the Salesforce admin creates that field -->
+      <!-- Consent checkbox (Ley 25.326, art. 5: "libre, expreso e informado"). It has no name on purpose:
+           the browser blocks sending until it is ticked, but Salesforce does not receive it. -->
+      <div class="field field--check">
+        <input id="consent" type="checkbox" required>
+        <label for="consent">I have read and accept the <a href="../../politica-de-privacidad/index.html">Privacy policy</a>.</label>
+      </div>
+      <button class="btn btn--primary" type="submit">Request a technical survey</button>
+    </form>
+  </div>
+</section>
+
+  </main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <img class="footer-logo" src="../../img/logo-qubit.svg" alt="Qubit" width="437" height="120" loading="lazy">
+        <p>Industrial automation for efficient, controlled, and safe processes.</p>
+      </div>
+      <nav aria-label="Solutions">
+        <h2>Solutions</h2>
+        <ul>
+          <li><a href="../index.html#soluciones">Turnkey projects</a></li>
+          <li><a href="../index.html#soluciones">OEM support</a></li>
+          <li><a href="../index.html#soluciones">Technical assistance</a></li>
+          <li><a href="index.html" aria-current="page">Sentinel</a></li>
+          <li><a href="../index.html#industrias">Industries</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Projects by industry">
+        <h2>Projects by industry</h2>
+        <ul>
+<li><a href="../../proyectos/industria/farmaceutica/index.html">Pharmaceuticals</a></li>
+<li><a href="../../proyectos/industria/alimentos-y-bebidas/index.html">Food and beverage</a></li>
+<li><a href="../../proyectos/industria/agua-y-efluentes/index.html">Water and wastewater</a></li>
+<li><a href="../../proyectos/industria/logistica-con-frio/index.html">Refrigeration and cold-chain logistics</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Company">
+        <h2>Company</h2>
+        <ul>
+          <li><a href="../nosotros/index.html">About us</a></li>
+          <li><a href="../proyectos/index.html">All projects</a></li>
+          <li><a href="../noticias/index.html">Blog</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:info@qubit.la">info@qubit.la</a></li>
+          <li><a href="tel:+541122755716">+54 11 2275-5716</a></li>
+          <li><a href="https://wa.me/541122755716?text=Hola%2C%20quiero%20hacer%20una%20consulta%20sobre%E2%80%A6" target="_blank" rel="noopener">WhatsApp<span class="sr-only"> (opens in a new tab)</span></a></li>
+          <li><a href="https://maps.app.goo.gl/x2JC9hFkx9YQkM2o8" target="_blank" rel="noopener">Burela 1984, Villa Urquiza, CABA<span class="sr-only"> (opens in a new tab)</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="site-footer__legal">© 2026 Qubit. All rights reserved. · <a href="../../politica-de-privacidad/index.html">Privacy policy</a></p>
+  </div>
+</footer>
+  <!-- WhatsApp floating button (replaces the old back-to-top arrow). It fades in after scrolling (see .wa-float in styles.css). -->
+  <a class="wa-float" href="https://wa.me/541122755716?text=Hola%2C%20quiero%20hacer%20una%20consulta%20sobre%E2%80%A6" target="_blank" rel="noopener" aria-label="Message us on WhatsApp (opens in a new tab)"><svg width="26" height="26" aria-hidden="true" focusable="false" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
+<div id="qb-preview-badge" style="position:fixed;left:max(12px,env(safe-area-inset-left,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#ffd400;color:#111;font:600 12px/1.3 system-ui,sans-serif;padding:6px 10px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.25);pointer-events:none">Borrador de diseño · vista previa para revisión</div>
+<script>document.addEventListener('submit',function(e){e.preventDefault();var b=e.target.querySelector('[type=submit],button');if(b){b.textContent='Formulario desactivado en la vista previa';}},true);</script>
+</body>
+</html>

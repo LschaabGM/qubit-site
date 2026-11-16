@@ -23,7 +23,7 @@
     O. Breadcrumb with "›"
     P. "Otras aplicaciones" cards + back links
     Q. Section heads beside content (FAQ, AI, numbers)
-    R. Contact on violet + person card
+    R. Contact on violet
     S. Motion (one moment only) and reduced motion
     T. Sentinel hub (06/11 rebuild): hero screens, Qué es showcase, application cards,
        S·E·N·T flow, timeline, price sheet, featured project, grouped FAQ
@@ -38,11 +38,10 @@
 /* "Sentinel" is one short word, so it can be set very large: it IS the brand moment of the page. */
 .s-hero h1 { font-size: clamp(2.75rem, 1rem + 9vw, 6.5rem); line-height: 1; max-width: none; margin-bottom: .2em; }
 /* Application pages have longer H1s ("Sentinel para calderas"), so they use a calmer size. */
-.s-hero--app h1 { font-size: clamp(2.125rem, 1rem + 4.5vw, 4rem); line-height: 1.08; max-width: 14ch; }
-/* The one-line promise under the name: white and bigger than body text (second level of the hierarchy). */
-.s-hero .s-hero__tagline { color: var(--color-text); font-size: clamp(1.25rem, 1rem + 1.2vw, 1.75rem); font-weight: 600; line-height: 1.3; max-width: 30ch; margin-bottom: .75em; text-wrap: balance; }
+.s-hero--app h1 { font-size: clamp(2rem, 1rem + 3vw, 3.25rem); line-height: 1.1; max-width: 24ch; text-wrap: balance; }   /* the promise is the title; the product name lives in the eyebrow */
 .s-hero p { max-width: 54ch; }
 .s-hero .btn-row { gap: 16px 24px; align-items: center; }
+@media (max-width: 479px) { .s-hero .btn-row .btn { width: 100%; justify-content: center; } }   /* phones: two stacked buttons of the same width */
 @media (min-width: 1024px) {
   .s-hero__grid { grid-template-columns: 7fr 5fr; }
 }
@@ -104,8 +103,6 @@
 /* the arrow between the two boxes */
 .compare__arrow { display: grid; place-items: center; height: 36px; color: var(--color-brand-text); }
 .compare__arrow .icon { transform: rotate(90deg); }
-/* closing line under the rows */
-.compare-note { margin: clamp(24px, 3vw, 36px) 0 0; max-width: 62ch; color: var(--color-neutral-20); font-size: 1.0625rem; padding-left: 16px; border-left: 4px solid var(--color-brand-primary); }
 @media (min-width: 768px) {
   .compare__head, .compare__row { grid-template-columns: 1fr 56px 1fr; }
   .compare__head { display: grid; padding-bottom: 4px; font-size: .875rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
@@ -119,28 +116,6 @@
 }
 
 
-/* F. AI BLOCK -------------------------------------------------------------------
-   A deep-violet panel inside the page margins, so the page changes color here.
-   Text colors on violet 90%: white titles, violet 20% text (both well above AA). */
-.ai-block { position: relative; isolation: isolate; overflow: hidden; padding: clamp(28px, 5vw, 64px); background: var(--color-brand-deep); }
-.ai-block::before {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background-image: linear-gradient(color-mix(in srgb, var(--color-text) 8%, transparent) 1px, transparent 1px),
-                    linear-gradient(90deg, color-mix(in srgb, var(--color-text) 8%, transparent) 1px, transparent 1px);
-  background-size: 64px 64px; background-position: right top;
-  -webkit-mask-image: linear-gradient(to left, #000 0%, transparent 70%); mask-image: linear-gradient(to left, #000 0%, transparent 70%);
-}
-.ai-block .eyebrow { color: var(--color-violet-soft); }
-.ai-block .eyebrow::before { background: var(--color-text); }
-.ai-block .section__head p { color: var(--color-violet-soft); }
-.ai-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 28px 32px; grid-template-columns: 1fr; }
-.ai-grid li { padding-top: 20px; border-top: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent); }
-.ai-grid .icon { font-size: 32px; color: var(--color-lavender); margin-bottom: 12px; }
-.ai-grid h3 { font-size: 1.1875rem; margin: 0 0 .35em; }
-.ai-grid p { margin: 0; color: var(--color-violet-soft); font-size: .9375rem; }
-@media (min-width: 640px) { .ai-grid { grid-template-columns: repeat(2, 1fr); } }
-
-
 /* G. S·E·N·T LAYERS --------------------------------------------------------------
    The product name explains how it works, so the four letters are the hero of this section.
    Each letter sits on a square; the squares go from light to deep violet (layer 1 -> layer 4),
@@ -151,13 +126,13 @@
 .sent__letter {
   display: grid; place-items: center; aspect-ratio: 1; width: 100%;
   font-family: var(--font-display); font-weight: 400; line-height: 1;
-  font-size: 3.5rem;
+  font-size: 3.5rem; color: var(--color-text);   /* one white for all four letters */
 }
 /* The violet scale, step by step. Text colors chosen for contrast on each fill. */
-.sent__item:nth-child(1) .sent__letter { background: var(--color-brand-text);    color: var(--color-bg); }   /* violet 40%, black letter */
-.sent__item:nth-child(2) .sent__letter { background: var(--color-brand-primary); color: var(--color-bg); }   /* primary violet, black letter */
-.sent__item:nth-child(3) .sent__letter { background: var(--color-brand);         color: var(--color-text); } /* violet 60%, white letter (6:1) */
-.sent__item:nth-child(4) .sent__letter { background: var(--color-brand-hover);   color: var(--color-text); } /* violet 80%, white letter (9:1) */
+.sent__item:nth-child(1) .sent__letter { background: var(--color-brand-text); }      /* violet 40% (white 2.9:1; the letter is decorative, the h3 carries the word) */
+.sent__item:nth-child(2) .sent__letter { background: var(--color-brand-primary); }   /* primary violet (white 4.5:1) */
+.sent__item:nth-child(3) .sent__letter { background: var(--color-brand); }           /* violet 60% (white 6:1) */
+.sent__item:nth-child(4) .sent__letter { background: var(--color-brand-hover); }     /* violet 80% (white 9:1) */
 .sent__body h3 { font-size: 1.25rem; margin: 0 0 .35em; }
 .sent__body h3 span { font-family: var(--font-data); color: var(--color-brand-text); margin-right: .35em; }
 .sent__body p { margin: 0; color: var(--color-text-muted); font-size: .9375rem; max-width: 40ch; }
@@ -185,10 +160,10 @@
 .cost .section__head p { color: var(--color-violet-soft); }
 @media (min-width: 640px) { .cost__list { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) {
-  .cost { grid-template-columns: 4fr 8fr; grid-template-rows: auto 1fr; gap: 24px 64px; align-items: start; }
-  .cost > .section__head { grid-column: 1; grid-row: 1; }
-  .cost__list { grid-column: 2; grid-row: 1 / span 2; }
-  .cost__source { grid-column: 1; grid-row: 2; }
+  .cost { grid-template-columns: 4fr 8fr; gap: 40px 64px; align-items: start; }
+  .cost > .section__head { grid-column: 1; grid-row: 1 / span 2; }
+  .cost__list { grid-column: 2; grid-row: 1; }
+  .cost__source { grid-column: 2; grid-row: 2; max-width: none; }   /* the source sits under the numbers it explains, like a footnote */
 }
 
 
@@ -214,7 +189,7 @@
 .chips li { padding: 10px 16px; border: 1px solid var(--color-border-strong); color: var(--color-neutral-20); font-size: .9375rem; font-weight: 500; }
 /* Detailed chips: industry + one phrase (application pages). 1, 2 or 3 columns. */
 .chips--detail { display: grid; gap: 12px; grid-template-columns: 1fr; }
-.chips--detail li { padding: 20px 22px; border-color: var(--color-border); border-left: 4px solid var(--color-brand-primary); background: var(--color-surface); }
+.chips--detail li { padding: 20px 22px; border-color: var(--color-border); background: var(--color-surface); }   /* plain bordered card, like the other cards */
 .chips--detail strong { display: block; color: var(--color-text); font-size: 1.0625rem; font-weight: 600; margin-bottom: 4px; }
 .chips--detail span { color: var(--color-text-muted); font-weight: 400; }
 @media (min-width: 640px) { .chips--detail { grid-template-columns: repeat(2, 1fr); } }
@@ -225,7 +200,7 @@
    It is a real sequence (1 -> 2 -> 3), so numbers are used. A dashed line joins the squares:
    vertical on phones, horizontal from tablet up. */
 .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 32px; position: relative; }
-.steps::before { content: ""; position: absolute; left: 25px; top: 26px; bottom: 26px; border-left: 2px dashed var(--color-border-strong); }
+.steps li:not(:last-child)::before { content: ""; position: absolute; left: 25px; top: 52px; bottom: -32px; border-left: 2px dashed var(--color-border-strong); }   /* phones: each step draws the line down to the next one, so it stops at the last circle */
 .steps li { position: relative; display: grid; grid-template-columns: 52px 1fr; gap: 20px; align-content: start; }
 .steps__num { display: grid; place-items: center; width: 52px; height: 52px; background: var(--color-brand); color: var(--color-text); font-family: var(--font-data); font-weight: 600; font-size: 1.5rem; }   /* violet 60% with a white number = 5.96:1 (AA for any text size) */
 .steps h3 { font-size: 1.1875rem; margin: 10px 0 .35em; }
@@ -233,7 +208,8 @@
 @media (min-width: 768px) {
   .steps { grid-template-columns: repeat(3, 1fr); gap: 32px; }
   /* the line runs from the first square to the last one (each column is a third of the width minus the two 32px gaps) */
-  .steps::before { left: 26px; right: calc((100% - 64px) / 3 - 26px); top: 25px; bottom: auto; border-left: 0; border-top: 2px dashed var(--color-border-strong); }
+  .steps li::before { display: none; }
+  .steps::before { content: ""; position: absolute; left: 26px; right: calc((100% - 64px) / 3 - 26px); top: 25px; border-top: 2px dashed var(--color-border-strong); }
   .steps li { grid-template-columns: 1fr; gap: 20px; }
   .steps h3 { margin-top: 0; }
 }
@@ -247,7 +223,7 @@
 .split-list__items { list-style: none; margin: 0; padding: 0; }
 .split-list__items li { display: grid; grid-template-columns: auto 1fr; gap: 4px 20px; align-content: start; padding-block: 24px; border-top: 1px solid var(--color-border); }
 .split-list__items li:last-child { border-bottom: 1px solid var(--color-border); }
-.split-list__items .icon { grid-row: span 2; font-size: 32px; color: var(--color-brand-text); }
+.split-list__items .icon { grid-row: span 2; display: grid; place-items: center; width: 44px; height: 44px; font-size: 24px; background: var(--color-brand-deep); color: var(--color-lavender); }   /* same tile as the hub "Qué es" points (.sn-points__icon) */
 .split-list__items h3 { font-size: 1.1875rem; margin: 0; }
 .split-list__items p { margin: 0; color: var(--color-text-muted); max-width: 60ch; }
 @media (min-width: 1024px) {
@@ -265,11 +241,14 @@
 .check-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
 .check-list li { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--color-surface); border: 1px solid var(--color-border); font-weight: 500; }
 .check-list .icon { color: var(--color-brand-text); }
+.check-list li, .section__head p { text-wrap: pretty; }   /* no single word alone on the last line */
 @media (min-width: 1024px) { .showcase { grid-template-columns: 7fr 5fr; } }
 
 
 /* O. BREADCRUMB "Sentinel › Calderas" ----------------------------------------------------
    Same base as the project pages (.breadcrumb in styles.css), with a "›" instead of "/". */
+.breadcrumb--chevron ol { align-items: center; }
+.breadcrumb--chevron li { display: inline-flex; align-items: center; }   /* link, chevron and current page on one center line */
 .breadcrumb--chevron li + li::before { content: "›"; font-size: 1.125rem; line-height: 1; }
 .breadcrumb--chevron a { display: inline-flex; align-items: center; min-height: 32px; }
 
@@ -290,17 +269,7 @@
 .app-card:hover .app-card__cta .icon { transform: translateX(4px); }
 .app-card:focus-within { outline: 3px solid var(--color-lavender); outline-offset: 3px; }
 @media (min-width: 768px) { .app-cards { grid-template-columns: repeat(3, 1fr); } }
-/* Row of links under the cards ("Ver precios", "Ver todo Sentinel") */
-.link-row { display: flex; flex-wrap: wrap; gap: 16px 32px; margin-top: clamp(24px, 3vw, 36px); }
 
-
-/* Q. SECTION HEAD BESIDE CONTENT -------------------------------------------------------------
-   Heading left, content right on desktop (FAQ, proof). Stacks on phones. */
-.side-head { display: grid; gap: var(--space-head); }
-.side-head > .section__head { margin-bottom: 0; }
-.side-head .faq { max-width: none; margin: 0; }
-@media (min-width: 1024px) { .side-head { grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; } }
-.ai-block .side-head { align-items: center; }
 
 
 /* R. CONTACT ON VIOLET + PERSON CARD -----------------------------------------------------------
@@ -311,11 +280,6 @@
 .section--violet .contact-info dt svg { fill: var(--color-text); }
 .section--violet .contact-info a:hover { color: var(--color-violet-soft); }
 .section--violet .form { border-top-color: var(--color-lavender); }
-/* The person who answers (from the brochure back cover) */
-.person { display: flex; align-items: center; gap: 16px; margin: 28px 0 0; padding: 16px; background: color-mix(in srgb, var(--color-bg) 25%, transparent); border: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent); max-width: 420px; }
-.person img { width: 64px; height: 64px; object-fit: cover; flex: none; }
-.person strong { display: block; font-size: 1.0625rem; }
-.person span { display: block; font-size: .9375rem; color: var(--color-violet-soft); }
 
 
 /* S. MOTION ------------------------------------------------------------------------------------
@@ -352,7 +316,7 @@
 /* Guido's H1 is a full sentence, so the line length is capped and balanced */
 .sn-hero h1 { font-size: clamp(2rem, 1rem + 3vw, 3.25rem); max-width: 15ch; text-wrap: balance; }
 .page-hero .sn-hero__lead { font-size: clamp(1.0625rem, 1rem + .4vw, 1.25rem); color: var(--color-neutral-20); max-width: 46ch; text-wrap: pretty; }
-.sn-hero .btn-row { gap: 20px 36px; align-items: center; }
+.sn-hero .btn-row { gap: 16px 24px; align-items: center; }   /* two buttons side by side, same gap as the application pages */
 /* The two short facts under the buttons, on a hairline */
 .hero-facts { list-style: none; margin: clamp(32px, 4vw, 44px) 0 0; padding: 20px 0 0; border-top: 1px solid var(--color-border); display: flex; flex-wrap: wrap; gap: 10px 28px; }
 .hero-facts li { display: flex; align-items: center; gap: 8px; color: var(--color-neutral-20); font-size: .9375rem; }
@@ -365,8 +329,13 @@
 .screen--back { display: none; }
 /* The violet brand square, tucked behind the corner of the front screen */
 .screens::before { content: ""; position: absolute; left: -12px; bottom: -12px; width: 80px; height: 80px; background: var(--color-brand-primary); z-index: -1; }
+/* Violet glow behind the hero image (hub screenshots and application pages): the hero gets its own light */
+.s-hero__media { position: relative; isolation: isolate; min-width: 0; }
+.screens::after, .s-hero__media::after { content: ""; position: absolute; inset: -45% -35%; z-index: -2; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(135,83,255,.7) 35%, rgba(87,24,189,.35) 65%, transparent 100%); filter: blur(32px); }
+.s-hero__media::after { inset: -20% -35%; }   /* less room under the image here, so the glow is shorter and fades before the hero edge */
 @media (min-width: 1024px) {
-  .sn-hero__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+  .sn-hero__grid { grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); }   /* half and half: room for both hero buttons in one row */
   .screens { padding-top: 56px; }
   .screen--back { display: block; position: absolute; top: 0; left: 16%; width: 84%; opacity: .45; }
   .screen--front { position: relative; width: 100%; }
@@ -375,10 +344,17 @@
 
 
 /* T2. QUÉ ES — Guido's intro row, then a big screenshot with his three points beside it -------- */
-.sn-intro { display: grid; gap: 20px 64px; margin-bottom: var(--space-head); }
+.sn-intro { display: grid; gap: 0 64px; margin-bottom: clamp(32px, 4vw, 56px); }   /* space before the screenshot below: close enough to read as one section */
 .sn-intro h2 { max-width: 16ch; text-wrap: balance; margin-bottom: 0; }
-.sn-intro p { margin: 0; color: var(--color-neutral-20); font-size: 1.125rem; max-width: 58ch; }
-@media (min-width: 1024px) { .sn-intro { grid-template-columns: 1fr 1fr; align-items: end; } }
+.sn-intro p { margin: 20px 0 0; color: var(--color-neutral-20); font-size: 1.125rem; max-width: 58ch; }
+@media (min-width: 1024px) {
+  /* eyebrow on its own row; the title and the text share the next row, so the text starts at the title's first line */
+  .sn-intro { grid-template-columns: 1fr 1fr; align-items: start; }
+  .sn-intro .eyebrow { grid-column: 1 / -1; }
+  .sn-intro p { margin-top: .45em; }   /* lines its first line up with the title's cap height */
+}
+/* The hero is the page's opening moment: close it with a line and give the next section full section spacing */
+.sn-hero + .section { padding-top: var(--space-section); border-top: 1px solid var(--color-border); }
 
 .sn-showcase { display: grid; gap: clamp(28px, 4vw, 56px); align-items: center; }
 .sn-showcase__shot { margin: 0; overflow: hidden; background: var(--color-text); border: 1px solid var(--color-border); box-shadow: 0 32px 64px -32px color-mix(in srgb, var(--color-bg) 95%, transparent); }
@@ -456,7 +432,7 @@
 }
 
 
-/* T4. S·E·N·T AS A FLOW (hub only: .sent--flow) -------------------------------------------------
+/* T4. S·E·N·T AS A FLOW (.sent--flow: hub and application pages) -------------------------------------------------
    Smaller tiles than the application pages (about 40% smaller on desktop), joined by a thin dashed
    line with an arrow so the eye reads data moving S → E → N → T. The square → circle morph stays.
    Phones and tablets: one row per layer (tile left, text right) and the line runs down. */
@@ -488,7 +464,7 @@
 .sn-stages { padding-block: clamp(48px, 6vw, 88px); }
 .steps--timeline li { grid-template-columns: 40px 1fr; gap: 16px; }
 .steps--timeline .steps__num { width: 40px; height: 40px; font-size: 1.125rem; }
-.steps--timeline::before { left: 19px; top: 20px; bottom: 20px; }
+.steps--timeline li:not(:last-child)::before { left: 19px; top: 40px; }
 .steps--timeline h3 { font-size: 1.125rem; margin-top: 8px; }
 @media (min-width: 768px) {
   .steps--timeline li { grid-template-columns: 1fr; gap: 16px; }
@@ -500,8 +476,13 @@
 /* T6. PRECIOS — plan card (left) + one price sheet (right): monthly packs, then one-off costs ---- */
 .pricing { display: grid; gap: 12px; }
 @media (min-width: 1024px) {
-  .pricing { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: start; }
-  .plan { position: sticky; top: calc(var(--header-h) + 32px); }   /* the plan stays in view while the two price tables scroll past */
+  /* Row 1: plan + monthly packs, same height. Row 2: one-off costs across the full width, in 3 columns. */
+  .pricing { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: stretch; gap: 24px; }
+  .pricing > .price-sheet { display: contents; }   /* its two tables become cells of the pricing grid */
+  .packs--once { grid-column: 1 / -1; }
+  .packs--once .pack-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 40px; }
+  .packs--once .pack-list li { grid-template-columns: 1fr; align-content: start; gap: 4px; padding: 20px 0 0; }
+  .packs--once .pack-list data, .packs--once .pack-list em { grid-column: 1; grid-row: auto; justify-self: start; text-align: left; max-width: none; margin-top: 8px; }
 }
 /* The plan: violet 80% with white text (9:1), faint grid in the top-right */
 .plan { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; padding: clamp(24px, 4vw, 44px); background: var(--color-brand-hover); color: var(--color-text); }
@@ -574,14 +555,9 @@
 .sn-faq__head { order: 1; margin-bottom: 0; }
 .sn-faq__head h2, .sn-faq__head p { text-wrap: balance; }
 .faq-groups { order: 2; }
-.sn-faq__card { order: 3; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 24px; background: var(--color-bg); border: 1px solid var(--color-border); }
-.sn-faq__mail { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--color-text); font-weight: 600; text-decoration: none; }
-.sn-faq__mail .icon { color: var(--color-brand-text); }
-.sn-faq__mail:hover { color: var(--color-lavender); }
 @media (min-width: 1024px) {
   .sn-faq { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: start; }
   .sn-faq__side { display: block; position: sticky; top: calc(var(--header-h) + 32px); }
-  .sn-faq__card { margin-top: 32px; max-width: 420px; }
 }
 /* Group labels: small caps in violet, like the eyebrows */
 .faq-groups__label { margin: 40px 0 4px; font-size: .875rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--color-brand-text); scroll-margin-top: calc(var(--header-h) + 24px); }
@@ -593,10 +569,22 @@
 .faq-groups .faq details { padding: 0; border-bottom: 1px solid var(--color-border); }
 .faq-groups .faq summary { display: flex; justify-content: space-between; align-items: center; gap: 24px; min-height: 64px; padding: 16px 0; font-size: 1.125rem; line-height: 1.35; font-weight: 600; }
 .faq-groups .faq summary::after, .faq-groups .faq details[open] summary::after { content: none; }
-.faq-groups .faq summary .icon { color: var(--color-brand-text); transform: rotate(45deg); transition: transform .25s var(--ease); }
+.faq-groups .faq summary .icon { color: var(--color-brand-text); transform: rotate(45deg); transition: transform .35s var(--ease); }   /* same timing as the answer below */
 .faq-groups .faq summary:hover { color: var(--color-lavender); }
 .faq-groups .faq details[open] summary .icon { transform: rotate(0deg); }
 .faq-groups .faq details > p { margin: 0 0 22px; padding-right: 48px; color: var(--color-neutral-20); max-width: 68ch; }
+/* Smooth open and close: the answer grows from 0 to its real height and fades in, with no JavaScript.
+   Chrome / Edge 131+ animate the height; browsers without interpolate-size open at once, as before. */
+@supports selector(::details-content) {
+  .faq-groups .faq details { interpolate-size: allow-keywords; }
+  .faq-groups .faq details::details-content { block-size: 0; overflow: clip; opacity: 0; transition: block-size .35s var(--ease), opacity .25s var(--ease), content-visibility .35s allow-discrete; }
+  .faq-groups .faq details[open]::details-content { block-size: auto; opacity: 1; }
+  .faq-groups .faq details > p { translate: 0 -6px; transition: translate .35s var(--ease); }   /* the text also slides down a little */
+  .faq-groups .faq details[open] > p { translate: 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-groups .faq details::details-content, .faq-groups .faq details > p { transition: none; }
+}
 
 /* Headings on the hub never leave one word alone on the last line */
 .sn-hero h1, #contenido .section__head h2, #contenido .section__head p, .contact h2,
