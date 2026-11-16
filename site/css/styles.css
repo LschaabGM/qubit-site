@@ -887,16 +887,12 @@ mark.todo { background: #ffe14d; color: #080808; padding: 0 .3em; font-weight: 6
   position: fixed; right: var(--gutter); bottom: 20px; z-index: 40;
   display: inline-flex; align-items: center; justify-content: center;
   width: 52px; height: 52px; background: var(--color-whatsapp); color: #fff;
-  border: 2px solid transparent; transition: background .25s, transform .25s var(--ease);
+  border: 2px solid transparent; border-radius: 50%;   /* round button, always visible (requested by the Automation team) */
+  transition: background .25s, transform .25s var(--ease);
 }
 .wa-float:hover { background: #0e7a40; transform: translateY(-3px); }
+.wa-float:focus-visible { outline: 3px solid var(--color-text); outline-offset: 3px; }
 .wa-float svg { fill: currentColor; }
-@keyframes wa-float-in { from { opacity: 0; visibility: hidden; transform: translateY(12px); } to { opacity: 1; visibility: visible; transform: none; } }
-@media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: scroll()) {
-    .wa-float { animation: wa-float-in linear both; animation-timeline: scroll(root); animation-range: 240px 400px; }
-  }
-}
 
 /* Proyectos + its industry filters: every filter is its own page with a different title and intro.
    Reserving the tallest text height (title always 2 lines, intro 2 lines on tablet/desktop, 4 on phones) keeps the filter chips
