@@ -5,7 +5,7 @@ var nd=document.querySelectorAll('.pid__node'),list=document.querySelector('.pid
 function sel(i,focus){
   nd.forEach(function(x,k){x.setAttribute('aria-selected',k===i);x.tabIndex=k===i?0:-1;x.classList.toggle('is-past',k<i);});
   // Fill the pipe from the first node down to the middle of the active one
-  list.style.setProperty('--fill',(nd[i].offsetTop+28-28)+'px');
+  list.style.setProperty('--fill',(nd[i].offsetTop)+'px');
   var t=document.getElementById('ptxt');t.style.animation='none';t.offsetWidth;t.style.animation='';
   document.getElementById('pt').textContent=D[i].n;document.getElementById('pd').textContent=D[i].d;document.getElementById('pl').textContent=D[i].n;
   document.getElementById('pbtn').href='../proyectos/industria/'+D[i].u+'/index.html';   // opens Proyectos with this industry's filter applied
